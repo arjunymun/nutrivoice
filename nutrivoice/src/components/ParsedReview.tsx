@@ -20,6 +20,8 @@ export function ParsedReview({
   onChange: (items: ParsedItem[]) => void;
 }) {
   const [expandedIdx, setExpandedIdx] = useState<number | null>(null);
+  // free-form text per row so users can type "12." or clear the field mid-edit
+  const [gramsText, setGramsText] = useState<Record<number, string>>({});
 
   const update = (idx: number, patch: Partial<ParsedItem>) => {
     onChange(items.map((it, i) => (i === idx ? { ...it, ...patch } : it)));
@@ -27,14 +29,13 @@ export function ParsedReview({
 
   const remove = (idx: number) => {
     onChange(items.filter((_, i) => i !== idx));
+    setGramsText({});
     setExpandedIdx(null);
   };
 
   const pickCandidate = (idx: number, food: Food) => {
-    const item = items[idx];
-    // keep explicit grams; re-derive default portion grams only if item had none matched before
-    const grams = item.food ? item.grams : food.default_portion_g;
-    update(idx, { food, grams, confidence: 1 });
+    // keep the parsed grams — the user may have said "250 g of <thing we mismatched>"
+    update(idx, { food, confidence: 1 });
     setExpandedIdx(null);
   };
 
@@ -65,12 +66,16 @@ export function ParsedReview({
               <View style={styles.gramsBox}>
                 <TextInput
                   style={styles.gramsInput}
-                  value={String(item.grams)}
+                  value={gramsText[idx] ?? String(item.grams)}
                   keyboardType="numeric"
                   onChangeText={(t) => {
+                    setGramsText((m) => ({ ...m, [idx]: t }));
                     const g = Number(t);
-                    if (Number.isFinite(g) && g >= 0 && g <= 10000) update(idx, { grams: g });
-                    else if (t === '') update(idx, { grams: 0 });
+                    if (t !== '' && Number.isFinite(g) && g >= 0 && g <= 10000) {
+                      update(idx, { grams: g });
+                    } else if (t === '') {
+                      update(idx, { grams: 0 });
+                    }
                   }}
                 />
                 <Text style={styles.gramsUnit}>g</Text>

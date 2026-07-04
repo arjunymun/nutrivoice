@@ -15,6 +15,11 @@ import {
   WeightEntry,
 } from '../lib/types';
 
+export interface Stamp {
+  id: string;
+  updatedAt: string;
+}
+
 interface AddEntryInput {
   dateKey: string;
   meal: Meal;
@@ -43,7 +48,11 @@ interface LogState {
 
   /** Sync support. */
   mergeRemote: (data: { entries?: FoodLogEntry[]; weights?: WeightEntry[]; customFoods?: CustomFood[] }) => void;
-  markPushed: (pushed: { entryIds: string[]; weightIds: string[]; customFoodIds: string[] }) => void;
+  /**
+   * Clear dirty flags for rows whose updatedAt still matches what was pushed —
+   * rows edited while the push was in flight stay dirty for the next sync.
+   */
+  markPushed: (pushed: { entries: Stamp[]; weights: Stamp[]; customFoods: Stamp[] }) => void;
   reset: () => void;
 }
 
@@ -192,14 +201,17 @@ export const useLogStore = create<LogState>()(
         });
       },
 
-      markPushed: ({ entryIds, weightIds, customFoodIds }) => {
-        const e = new Set(entryIds);
-        const w = new Set(weightIds);
-        const c = new Set(customFoodIds);
+      markPushed: (pushed) => {
+        const toMap = (stamps: Stamp[]) => new Map(stamps.map((s) => [s.id, s.updatedAt]));
+        const e = toMap(pushed.entries);
+        const w = toMap(pushed.weights);
+        const c = toMap(pushed.customFoods);
+        const clean = <T extends { id: string; updatedAt: string; dirty?: boolean }>(rows: T[], m: Map<string, string>) =>
+          rows.map((x) => (m.get(x.id) === x.updatedAt ? { ...x, dirty: false } : x));
         set({
-          entries: get().entries.map((x) => (e.has(x.id) ? { ...x, dirty: false } : x)),
-          weights: get().weights.map((x) => (w.has(x.id) ? { ...x, dirty: false } : x)),
-          customFoods: get().customFoods.map((x) => (c.has(x.id) ? { ...x, dirty: false } : x)),
+          entries: clean(get().entries, e),
+          weights: clean(get().weights, w),
+          customFoods: clean(get().customFoods, c),
         });
       },
 

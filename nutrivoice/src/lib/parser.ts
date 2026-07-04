@@ -200,8 +200,13 @@ function extractQuantity(tokens: string[]): { qty: Quantity; foodWords: string[]
         value *= 1000;
         i++;
       }
-      if (NUMBER_WORDS[tokens[i]] != null && NUMBER_WORDS[tokens[i]] < 100 && value >= 100) {
-        value += NUMBER_WORDS[tokens[i]];
+      // "twenty five", "one hundred fifty"
+      const next = NUMBER_WORDS[tokens[i]];
+      if (
+        next != null &&
+        ((value >= 100 && next < 100) || (value >= 20 && value <= 90 && value % 10 === 0 && next >= 1 && next <= 9))
+      ) {
+        value += next;
         i++;
       }
       return value;

@@ -28,7 +28,20 @@ describe('parseFoodText', () => {
     expect(items).toHaveLength(1);
     expect(items[0].food).not.toBeNull();
     const roti = items[0].food!;
+    expect(roti.id).toBe('roti-chapati-plain');
     expect(items[0].grams).toBeCloseTo(2 * roti.default_portion_g, 1);
+  });
+
+  test('bare "rice" matches cooked rice, not raw', () => {
+    const items = parse('200 g rice');
+    expect(items[0].food?.id).toBe('white-rice-cooked');
+  });
+
+  test('compound word numbers: twenty five grams', () => {
+    const items = parse('twenty five grams of ghee');
+    expect(items).toHaveLength(1);
+    expect(items[0].grams).toBe(25);
+    expect(items[0].food?.name.toLowerCase()).toContain('ghee');
   });
 
   test('word numbers: two eggs', () => {

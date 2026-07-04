@@ -15,7 +15,8 @@ interface ProfileState {
   setCustomTargets: (t: { kcal: number; proteinG: number; carbsG: number; fatG: number } | null) => void;
   /** Replace local profile from a newer server copy (sync pull). */
   applyRemote: (p: Profile) => void;
-  markPushed: () => void;
+  /** Clear dirty only if the profile wasn't edited while the push was in flight. */
+  markPushed: (pushedUpdatedAt: string) => void;
   reset: () => void;
 }
 
@@ -70,7 +71,9 @@ export const useProfileStore = create<ProfileState>()(
       },
 
       applyRemote: (p) => set({ profile: p, onboarded: true, dirty: false }),
-      markPushed: () => set({ dirty: false }),
+      markPushed: (pushedUpdatedAt) => {
+        if (get().profile?.updatedAt === pushedUpdatedAt) set({ dirty: false });
+      },
       reset: () => set({ onboarded: false, profile: null, dirty: false }),
     }),
     {

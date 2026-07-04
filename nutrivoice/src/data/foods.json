@@ -2200,9 +2200,6 @@
   "id": "rice-raw",
   "name": "Rice (Raw)",
   "aliases": [
-   "rice",
-   "chawal",
-   "chaawal",
    "uncooked rice",
    "basmati rice raw"
   ],
@@ -2255,7 +2252,6 @@
    "tortilla",
    "wrap",
    "flour tortilla",
-   "roti wrap",
    "kathi roll wrap"
   ],
   "category": "grains_breads",
@@ -3253,6 +3249,7 @@
   "id": "roti-chapati-plain",
   "name": "Roti (Plain Chapati)",
   "aliases": [
+   "roti",
    "chapati",
    "phulka",
    "chapathi",
@@ -3411,6 +3408,7 @@
   "id": "white-rice-cooked",
   "name": "White Rice (Cooked)",
   "aliases": [
+   "rice",
    "chawal",
    "plain rice",
    "steamed rice",

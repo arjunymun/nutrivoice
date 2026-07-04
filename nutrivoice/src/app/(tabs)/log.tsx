@@ -57,10 +57,15 @@ export default function LogScreen() {
   }, [params.meal]);
 
   const [banner, setBanner] = useState<string | null>(null);
+  const bannerTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const showBanner = (msg: string) => {
     setBanner(msg);
-    setTimeout(() => setBanner(null), 2500);
+    if (bannerTimer.current) clearTimeout(bannerTimer.current);
+    bannerTimer.current = setTimeout(() => setBanner(null), 2500);
   };
+  useEffect(() => () => {
+    if (bannerTimer.current) clearTimeout(bannerTimer.current);
+  }, []);
 
   const pool = useMemo(() => parserPool(customFoods), [customFoods]);
 
@@ -77,6 +82,8 @@ export default function LogScreen() {
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => setSignedIn(!!data.session));
+    const { data } = supabase.auth.onAuthStateChange((_e, s) => setSignedIn(!!s));
+    return () => data.subscription.unsubscribe();
   }, []);
 
   const runParse = (text: string) => {

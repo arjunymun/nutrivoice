@@ -15,10 +15,13 @@ import { CustomFood, FoodLogEntry, Profile, WeightEntry } from './types';
 
 interface SyncState {
   lastSyncedAt: string | null;
+  /** User id this device's local data belongs to (null = never signed in). */
+  lastUserId: string | null;
   status: 'idle' | 'syncing' | 'error';
   errorMessage: string | null;
   setStatus: (s: SyncState['status'], err?: string | null) => void;
   setLastSyncedAt: (iso: string) => void;
+  setLastUserId: (id: string) => void;
   reset: () => void;
 }
 
@@ -26,19 +29,38 @@ export const useSyncStore = create<SyncState>()(
   persist(
     (set) => ({
       lastSyncedAt: null,
+      lastUserId: null,
       status: 'idle',
       errorMessage: null,
       setStatus: (status, errorMessage = null) => set({ status, errorMessage }),
       setLastSyncedAt: (lastSyncedAt) => set({ lastSyncedAt }),
-      reset: () => set({ lastSyncedAt: null, status: 'idle', errorMessage: null }),
+      setLastUserId: (lastUserId) => set({ lastUserId }),
+      reset: () => set({ lastSyncedAt: null, lastUserId: null, status: 'idle', errorMessage: null }),
     }),
     {
       name: 'nutrivoice-sync',
       storage: createJSONStorage(() => AsyncStorage),
-      partialize: (s) => ({ lastSyncedAt: s.lastSyncedAt }) as SyncState,
+      partialize: (s) => ({ lastSyncedAt: s.lastSyncedAt, lastUserId: s.lastUserId }) as SyncState,
     },
   ),
 );
+
+/** Resolve once every persisted store has rehydrated (guards cold-start sync). */
+function waitForHydration(): Promise<void> {
+  const stores = [useProfileStore, useLogStore, useSyncStore] as const;
+  return Promise.all(
+    stores.map(
+      (s) =>
+        new Promise<void>((resolve) => {
+          if (s.persist.hasHydrated()) return resolve();
+          const unsub = s.persist.onFinishHydration(() => {
+            unsub();
+            resolve();
+          });
+        }),
+    ),
+  ).then(() => {});
+}
 
 // ---- row mapping ----
 
@@ -167,7 +189,8 @@ let syncing = false;
 
 export async function syncAll(): Promise<SyncResult> {
   if (syncing) return { ok: true };
-  const sync = useSyncStore.getState();
+
+  await waitForHydration();
 
   const { data: sessionData, error: sessionError } = await supabase.auth.getSession();
   if (sessionError || !sessionData.session) {
@@ -176,8 +199,18 @@ export async function syncAll(): Promise<SyncResult> {
   const userId = sessionData.session.user.id;
 
   syncing = true;
-  sync.setStatus('syncing');
+  useSyncStore.getState().setStatus('syncing');
   try {
+    // Different account than the one this device's data belongs to:
+    // start clean instead of pushing someone else's log into this account.
+    const { lastUserId } = useSyncStore.getState();
+    if (lastUserId && lastUserId !== userId) {
+      useLogStore.getState().reset();
+      useProfileStore.getState().reset();
+      useSyncStore.getState().setLastSyncedAt('1970-01-01T00:00:00Z');
+    }
+    useSyncStore.getState().setLastUserId(userId);
+
     const log = useLogStore.getState();
     const profileStore = useProfileStore.getState();
 
@@ -205,9 +238,9 @@ export async function syncAll(): Promise<SyncResult> {
       if (error) throw new Error(`Pushing custom foods failed: ${error.message}`);
     }
     useLogStore.getState().markPushed({
-      entryIds: dirtyEntries.map((e) => e.id),
-      weightIds: dirtyWeights.map((w) => w.id),
-      customFoodIds: dirtyCustom.map((c) => c.id),
+      entries: dirtyEntries.map((e) => ({ id: e.id, updatedAt: e.updatedAt })),
+      weights: dirtyWeights.map((w) => ({ id: w.id, updatedAt: w.updatedAt })),
+      customFoods: dirtyCustom.map((c) => ({ id: c.id, updatedAt: c.updatedAt })),
     });
 
     if (profileStore.profile && profileStore.dirty) {
@@ -215,11 +248,11 @@ export async function syncAll(): Promise<SyncResult> {
         .from('profiles')
         .upsert(profileToRow(profileStore.profile, userId));
       if (error) throw new Error(`Pushing profile failed: ${error.message}`);
-      profileStore.markPushed();
+      useProfileStore.getState().markPushed(profileStore.profile.updatedAt);
     }
 
     // -- pull --
-    const since = sync.lastSyncedAt ?? '1970-01-01T00:00:00Z';
+    const since = useSyncStore.getState().lastSyncedAt ?? '1970-01-01T00:00:00Z';
 
     const [entriesRes, weightsRes, customRes, profileRes] = await Promise.all([
       supabase.from('food_logs').select('*').gt('updated_at', since),
@@ -245,7 +278,19 @@ export async function syncAll(): Promise<SyncResult> {
       }
     }
 
-    useSyncStore.getState().setLastSyncedAt(new Date().toISOString());
+    // Advance the watermark only to timestamps the server actually returned —
+    // using the local clock here would skip rows written by devices with
+    // slightly ahead clocks.
+    const seen = [
+      since,
+      ...(entriesRes.data ?? []).map((r: any) => r.updated_at as string),
+      ...(weightsRes.data ?? []).map((r: any) => r.updated_at as string),
+      ...(customRes.data ?? []).map((r: any) => r.updated_at as string),
+      ...dirtyEntries.map((e) => e.updatedAt),
+      ...dirtyWeights.map((w) => w.updatedAt),
+      ...dirtyCustom.map((c) => c.updatedAt),
+    ];
+    useSyncStore.getState().setLastSyncedAt(seen.reduce((a, b) => (a > b ? a : b)));
     useSyncStore.getState().setStatus('idle');
     return { ok: true };
   } catch (err: any) {
