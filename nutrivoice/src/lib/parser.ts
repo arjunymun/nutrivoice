@@ -157,9 +157,11 @@ export function scoreFood(queryWords: string[], food: Food): number {
 export function matchFood(query: string, foods: Food[], limit = 5): { food: Food; score: number }[] {
   const words = query.split(' ').filter((w) => w && !FILLER_WORDS.has(w));
   if (!words.length) return [];
+  // 0.55 floor: below this, a wrong match is likelier than a right one — better
+  // to return nothing and let the AI path estimate the food instead.
   return foods
     .map((food) => ({ food, score: scoreFood(words, food) }))
-    .filter((x) => x.score >= 0.45)
+    .filter((x) => x.score >= 0.55)
     .sort((a, b) => b.score - a.score)
     .slice(0, limit);
 }

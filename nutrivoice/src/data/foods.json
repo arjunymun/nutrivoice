@@ -409,6 +409,9 @@
   "id": "whey-protein-shake",
   "name": "Whey Protein Shake (1 scoop in water)",
   "aliases": [
+   "whey protein",
+   "whey",
+   "protein powder",
    "protein shake",
    "whey shake",
    "protien shake",
@@ -554,6 +557,7 @@
   "id": "dahi-whole-milk",
   "name": "Dahi (Whole Milk Curd)",
   "aliases": [
+   "dahi",
    "curd",
    "yogurt",
    "yoghurt",
@@ -4241,6 +4245,10 @@
   "id": "salmon-raw",
   "name": "Salmon (raw, farmed)",
   "aliases": [
+   "salmon",
+   "grilled salmon",
+   "salmon fillet",
+   "cooked salmon",
    "salmon fish",
    "salman fish",
    "rawas",
@@ -5778,5 +5786,40 @@
   "fat_100g": 0.3,
   "default_portion_g": 100,
   "portion_label": "1 cup sliced"
+ },
+ {
+  "id": "mixed-green-salad",
+  "name": "Mixed Green Salad (plain)",
+  "aliases": [
+   "salad",
+   "green salad",
+   "side salad",
+   "veg salad",
+   "kachumber"
+  ],
+  "category": "vegetables",
+  "kcal_100g": 20,
+  "protein_100g": 1.2,
+  "carbs_100g": 3.5,
+  "fat_100g": 0.2,
+  "default_portion_g": 100,
+  "portion_label": "1 side plate"
+ },
+ {
+  "id": "protein-bar",
+  "name": "Protein Bar",
+  "aliases": [
+   "protein bar",
+   "whey bar",
+   "energy protein bar",
+   "protien bar"
+  ],
+  "category": "snacks_street",
+  "kcal_100g": 380,
+  "protein_100g": 33,
+  "carbs_100g": 40,
+  "fat_100g": 11,
+  "default_portion_g": 60,
+  "portion_label": "1 bar"
  }
 ]

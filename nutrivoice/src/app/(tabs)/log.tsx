@@ -120,14 +120,22 @@ export default function LogScreen() {
   };
 
   const tryAiParse = async () => {
-    const text = transcript || typed;
+    const unmatched = items.filter((i) => !i.food);
+    const partial = unmatched.length > 0 && unmatched.length < items.length;
+    // when local parse matched some items, only send the unknown ones to the AI
+    const text = partial ? unmatched.map((i) => i.raw).join(' and ') : transcript || typed;
     if (!text.trim()) return;
     setAiLoading(true);
     const aiItems = await aiParseFood(text, pool);
     setAiLoading(false);
-    if (aiItems) setItems(aiItems);
-    else setSpeechError('AI parse unavailable (sign in required, and the server needs an API key).');
+    if (aiItems) {
+      setItems(partial ? [...items.filter((i) => i.food), ...aiItems] : aiItems);
+    } else {
+      setSpeechError('AI parse unavailable right now (sign in required). Your matched items are unaffected.');
+    }
   };
+
+  const unmatchedCount = items.filter((i) => !i.food).length;
 
   const matchedItems = items.filter((i) => i.food && i.grams > 0);
   const totalKcal = matchedItems.reduce((sum, i) => sum + scaleFood(i.food!, i.grams).kcal, 0);
@@ -237,14 +245,23 @@ export default function LogScreen() {
                 </View>
               )}
 
-              {signedIn && (transcript || typed) ? (
+              {signedIn && (transcript || typed || items.length > 0) ? (
                 aiLoading ? (
                   <ActivityIndicator color={colors.accent} />
                 ) : (
                   <Pressable onPress={tryAiParse}>
-                    <Text style={styles.aiLink}>✨ Try AI parse (Claude)</Text>
+                    <Text style={styles.aiLink}>
+                      {unmatchedCount > 0
+                        ? `✨ Resolve ${unmatchedCount} unknown food${unmatchedCount > 1 ? 's' : ''} with AI`
+                        : '✨ Try AI parse (any food)'}
+                    </Text>
                   </Pressable>
                 )
+              ) : null}
+              {!signedIn && unmatchedCount > 0 ? (
+                <Muted style={{ fontSize: 12, textAlign: 'center' }}>
+                  Sign in (Profile tab) to resolve unknown foods with AI — free, works for any food.
+                </Muted>
               ) : null}
             </Card>
           )}
