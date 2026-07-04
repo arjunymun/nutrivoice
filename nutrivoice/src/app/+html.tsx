@@ -24,6 +24,12 @@ export default function Root({ children }: PropsWithChildren) {
         <meta name="apple-mobile-web-app-title" content="NutriVoice" />
         <ScrollViewStyleReset />
         <style dangerouslySetInnerHTML={{ __html: 'body{background-color:#0B0D10}' }} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "if('serviceWorker' in navigator && location.hostname!=='localhost'){window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js'))}",
+          }}
+        />
       </head>
       <body>{children}</body>
     </html>
