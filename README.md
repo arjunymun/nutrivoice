@@ -1,5 +1,8 @@
 # NutriVoice 🎙🥗
 
+**Live:** https://nutrivoice-arjunymuns-projects.vercel.app — on iPhone/Android: open in
+Safari/Chrome → Share → **Add to Home Screen** (installs as an offline-capable app).
+
 Voice-first calorie tracker for **web, iOS and Android** from a single Expo codebase.
 Say *“I had 200 grams of chicken breast with 200 grams of rice”* — NutriVoice parses it,
 matches foods against a 328-item nutrition database (Indian food first-class), and logs
