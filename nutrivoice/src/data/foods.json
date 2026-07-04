@@ -1,0 +1,5784 @@
+[
+ {
+  "id": "apple-juice",
+  "name": "Apple Juice",
+  "aliases": [
+   "seb ka juice",
+   "apple jus",
+   "appy",
+   "aple juice"
+  ],
+  "category": "beverages",
+  "kcal_100g": 46,
+  "protein_100g": 0.1,
+  "carbs_100g": 11.3,
+  "fat_100g": 0.1,
+  "default_portion_g": 200,
+  "portion_label": "1 glass"
+ },
+ {
+  "id": "banana-smoothie",
+  "name": "Banana Smoothie",
+  "aliases": [
+   "banana shake",
+   "kela shake",
+   "banana smothie",
+   "banana milkshake"
+  ],
+  "category": "beverages",
+  "kcal_100g": 66,
+  "protein_100g": 2,
+  "carbs_100g": 12,
+  "fat_100g": 1.2,
+  "default_portion_g": 300,
+  "portion_label": "1 glass"
+ },
+ {
+  "id": "beer",
+  "name": "Beer (alcohol counted as carbs)",
+  "aliases": [
+   "kingfisher",
+   "lager",
+   "beeer",
+   "pint",
+   "bud"
+  ],
+  "category": "beverages",
+  "kcal_100g": 43,
+  "protein_100g": 0.5,
+  "carbs_100g": 10.3,
+  "fat_100g": 0,
+  "default_portion_g": 500,
+  "portion_label": "1 can"
+ },
+ {
+  "id": "black-coffee",
+  "name": "Black Coffee",
+  "aliases": [
+   "kaali coffee",
+   "americano",
+   "coffee without milk",
+   "blak coffee"
+  ],
+  "category": "beverages",
+  "kcal_100g": 2,
+  "protein_100g": 0.2,
+  "carbs_100g": 0.3,
+  "fat_100g": 0,
+  "default_portion_g": 150,
+  "portion_label": "1 cup"
+ },
+ {
+  "id": "black-tea",
+  "name": "Black Tea",
+  "aliases": [
+   "kali chai",
+   "plain tea",
+   "tea without milk",
+   "sulaimani chai"
+  ],
+  "category": "beverages",
+  "kcal_100g": 1,
+  "protein_100g": 0.1,
+  "carbs_100g": 0.2,
+  "fat_100g": 0,
+  "default_portion_g": 150,
+  "portion_label": "1 cup"
+ },
+ {
+  "id": "cappuccino",
+  "name": "Cappuccino",
+  "aliases": [
+   "capuccino",
+   "cappucino",
+   "cafe cappuccino",
+   "frothy coffee"
+  ],
+  "category": "beverages",
+  "kcal_100g": 37,
+  "protein_100g": 1.8,
+  "carbs_100g": 3.5,
+  "fat_100g": 1.8,
+  "default_portion_g": 180,
+  "portion_label": "1 cup"
+ },
+ {
+  "id": "chai-milk-sugar",
+  "name": "Chai (Milk & Sugar)",
+  "aliases": [
+   "masala chai",
+   "milk tea",
+   "cutting chai",
+   "tea with milk",
+   "chay"
+  ],
+  "category": "beverages",
+  "kcal_100g": 52,
+  "protein_100g": 1.5,
+  "carbs_100g": 8,
+  "fat_100g": 1.5,
+  "default_portion_g": 150,
+  "portion_label": "1 cup"
+ },
+ {
+  "id": "chocolate-milkshake",
+  "name": "Chocolate Milkshake",
+  "aliases": [
+   "choco shake",
+   "chocolate shake",
+   "choclate milkshake",
+   "choco milkshake"
+  ],
+  "category": "beverages",
+  "kcal_100g": 95,
+  "protein_100g": 3,
+  "carbs_100g": 14,
+  "fat_100g": 3,
+  "default_portion_g": 300,
+  "portion_label": "1 glass"
+ },
+ {
+  "id": "coconut-water",
+  "name": "Coconut Water",
+  "aliases": [
+   "nariyal pani",
+   "tender coconut water",
+   "elaneer",
+   "coconut watar",
+   "daab"
+  ],
+  "category": "beverages",
+  "kcal_100g": 19,
+  "protein_100g": 0.7,
+  "carbs_100g": 3.7,
+  "fat_100g": 0.2,
+  "default_portion_g": 250,
+  "portion_label": "1 glass"
+ },
+ {
+  "id": "coffee-milk-sugar",
+  "name": "Coffee (Milk & Sugar)",
+  "aliases": [
+   "milk coffee",
+   "filter coffee",
+   "nescafe",
+   "doodh coffee",
+   "kaapi"
+  ],
+  "category": "beverages",
+  "kcal_100g": 50,
+  "protein_100g": 1.5,
+  "carbs_100g": 7.5,
+  "fat_100g": 1.5,
+  "default_portion_g": 150,
+  "portion_label": "1 cup"
+ },
+ {
+  "id": "cola-soft-drink",
+  "name": "Cola (Soft Drink)",
+  "aliases": [
+   "coke",
+   "pepsi",
+   "thums up",
+   "cold drink",
+   "soda",
+   "soft drink"
+  ],
+  "category": "beverages",
+  "kcal_100g": 42,
+  "protein_100g": 0,
+  "carbs_100g": 10.6,
+  "fat_100g": 0,
+  "default_portion_g": 300,
+  "portion_label": "1 can"
+ },
+ {
+  "id": "cold-coffee",
+  "name": "Cold Coffee",
+  "aliases": [
+   "iced coffee",
+   "cold coffe",
+   "frappe",
+   "coffee shake"
+  ],
+  "category": "beverages",
+  "kcal_100g": 75,
+  "protein_100g": 2,
+  "carbs_100g": 11,
+  "fat_100g": 2.5,
+  "default_portion_g": 250,
+  "portion_label": "1 glass"
+ },
+ {
+  "id": "diet-cola",
+  "name": "Diet Cola",
+  "aliases": [
+   "diet coke",
+   "coke zero",
+   "pepsi black",
+   "zero sugar cola",
+   "diet soda"
+  ],
+  "category": "beverages",
+  "kcal_100g": 0,
+  "protein_100g": 0,
+  "carbs_100g": 0,
+  "fat_100g": 0,
+  "default_portion_g": 300,
+  "portion_label": "1 can"
+ },
+ {
+  "id": "energy-drink",
+  "name": "Energy Drink",
+  "aliases": [
+   "red bull",
+   "monster",
+   "sting",
+   "energy drnk",
+   "redbull"
+  ],
+  "category": "beverages",
+  "kcal_100g": 45,
+  "protein_100g": 0.4,
+  "carbs_100g": 11,
+  "fat_100g": 0,
+  "default_portion_g": 250,
+  "portion_label": "1 can"
+ },
+ {
+  "id": "flavored-milk",
+  "name": "Flavored Milk (Badam/Chocolate)",
+  "aliases": [
+   "badam milk",
+   "chocolate milk",
+   "bournvita milk",
+   "masala doodh",
+   "horlicks milk"
+  ],
+  "category": "beverages",
+  "kcal_100g": 81,
+  "protein_100g": 3,
+  "carbs_100g": 10.5,
+  "fat_100g": 3,
+  "default_portion_g": 200,
+  "portion_label": "1 glass"
+ },
+ {
+  "id": "jaljeera",
+  "name": "Jaljeera",
+  "aliases": [
+   "jal jeera",
+   "jaljira",
+   "jeera pani",
+   "cumin water drink"
+  ],
+  "category": "beverages",
+  "kcal_100g": 12,
+  "protein_100g": 0.2,
+  "carbs_100g": 2.8,
+  "fat_100g": 0,
+  "default_portion_g": 250,
+  "portion_label": "1 glass"
+ },
+ {
+  "id": "lemonade-shikanji",
+  "name": "Lemonade (Shikanji)",
+  "aliases": [
+   "nimbu pani",
+   "shikanjvi",
+   "nimboo pani",
+   "lemon water sweet",
+   "lime juice sweet"
+  ],
+  "category": "beverages",
+  "kcal_100g": 30,
+  "protein_100g": 0.1,
+  "carbs_100g": 7.5,
+  "fat_100g": 0,
+  "default_portion_g": 250,
+  "portion_label": "1 glass"
+ },
+ {
+  "id": "mango-drink-frooti",
+  "name": "Mango Drink (Frooti/Maaza)",
+  "aliases": [
+   "frooti",
+   "maaza",
+   "slice",
+   "aam ka juice",
+   "mango juice",
+   "fruity"
+  ],
+  "category": "beverages",
+  "kcal_100g": 57,
+  "protein_100g": 0.2,
+  "carbs_100g": 14,
+  "fat_100g": 0.1,
+  "default_portion_g": 200,
+  "portion_label": "1 glass"
+ },
+ {
+  "id": "mango-lassi",
+  "name": "Mango Lassi",
+  "aliases": [
+   "aam lassi",
+   "mango lasi",
+   "sweet mango lassi",
+   "mango yogurt drink"
+  ],
+  "category": "beverages",
+  "kcal_100g": 85,
+  "protein_100g": 2.5,
+  "carbs_100g": 13.5,
+  "fat_100g": 2.3,
+  "default_portion_g": 250,
+  "portion_label": "1 glass"
+ },
+ {
+  "id": "orange-juice",
+  "name": "Orange Juice",
+  "aliases": [
+   "santra juice",
+   "oj",
+   "narangi juice",
+   "orange jus"
+  ],
+  "category": "beverages",
+  "kcal_100g": 45,
+  "protein_100g": 0.7,
+  "carbs_100g": 10.4,
+  "fat_100g": 0.2,
+  "default_portion_g": 200,
+  "portion_label": "1 glass"
+ },
+ {
+  "id": "buttermilk-spiced",
+  "name": "Spiced Buttermilk (Chaas)",
+  "aliases": [
+   "chaas",
+   "chach",
+   "masala chaas",
+   "mattha",
+   "sambharam",
+   "majjiga"
+  ],
+  "category": "beverages",
+  "kcal_100g": 17,
+  "protein_100g": 1.2,
+  "carbs_100g": 1.8,
+  "fat_100g": 0.6,
+  "default_portion_g": 250,
+  "portion_label": "1 glass"
+ },
+ {
+  "id": "sports-drink",
+  "name": "Sports Drink",
+  "aliases": [
+   "gatorade",
+   "electrolyte drink",
+   "enerzal",
+   "glucon d drink",
+   "isotonic drink"
+  ],
+  "category": "beverages",
+  "kcal_100g": 24,
+  "protein_100g": 0,
+  "carbs_100g": 6,
+  "fat_100g": 0,
+  "default_portion_g": 500,
+  "portion_label": "1 bottle"
+ },
+ {
+  "id": "sugarcane-juice",
+  "name": "Sugarcane Juice",
+  "aliases": [
+   "ganne ka ras",
+   "ganna juice",
+   "sugar cane juice",
+   "cane juice"
+  ],
+  "category": "beverages",
+  "kcal_100g": 70,
+  "protein_100g": 0.2,
+  "carbs_100g": 17.2,
+  "fat_100g": 0.1,
+  "default_portion_g": 250,
+  "portion_label": "1 glass"
+ },
+ {
+  "id": "whey-protein-shake",
+  "name": "Whey Protein Shake (1 scoop in water)",
+  "aliases": [
+   "protein shake",
+   "whey shake",
+   "protien shake",
+   "whey in water",
+   "protein drink"
+  ],
+  "category": "beverages",
+  "kcal_100g": 40,
+  "protein_100g": 8,
+  "carbs_100g": 1,
+  "fat_100g": 0.5,
+  "default_portion_g": 300,
+  "portion_label": "1 shake (1 scoop)"
+ },
+ {
+  "id": "whisky-spirits",
+  "name": "Whisky/Spirits (alcohol counted as carbs)",
+  "aliases": [
+   "whiskey",
+   "vodka",
+   "rum",
+   "daru",
+   "peg",
+   "spirits"
+  ],
+  "category": "beverages",
+  "kcal_100g": 230,
+  "protein_100g": 0,
+  "carbs_100g": 57.5,
+  "fat_100g": 0,
+  "default_portion_g": 30,
+  "portion_label": "1 peg"
+ },
+ {
+  "id": "wine",
+  "name": "Wine (alcohol counted as carbs)",
+  "aliases": [
+   "red wine",
+   "white wine",
+   "vine",
+   "waain",
+   "sula"
+  ],
+  "category": "beverages",
+  "kcal_100g": 83,
+  "protein_100g": 0.1,
+  "carbs_100g": 20.6,
+  "fat_100g": 0,
+  "default_portion_g": 150,
+  "portion_label": "1 glass"
+ },
+ {
+  "id": "butter",
+  "name": "Butter (Salted)",
+  "aliases": [
+   "makhan",
+   "amul butter",
+   "salted butter",
+   "buter",
+   "table butter"
+  ],
+  "category": "dairy_fats",
+  "kcal_100g": 717,
+  "protein_100g": 0.9,
+  "carbs_100g": 0.1,
+  "fat_100g": 81.1,
+  "default_portion_g": 14,
+  "portion_label": "1 tbsp"
+ },
+ {
+  "id": "buttermilk-chaas",
+  "name": "Buttermilk / Chaas",
+  "aliases": [
+   "chaas",
+   "chhach",
+   "mattha",
+   "chach",
+   "majjiga",
+   "butter milk"
+  ],
+  "category": "dairy_fats",
+  "kcal_100g": 14,
+  "protein_100g": 0.8,
+  "carbs_100g": 1.2,
+  "fat_100g": 0.6,
+  "default_portion_g": 200,
+  "portion_label": "1 glass"
+ },
+ {
+  "id": "cheddar-cheese",
+  "name": "Cheddar Cheese",
+  "aliases": [
+   "cheddar",
+   "chedder cheese",
+   "yellow cheese",
+   "cheddar block"
+  ],
+  "category": "dairy_fats",
+  "kcal_100g": 403,
+  "protein_100g": 24.9,
+  "carbs_100g": 1.3,
+  "fat_100g": 33.1,
+  "default_portion_g": 30,
+  "portion_label": "1 slice"
+ },
+ {
+  "id": "coconut-oil",
+  "name": "Coconut Oil",
+  "aliases": [
+   "nariyal tel",
+   "coconut tel",
+   "copra oil",
+   "cocnut oil",
+   "virgin coconut oil"
+  ],
+  "category": "dairy_fats",
+  "kcal_100g": 892,
+  "protein_100g": 0,
+  "carbs_100g": 0,
+  "fat_100g": 100,
+  "default_portion_g": 14,
+  "portion_label": "1 tbsp"
+ },
+ {
+  "id": "condensed-milk-sweetened",
+  "name": "Condensed Milk (Sweetened)",
+  "aliases": [
+   "milkmaid",
+   "sweetened condensed milk",
+   "condense milk",
+   "mithai mate",
+   "condensd milk"
+  ],
+  "category": "dairy_fats",
+  "kcal_100g": 321,
+  "protein_100g": 7.9,
+  "carbs_100g": 54.4,
+  "fat_100g": 8.7,
+  "default_portion_g": 20,
+  "portion_label": "1 tbsp"
+ },
+ {
+  "id": "dahi-whole-milk",
+  "name": "Dahi (Whole Milk Curd)",
+  "aliases": [
+   "curd",
+   "yogurt",
+   "yoghurt",
+   "full fat curd",
+   "doi",
+   "dahee"
+  ],
+  "category": "dairy_fats",
+  "kcal_100g": 62,
+  "protein_100g": 3.5,
+  "carbs_100g": 4.7,
+  "fat_100g": 3.3,
+  "default_portion_g": 150,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "fresh-cream",
+  "name": "Fresh Cream (25% Fat)",
+  "aliases": [
+   "cream",
+   "cooking cream",
+   "amul fresh cream",
+   "low fat cream"
+  ],
+  "category": "dairy_fats",
+  "kcal_100g": 248,
+  "protein_100g": 2,
+  "carbs_100g": 3.8,
+  "fat_100g": 25,
+  "default_portion_g": 15,
+  "portion_label": "1 tbsp"
+ },
+ {
+  "id": "ghee",
+  "name": "Ghee",
+  "aliases": [
+   "desi ghee",
+   "clarified butter",
+   "ghi",
+   "gawa ghee",
+   "cow ghee"
+  ],
+  "category": "dairy_fats",
+  "kcal_100g": 900,
+  "protein_100g": 0,
+  "carbs_100g": 0,
+  "fat_100g": 100,
+  "default_portion_g": 5,
+  "portion_label": "1 tsp"
+ },
+ {
+  "id": "greek-yogurt-plain",
+  "name": "Greek Yogurt (Plain)",
+  "aliases": [
+   "hung curd",
+   "greek yoghurt",
+   "chakka",
+   "strained yogurt",
+   "greek yogart"
+  ],
+  "category": "dairy_fats",
+  "kcal_100g": 97,
+  "protein_100g": 9,
+  "carbs_100g": 3.9,
+  "fat_100g": 5,
+  "default_portion_g": 100,
+  "portion_label": "1 small tub"
+ },
+ {
+  "id": "honey",
+  "name": "Honey",
+  "aliases": [
+   "shahad",
+   "madh",
+   "pure honey",
+   "honeey",
+   "shehad"
+  ],
+  "category": "dairy_fats",
+  "kcal_100g": 304,
+  "protein_100g": 0.3,
+  "carbs_100g": 82.4,
+  "fat_100g": 0,
+  "default_portion_g": 21,
+  "portion_label": "1 tbsp"
+ },
+ {
+  "id": "khoya-mawa",
+  "name": "Khoya / Mawa",
+  "aliases": [
+   "mawa",
+   "khoa",
+   "mava",
+   "kova",
+   "khoya mawa"
+  ],
+  "category": "dairy_fats",
+  "kcal_100g": 413,
+  "protein_100g": 18,
+  "carbs_100g": 24,
+  "fat_100g": 27,
+  "default_portion_g": 50,
+  "portion_label": "50 g"
+ },
+ {
+  "id": "lassi-sweet",
+  "name": "Lassi (Sweet)",
+  "aliases": [
+   "sweet lassi",
+   "meethi lassi",
+   "punjabi lassi",
+   "lassie",
+   "lasi"
+  ],
+  "category": "dairy_fats",
+  "kcal_100g": 81,
+  "protein_100g": 2.4,
+  "carbs_100g": 13,
+  "fat_100g": 2.2,
+  "default_portion_g": 250,
+  "portion_label": "1 glass"
+ },
+ {
+  "id": "dahi-low-fat",
+  "name": "Low-Fat Dahi",
+  "aliases": [
+   "low fat curd",
+   "toned milk dahi",
+   "skim curd",
+   "lite dahi",
+   "low fat yogurt"
+  ],
+  "category": "dairy_fats",
+  "kcal_100g": 47,
+  "protein_100g": 3.4,
+  "carbs_100g": 4.9,
+  "fat_100g": 1.5,
+  "default_portion_g": 150,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "malai",
+  "name": "Malai (Milk Cream)",
+  "aliases": [
+   "doodh ki malai",
+   "milk malai",
+   "clotted cream",
+   "malai cream",
+   "home malai"
+  ],
+  "category": "dairy_fats",
+  "kcal_100g": 380,
+  "protein_100g": 2.5,
+  "carbs_100g": 3,
+  "fat_100g": 40,
+  "default_portion_g": 15,
+  "portion_label": "1 tbsp"
+ },
+ {
+  "id": "mayonnaise",
+  "name": "Mayonnaise",
+  "aliases": [
+   "mayo",
+   "mayonaise",
+   "veg mayonnaise",
+   "eggless mayo",
+   "mayonese"
+  ],
+  "category": "dairy_fats",
+  "kcal_100g": 680,
+  "protein_100g": 1,
+  "carbs_100g": 0.6,
+  "fat_100g": 75,
+  "default_portion_g": 15,
+  "portion_label": "1 tbsp"
+ },
+ {
+  "id": "mozzarella-cheese",
+  "name": "Mozzarella Cheese",
+  "aliases": [
+   "mozarella",
+   "pizza cheese",
+   "mozzarela",
+   "shredded mozzarella"
+  ],
+  "category": "dairy_fats",
+  "kcal_100g": 300,
+  "protein_100g": 22.2,
+  "carbs_100g": 2.2,
+  "fat_100g": 22.4,
+  "default_portion_g": 30,
+  "portion_label": "30 g"
+ },
+ {
+  "id": "mustard-oil",
+  "name": "Mustard Oil",
+  "aliases": [
+   "sarson ka tel",
+   "sarso oil",
+   "kachi ghani oil",
+   "mustard tel",
+   "sarson oil"
+  ],
+  "category": "dairy_fats",
+  "kcal_100g": 884,
+  "protein_100g": 0,
+  "carbs_100g": 0,
+  "fat_100g": 100,
+  "default_portion_g": 14,
+  "portion_label": "1 tbsp"
+ },
+ {
+  "id": "olive-oil",
+  "name": "Olive Oil",
+  "aliases": [
+   "extra virgin olive oil",
+   "evoo",
+   "jaitun ka tel",
+   "oliv oil",
+   "olive oyl"
+  ],
+  "category": "dairy_fats",
+  "kcal_100g": 884,
+  "protein_100g": 0,
+  "carbs_100g": 0,
+  "fat_100g": 100,
+  "default_portion_g": 14,
+  "portion_label": "1 tbsp"
+ },
+ {
+  "id": "paneer",
+  "name": "Paneer",
+  "aliases": [
+   "cottage cheese",
+   "panir",
+   "indian cottage cheese",
+   "paner",
+   "panner"
+  ],
+  "category": "dairy_fats",
+  "kcal_100g": 265,
+  "protein_100g": 18.3,
+  "carbs_100g": 1.2,
+  "fat_100g": 20.8,
+  "default_portion_g": 100,
+  "portion_label": "100 g"
+ },
+ {
+  "id": "peanut-butter",
+  "name": "Peanut Butter",
+  "aliases": [
+   "pb",
+   "moongphali butter",
+   "peanutbutter",
+   "penut butter",
+   "groundnut butter"
+  ],
+  "category": "dairy_fats",
+  "kcal_100g": 588,
+  "protein_100g": 25,
+  "carbs_100g": 20,
+  "fat_100g": 50,
+  "default_portion_g": 16,
+  "portion_label": "1 tbsp"
+ },
+ {
+  "id": "processed-cheese-slice",
+  "name": "Processed Cheese Slice",
+  "aliases": [
+   "cheese slice",
+   "amul cheese",
+   "cheese single",
+   "processed cheese",
+   "chees slice"
+  ],
+  "category": "dairy_fats",
+  "kcal_100g": 298,
+  "protein_100g": 16.4,
+  "carbs_100g": 4.8,
+  "fat_100g": 23.7,
+  "default_portion_g": 20,
+  "portion_label": "1 slice"
+ },
+ {
+  "id": "milk-skim",
+  "name": "Skim Milk",
+  "aliases": [
+   "skimmed milk",
+   "fat free milk",
+   "no fat milk",
+   "skimed milk",
+   "double toned milk"
+  ],
+  "category": "dairy_fats",
+  "kcal_100g": 35,
+  "protein_100g": 3.4,
+  "carbs_100g": 5,
+  "fat_100g": 0.2,
+  "default_portion_g": 250,
+  "portion_label": "1 glass"
+ },
+ {
+  "id": "sugar-white",
+  "name": "Sugar (White)",
+  "aliases": [
+   "cheeni",
+   "shakkar",
+   "chini",
+   "white sugar",
+   "table sugar"
+  ],
+  "category": "dairy_fats",
+  "kcal_100g": 387,
+  "protein_100g": 0,
+  "carbs_100g": 100,
+  "fat_100g": 0,
+  "default_portion_g": 4,
+  "portion_label": "1 tsp"
+ },
+ {
+  "id": "milk-toned",
+  "name": "Toned Milk",
+  "aliases": [
+   "toned doodh",
+   "tond milk",
+   "amul taaza",
+   "toned dudh"
+  ],
+  "category": "dairy_fats",
+  "kcal_100g": 58,
+  "protein_100g": 3.1,
+  "carbs_100g": 4.7,
+  "fat_100g": 3,
+  "default_portion_g": 250,
+  "portion_label": "1 glass"
+ },
+ {
+  "id": "vegetable-oil-refined",
+  "name": "Vegetable Oil (Refined)",
+  "aliases": [
+   "refined oil",
+   "cooking oil",
+   "sunflower oil",
+   "soybean oil",
+   "rice bran oil"
+  ],
+  "category": "dairy_fats",
+  "kcal_100g": 884,
+  "protein_100g": 0,
+  "carbs_100g": 0,
+  "fat_100g": 100,
+  "default_portion_g": 14,
+  "portion_label": "1 tbsp"
+ },
+ {
+  "id": "milk-whole",
+  "name": "Whole Milk (Full Cream)",
+  "aliases": [
+   "milk",
+   "full cream milk",
+   "doodh",
+   "full fat milk",
+   "dudh",
+   "cow milk"
+  ],
+  "category": "dairy_fats",
+  "kcal_100g": 61,
+  "protein_100g": 3.2,
+  "carbs_100g": 4.8,
+  "fat_100g": 3.3,
+  "default_portion_g": 250,
+  "portion_label": "1 glass"
+ },
+ {
+  "id": "burrito",
+  "name": "Burrito",
+  "aliases": [
+   "burito",
+   "mexican burrito",
+   "chicken burrito",
+   "bean burrito",
+   "burrito roll"
+  ],
+  "category": "fast_food_global",
+  "kcal_100g": 206,
+  "protein_100g": 8.5,
+  "carbs_100g": 26,
+  "fat_100g": 7.5,
+  "default_portion_g": 250,
+  "portion_label": "1 burrito"
+ },
+ {
+  "id": "caesar-salad-with-dressing",
+  "name": "Caesar Salad with Dressing",
+  "aliases": [
+   "ceasar salad",
+   "cesar salad",
+   "chicken caesar salad",
+   "caesar salad",
+   "sizar salad"
+  ],
+  "category": "fast_food_global",
+  "kcal_100g": 180,
+  "protein_100g": 8,
+  "carbs_100g": 6,
+  "fat_100g": 14,
+  "default_portion_g": 220,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "cheeseburger",
+  "name": "Cheeseburger",
+  "aliases": [
+   "cheese burger",
+   "chees burger",
+   "burger with cheese",
+   "cheeseburgur"
+  ],
+  "category": "fast_food_global",
+  "kcal_100g": 262,
+  "protein_100g": 14,
+  "carbs_100g": 22,
+  "fat_100g": 13,
+  "default_portion_g": 155,
+  "portion_label": "1 burger"
+ },
+ {
+  "id": "chicken-burger",
+  "name": "Chicken Burger",
+  "aliases": [
+   "chiken burger",
+   "murgh burger",
+   "zinger burger",
+   "mcchicken",
+   "chicken burgur"
+  ],
+  "category": "fast_food_global",
+  "kcal_100g": 250,
+  "protein_100g": 13,
+  "carbs_100g": 25,
+  "fat_100g": 11,
+  "default_portion_g": 170,
+  "portion_label": "1 burger"
+ },
+ {
+  "id": "chicken-nuggets",
+  "name": "Chicken Nuggets",
+  "aliases": [
+   "nuggets",
+   "chiken nuggets",
+   "mcnuggets",
+   "chicken nugget"
+  ],
+  "category": "fast_food_global",
+  "kcal_100g": 297,
+  "protein_100g": 15.5,
+  "carbs_100g": 14,
+  "fat_100g": 20,
+  "default_portion_g": 96,
+  "portion_label": "6 nuggets"
+ },
+ {
+  "id": "chilli-chicken",
+  "name": "Chilli Chicken",
+  "aliases": [
+   "chili chicken",
+   "chilly chicken",
+   "dry chilli chicken",
+   "chinese chicken",
+   "chilli chiken"
+  ],
+  "category": "fast_food_global",
+  "kcal_100g": 188,
+  "protein_100g": 14,
+  "carbs_100g": 10,
+  "fat_100g": 10,
+  "default_portion_g": 200,
+  "portion_label": "1 plate"
+ },
+ {
+  "id": "chowmein-hakka-noodles",
+  "name": "Chowmein / Hakka Noodles",
+  "aliases": [
+   "chowmein",
+   "chow mein",
+   "hakka noodles",
+   "veg noodles",
+   "chomin",
+   "noodles"
+  ],
+  "category": "fast_food_global",
+  "kcal_100g": 180,
+  "protein_100g": 5,
+  "carbs_100g": 27,
+  "fat_100g": 6,
+  "default_portion_g": 250,
+  "portion_label": "1 plate"
+ },
+ {
+  "id": "club-sandwich",
+  "name": "Club Sandwich",
+  "aliases": [
+   "club sandwhich",
+   "triple decker sandwich",
+   "chicken club sandwich",
+   "club sandwitch"
+  ],
+  "category": "fast_food_global",
+  "kcal_100g": 242,
+  "protein_100g": 12,
+  "carbs_100g": 22,
+  "fat_100g": 12,
+  "default_portion_g": 250,
+  "portion_label": "1 sandwich"
+ },
+ {
+  "id": "frankie",
+  "name": "Frankie",
+  "aliases": [
+   "franky",
+   "veg frankie",
+   "mumbai frankie",
+   "frankie roll",
+   "tibbs frankie"
+  ],
+  "category": "fast_food_global",
+  "kcal_100g": 225,
+  "protein_100g": 8,
+  "carbs_100g": 28,
+  "fat_100g": 9,
+  "default_portion_g": 170,
+  "portion_label": "1 frankie"
+ },
+ {
+  "id": "french-fries",
+  "name": "French Fries",
+  "aliases": [
+   "fries",
+   "finger chips",
+   "chips",
+   "frnech fries",
+   "aloo fries"
+  ],
+  "category": "fast_food_global",
+  "kcal_100g": 312,
+  "protein_100g": 3.4,
+  "carbs_100g": 41,
+  "fat_100g": 15,
+  "default_portion_g": 115,
+  "portion_label": "1 medium serving"
+ },
+ {
+  "id": "fried-chicken-kfc-style",
+  "name": "Fried Chicken (KFC Style)",
+  "aliases": [
+   "kfc chicken",
+   "fried chiken",
+   "broasted chicken",
+   "crispy fried chicken",
+   "kfc style chicken"
+  ],
+  "category": "fast_food_global",
+  "kcal_100g": 250,
+  "protein_100g": 22,
+  "carbs_100g": 8,
+  "fat_100g": 15,
+  "default_portion_g": 150,
+  "portion_label": "1 piece"
+ },
+ {
+  "id": "fried-rice",
+  "name": "Fried Rice (Veg/Chicken/Egg)",
+  "aliases": [
+   "veg fried rice",
+   "chicken fried rice",
+   "egg fried rice",
+   "fride rice",
+   "chinese rice"
+  ],
+  "category": "fast_food_global",
+  "kcal_100g": 174,
+  "protein_100g": 5,
+  "carbs_100g": 26,
+  "fat_100g": 5.5,
+  "default_portion_g": 250,
+  "portion_label": "1 plate"
+ },
+ {
+  "id": "grilled-cheese-sandwich",
+  "name": "Grilled Cheese Sandwich",
+  "aliases": [
+   "cheese toast",
+   "toasted cheese sandwich",
+   "cheese sandwhich",
+   "cheese grill sandwich"
+  ],
+  "category": "fast_food_global",
+  "kcal_100g": 330,
+  "protein_100g": 12,
+  "carbs_100g": 26,
+  "fat_100g": 20,
+  "default_portion_g": 120,
+  "portion_label": "1 sandwich"
+ },
+ {
+  "id": "grilled-chicken-sandwich",
+  "name": "Grilled Chicken Sandwich",
+  "aliases": [
+   "grill chicken sandwich",
+   "chicken sandwhich",
+   "grilled chiken sandwich",
+   "chicken sub"
+  ],
+  "category": "fast_food_global",
+  "kcal_100g": 208,
+  "protein_100g": 14,
+  "carbs_100g": 24,
+  "fat_100g": 6,
+  "default_portion_g": 220,
+  "portion_label": "1 sandwich"
+ },
+ {
+  "id": "hot-dog",
+  "name": "Hot Dog",
+  "aliases": [
+   "hotdog",
+   "hot dog with bun",
+   "sausage bun",
+   "hotdog sandwich"
+  ],
+  "category": "fast_food_global",
+  "kcal_100g": 290,
+  "protein_100g": 10.5,
+  "carbs_100g": 24,
+  "fat_100g": 17,
+  "default_portion_g": 100,
+  "portion_label": "1 hot dog"
+ },
+ {
+  "id": "kathi-roll",
+  "name": "Kathi Roll (Chicken/Paneer)",
+  "aliases": [
+   "kati roll",
+   "chicken roll",
+   "paneer roll",
+   "kathi kabab roll",
+   "egg roll kolkata"
+  ],
+  "category": "fast_food_global",
+  "kcal_100g": 230,
+  "protein_100g": 10,
+  "carbs_100g": 25,
+  "fat_100g": 10,
+  "default_portion_g": 180,
+  "portion_label": "1 roll"
+ },
+ {
+  "id": "mac-and-cheese",
+  "name": "Mac and Cheese",
+  "aliases": [
+   "macaroni and cheese",
+   "mac n cheese",
+   "macncheese",
+   "cheesy macaroni",
+   "cheese pasta"
+  ],
+  "category": "fast_food_global",
+  "kcal_100g": 190,
+  "protein_100g": 7.5,
+  "carbs_100g": 20,
+  "fat_100g": 9,
+  "default_portion_g": 220,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "margherita-pizza",
+  "name": "Margherita Pizza",
+  "aliases": [
+   "cheese pizza",
+   "margarita pizza",
+   "plain cheese pizza",
+   "margherita piza"
+  ],
+  "category": "fast_food_global",
+  "kcal_100g": 266,
+  "protein_100g": 11,
+  "carbs_100g": 33,
+  "fat_100g": 10,
+  "default_portion_g": 100,
+  "portion_label": "1 slice"
+ },
+ {
+  "id": "pad-thai",
+  "name": "Pad Thai",
+  "aliases": [
+   "padthai",
+   "pad thai noodles",
+   "thai noodles",
+   "pad tai"
+  ],
+  "category": "fast_food_global",
+  "kcal_100g": 182,
+  "protein_100g": 8,
+  "carbs_100g": 22,
+  "fat_100g": 7,
+  "default_portion_g": 300,
+  "portion_label": "1 plate"
+ },
+ {
+  "id": "pepperoni-pizza",
+  "name": "Pepperoni Pizza",
+  "aliases": [
+   "peperoni pizza",
+   "pepperonni pizza",
+   "pepperoni piza",
+   "meat pizza"
+  ],
+  "category": "fast_food_global",
+  "kcal_100g": 298,
+  "protein_100g": 13,
+  "carbs_100g": 33,
+  "fat_100g": 13,
+  "default_portion_g": 110,
+  "portion_label": "1 slice"
+ },
+ {
+  "id": "quesadilla",
+  "name": "Quesadilla",
+  "aliases": [
+   "quesadila",
+   "kesadia",
+   "cheese quesadilla",
+   "mexican quesadilla",
+   "quesedilla"
+  ],
+  "category": "fast_food_global",
+  "kcal_100g": 298,
+  "protein_100g": 12,
+  "carbs_100g": 26,
+  "fat_100g": 16,
+  "default_portion_g": 180,
+  "portion_label": "1 quesadilla"
+ },
+ {
+  "id": "ramen",
+  "name": "Ramen",
+  "aliases": [
+   "ramen noodles",
+   "japanese ramen",
+   "ramen soup",
+   "ramin",
+   "ramen bowl"
+  ],
+  "category": "fast_food_global",
+  "kcal_100g": 95,
+  "protein_100g": 5,
+  "carbs_100g": 12,
+  "fat_100g": 3,
+  "default_portion_g": 500,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "shawarma-roll",
+  "name": "Shawarma Roll",
+  "aliases": [
+   "shawarma",
+   "shwarma",
+   "shavarma",
+   "chicken shawarma",
+   "shawarma wrap"
+  ],
+  "category": "fast_food_global",
+  "kcal_100g": 200,
+  "protein_100g": 12,
+  "carbs_100g": 20,
+  "fat_100g": 8,
+  "default_portion_g": 200,
+  "portion_label": "1 roll"
+ },
+ {
+  "id": "california-sushi-roll",
+  "name": "Sushi Roll (California)",
+  "aliases": [
+   "sushi",
+   "california roll",
+   "sushi roll",
+   "shushi",
+   "kani roll"
+  ],
+  "category": "fast_food_global",
+  "kcal_100g": 148,
+  "protein_100g": 4,
+  "carbs_100g": 24,
+  "fat_100g": 4,
+  "default_portion_g": 200,
+  "portion_label": "1 roll (8 pieces)"
+ },
+ {
+  "id": "tacos",
+  "name": "Tacos",
+  "aliases": [
+   "taco",
+   "takos",
+   "mexican taco",
+   "hard shell taco"
+  ],
+  "category": "fast_food_global",
+  "kcal_100g": 218,
+  "protein_100g": 12,
+  "carbs_100g": 18,
+  "fat_100g": 11,
+  "default_portion_g": 80,
+  "portion_label": "1 taco"
+ },
+ {
+  "id": "veg-burger",
+  "name": "Veg Burger",
+  "aliases": [
+   "vegetable burger",
+   "veggie burger",
+   "aloo tikki burger",
+   "mcaloo tikki",
+   "veg burgur"
+  ],
+  "category": "fast_food_global",
+  "kcal_100g": 240,
+  "protein_100g": 6,
+  "carbs_100g": 32,
+  "fat_100g": 10,
+  "default_portion_g": 150,
+  "portion_label": "1 burger"
+ },
+ {
+  "id": "veg-manchurian-gravy",
+  "name": "Veg Manchurian (Gravy)",
+  "aliases": [
+   "manchurian",
+   "veg manchurian",
+   "gobi manchurian",
+   "manchuria",
+   "manchurian gravy"
+  ],
+  "category": "fast_food_global",
+  "kcal_100g": 120,
+  "protein_100g": 3,
+  "carbs_100g": 14,
+  "fat_100g": 6,
+  "default_portion_g": 200,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "veg-sandwich-indian",
+  "name": "Veg Sandwich (Indian)",
+  "aliases": [
+   "vegetable sandwich",
+   "bombay sandwich",
+   "mumbai sandwich",
+   "veg sandwhich",
+   "veg grilled sandwich"
+  ],
+  "category": "fast_food_global",
+  "kcal_100g": 215,
+  "protein_100g": 6,
+  "carbs_100g": 30,
+  "fat_100g": 8,
+  "default_portion_g": 130,
+  "portion_label": "1 sandwich"
+ },
+ {
+  "id": "apple-fresh",
+  "name": "Apple",
+  "aliases": [
+   "seb",
+   "sev",
+   "aple",
+   "red apple"
+  ],
+  "category": "fruits",
+  "kcal_100g": 52,
+  "protein_100g": 0.3,
+  "carbs_100g": 13.8,
+  "fat_100g": 0.2,
+  "default_portion_g": 130,
+  "portion_label": "1 medium apple"
+ },
+ {
+  "id": "avocado-fresh",
+  "name": "Avocado",
+  "aliases": [
+   "butter fruit",
+   "makhanphal",
+   "avacado",
+   "avocardo"
+  ],
+  "category": "fruits",
+  "kcal_100g": 160,
+  "protein_100g": 2,
+  "carbs_100g": 8.5,
+  "fat_100g": 14.7,
+  "default_portion_g": 100,
+  "portion_label": "half avocado"
+ },
+ {
+  "id": "banana-fresh",
+  "name": "Banana",
+  "aliases": [
+   "kela",
+   "kelaa",
+   "banan",
+   "ripe banana"
+  ],
+  "category": "fruits",
+  "kcal_100g": 89,
+  "protein_100g": 1.1,
+  "carbs_100g": 22.8,
+  "fat_100g": 0.3,
+  "default_portion_g": 120,
+  "portion_label": "1 medium banana"
+ },
+ {
+  "id": "blueberry-fresh",
+  "name": "Blueberry",
+  "aliases": [
+   "blueberries",
+   "blue berry",
+   "bluebery",
+   "neelbadri"
+  ],
+  "category": "fruits",
+  "kcal_100g": 57,
+  "protein_100g": 0.7,
+  "carbs_100g": 14.5,
+  "fat_100g": 0.3,
+  "default_portion_g": 75,
+  "portion_label": "1 small cup"
+ },
+ {
+  "id": "coconut-fresh-kernel",
+  "name": "Coconut (Fresh Kernel)",
+  "aliases": [
+   "nariyal",
+   "khopra",
+   "coconut meat",
+   "kopra"
+  ],
+  "category": "fruits",
+  "kcal_100g": 354,
+  "protein_100g": 3.3,
+  "carbs_100g": 15.2,
+  "fat_100g": 33.5,
+  "default_portion_g": 30,
+  "portion_label": "1 small piece"
+ },
+ {
+  "id": "custard-apple-fresh",
+  "name": "Custard Apple",
+  "aliases": [
+   "sitaphal",
+   "sharifa",
+   "seetaphal",
+   "sugar apple"
+  ],
+  "category": "fruits",
+  "kcal_100g": 94,
+  "protein_100g": 2.1,
+  "carbs_100g": 23.6,
+  "fat_100g": 0.3,
+  "default_portion_g": 150,
+  "portion_label": "1 fruit (pulp)"
+ },
+ {
+  "id": "dates-dried",
+  "name": "Dates (Dried)",
+  "aliases": [
+   "khajur",
+   "khajoor",
+   "chhuara",
+   "medjool dates"
+  ],
+  "category": "fruits",
+  "kcal_100g": 282,
+  "protein_100g": 2.5,
+  "carbs_100g": 75,
+  "fat_100g": 0.4,
+  "default_portion_g": 25,
+  "portion_label": "3 dates"
+ },
+ {
+  "id": "fig-fresh",
+  "name": "Fig (Fresh)",
+  "aliases": [
+   "anjeer",
+   "anjir",
+   "fresh fig",
+   "figs"
+  ],
+  "category": "fruits",
+  "kcal_100g": 74,
+  "protein_100g": 0.8,
+  "carbs_100g": 19.2,
+  "fat_100g": 0.3,
+  "default_portion_g": 50,
+  "portion_label": "1 fig"
+ },
+ {
+  "id": "grapes-fresh",
+  "name": "Grapes",
+  "aliases": [
+   "angoor",
+   "angur",
+   "green grapes",
+   "black grapes"
+  ],
+  "category": "fruits",
+  "kcal_100g": 69,
+  "protein_100g": 0.7,
+  "carbs_100g": 18.1,
+  "fat_100g": 0.2,
+  "default_portion_g": 100,
+  "portion_label": "1 small bunch"
+ },
+ {
+  "id": "guava-fresh",
+  "name": "Guava",
+  "aliases": [
+   "amrood",
+   "amrud",
+   "peru",
+   "gwava"
+  ],
+  "category": "fruits",
+  "kcal_100g": 68,
+  "protein_100g": 2.6,
+  "carbs_100g": 14.3,
+  "fat_100g": 1,
+  "default_portion_g": 100,
+  "portion_label": "1 medium guava"
+ },
+ {
+  "id": "kiwi-fresh",
+  "name": "Kiwi",
+  "aliases": [
+   "kiwifruit",
+   "kiwi fruit",
+   "keewee",
+   "kivi"
+  ],
+  "category": "fruits",
+  "kcal_100g": 61,
+  "protein_100g": 1.1,
+  "carbs_100g": 14.7,
+  "fat_100g": 0.5,
+  "default_portion_g": 70,
+  "portion_label": "1 kiwi"
+ },
+ {
+  "id": "litchi-fresh",
+  "name": "Litchi",
+  "aliases": [
+   "lychee",
+   "lichi",
+   "leechi",
+   "litchee"
+  ],
+  "category": "fruits",
+  "kcal_100g": 66,
+  "protein_100g": 0.8,
+  "carbs_100g": 16.5,
+  "fat_100g": 0.4,
+  "default_portion_g": 100,
+  "portion_label": "10 litchis"
+ },
+ {
+  "id": "mango-fresh",
+  "name": "Mango",
+  "aliases": [
+   "aam",
+   "alphonso",
+   "safeda",
+   "mangoe"
+  ],
+  "category": "fruits",
+  "kcal_100g": 60,
+  "protein_100g": 0.8,
+  "carbs_100g": 15,
+  "fat_100g": 0.4,
+  "default_portion_g": 150,
+  "portion_label": "1 cup sliced"
+ },
+ {
+  "id": "muskmelon-fresh",
+  "name": "Muskmelon",
+  "aliases": [
+   "kharbooja",
+   "kharbuja",
+   "cantaloupe",
+   "musk melon"
+  ],
+  "category": "fruits",
+  "kcal_100g": 34,
+  "protein_100g": 0.8,
+  "carbs_100g": 8.2,
+  "fat_100g": 0.2,
+  "default_portion_g": 150,
+  "portion_label": "1 bowl cubes"
+ },
+ {
+  "id": "orange-fresh",
+  "name": "Orange",
+  "aliases": [
+   "santra",
+   "narangi",
+   "orenge",
+   "kinnow"
+  ],
+  "category": "fruits",
+  "kcal_100g": 47,
+  "protein_100g": 0.9,
+  "carbs_100g": 11.8,
+  "fat_100g": 0.1,
+  "default_portion_g": 130,
+  "portion_label": "1 medium orange"
+ },
+ {
+  "id": "papaya-fresh",
+  "name": "Papaya",
+  "aliases": [
+   "papita",
+   "pappaya",
+   "papaiya",
+   "papaw"
+  ],
+  "category": "fruits",
+  "kcal_100g": 43,
+  "protein_100g": 0.5,
+  "carbs_100g": 10.8,
+  "fat_100g": 0.3,
+  "default_portion_g": 150,
+  "portion_label": "1 bowl cubes"
+ },
+ {
+  "id": "peach-fresh",
+  "name": "Peach",
+  "aliases": [
+   "aadu",
+   "aaru",
+   "satalu",
+   "peaches"
+  ],
+  "category": "fruits",
+  "kcal_100g": 39,
+  "protein_100g": 0.9,
+  "carbs_100g": 9.5,
+  "fat_100g": 0.3,
+  "default_portion_g": 150,
+  "portion_label": "1 medium peach"
+ },
+ {
+  "id": "pear-fresh",
+  "name": "Pear",
+  "aliases": [
+   "nashpati",
+   "naspati",
+   "babugosha",
+   "pears"
+  ],
+  "category": "fruits",
+  "kcal_100g": 57,
+  "protein_100g": 0.4,
+  "carbs_100g": 15.2,
+  "fat_100g": 0.1,
+  "default_portion_g": 170,
+  "portion_label": "1 medium pear"
+ },
+ {
+  "id": "pineapple-fresh",
+  "name": "Pineapple",
+  "aliases": [
+   "ananas",
+   "anannas",
+   "pine apple",
+   "pineaple"
+  ],
+  "category": "fruits",
+  "kcal_100g": 50,
+  "protein_100g": 0.5,
+  "carbs_100g": 13.1,
+  "fat_100g": 0.1,
+  "default_portion_g": 80,
+  "portion_label": "1 slice"
+ },
+ {
+  "id": "plum-fresh",
+  "name": "Plum",
+  "aliases": [
+   "aloo bukhara",
+   "alubukhara",
+   "plums",
+   "aloobukhara"
+  ],
+  "category": "fruits",
+  "kcal_100g": 46,
+  "protein_100g": 0.7,
+  "carbs_100g": 11.4,
+  "fat_100g": 0.3,
+  "default_portion_g": 65,
+  "portion_label": "1 plum"
+ },
+ {
+  "id": "pomegranate-fresh",
+  "name": "Pomegranate",
+  "aliases": [
+   "anar",
+   "anaar",
+   "dalimb",
+   "pomegranete"
+  ],
+  "category": "fruits",
+  "kcal_100g": 83,
+  "protein_100g": 1.7,
+  "carbs_100g": 18.7,
+  "fat_100g": 1.2,
+  "default_portion_g": 150,
+  "portion_label": "1 fruit (arils)"
+ },
+ {
+  "id": "raisins-dried",
+  "name": "Raisins",
+  "aliases": [
+   "kishmish",
+   "kismis",
+   "dry grapes",
+   "raisin"
+  ],
+  "category": "fruits",
+  "kcal_100g": 299,
+  "protein_100g": 3.1,
+  "carbs_100g": 79.2,
+  "fat_100g": 0.5,
+  "default_portion_g": 30,
+  "portion_label": "1 small handful"
+ },
+ {
+  "id": "sapota-chikoo-fresh",
+  "name": "Sapota (Chikoo)",
+  "aliases": [
+   "chikoo",
+   "chiku",
+   "cheeku",
+   "sapodilla"
+  ],
+  "category": "fruits",
+  "kcal_100g": 83,
+  "protein_100g": 0.4,
+  "carbs_100g": 20,
+  "fat_100g": 1.1,
+  "default_portion_g": 100,
+  "portion_label": "1 chikoo"
+ },
+ {
+  "id": "strawberry-fresh",
+  "name": "Strawberry",
+  "aliases": [
+   "strawberries",
+   "strawbery",
+   "stroberry",
+   "strawbry"
+  ],
+  "category": "fruits",
+  "kcal_100g": 32,
+  "protein_100g": 0.7,
+  "carbs_100g": 7.7,
+  "fat_100g": 0.3,
+  "default_portion_g": 150,
+  "portion_label": "1 cup"
+ },
+ {
+  "id": "sweet-lime-mosambi",
+  "name": "Sweet Lime (Mosambi)",
+  "aliases": [
+   "mosambi",
+   "musambi",
+   "mausambi",
+   "sweet lemon"
+  ],
+  "category": "fruits",
+  "kcal_100g": 43,
+  "protein_100g": 0.8,
+  "carbs_100g": 9.3,
+  "fat_100g": 0.3,
+  "default_portion_g": 120,
+  "portion_label": "1 fruit"
+ },
+ {
+  "id": "watermelon-fresh",
+  "name": "Watermelon",
+  "aliases": [
+   "tarbooj",
+   "tarbuj",
+   "water melon",
+   "kalingad"
+  ],
+  "category": "fruits",
+  "kcal_100g": 30,
+  "protein_100g": 0.6,
+  "carbs_100g": 7.6,
+  "fat_100g": 0.2,
+  "default_portion_g": 200,
+  "portion_label": "1 bowl cubes"
+ },
+ {
+  "id": "bagel-plain",
+  "name": "Bagel (Plain)",
+  "aliases": [
+   "bagel",
+   "bagels",
+   "bagle",
+   "plain bagel"
+  ],
+  "category": "grains_breads",
+  "kcal_100g": 264,
+  "protein_100g": 10.4,
+  "carbs_100g": 52,
+  "fat_100g": 1.6,
+  "default_portion_g": 100,
+  "portion_label": "1 bagel"
+ },
+ {
+  "id": "barley-cooked",
+  "name": "Barley (Cooked)",
+  "aliases": [
+   "barley",
+   "jau",
+   "pearl barley",
+   "cooked barley"
+  ],
+  "category": "grains_breads",
+  "kcal_100g": 123,
+  "protein_100g": 2.3,
+  "carbs_100g": 28.2,
+  "fat_100g": 0.4,
+  "default_portion_g": 150,
+  "portion_label": "1 cup"
+ },
+ {
+  "id": "besan",
+  "name": "Besan (Gram Flour)",
+  "aliases": [
+   "gram flour",
+   "chickpea flour",
+   "chana flour",
+   "basan",
+   "channa atta"
+  ],
+  "category": "grains_breads",
+  "kcal_100g": 387,
+  "protein_100g": 22.4,
+  "carbs_100g": 57.8,
+  "fat_100g": 6.7,
+  "default_portion_g": 30,
+  "portion_label": "1 serving"
+ },
+ {
+  "id": "burger-bun",
+  "name": "Burger Bun",
+  "aliases": [
+   "bun",
+   "hamburger bun",
+   "burger buns",
+   "bun bread"
+  ],
+  "category": "grains_breads",
+  "kcal_100g": 278,
+  "protein_100g": 9.6,
+  "carbs_100g": 49.7,
+  "fat_100g": 4.3,
+  "default_portion_g": 55,
+  "portion_label": "1 bun"
+ },
+ {
+  "id": "cornflakes",
+  "name": "Cornflakes",
+  "aliases": [
+   "corn flakes",
+   "kellogs cornflakes",
+   "cornflake",
+   "breakfast flakes"
+  ],
+  "category": "grains_breads",
+  "kcal_100g": 357,
+  "protein_100g": 7.5,
+  "carbs_100g": 84,
+  "fat_100g": 0.4,
+  "default_portion_g": 30,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "couscous-cooked",
+  "name": "Couscous (Cooked)",
+  "aliases": [
+   "couscous",
+   "cous cous",
+   "kuskus"
+  ],
+  "category": "grains_breads",
+  "kcal_100g": 112,
+  "protein_100g": 3.8,
+  "carbs_100g": 23.2,
+  "fat_100g": 0.2,
+  "default_portion_g": 150,
+  "portion_label": "1 cup"
+ },
+ {
+  "id": "croissant",
+  "name": "Croissant",
+  "aliases": [
+   "croisant",
+   "crossant",
+   "butter croissant",
+   "french pastry"
+  ],
+  "category": "grains_breads",
+  "kcal_100g": 406,
+  "protein_100g": 8.2,
+  "carbs_100g": 45.8,
+  "fat_100g": 21,
+  "default_portion_g": 55,
+  "portion_label": "1 croissant"
+ },
+ {
+  "id": "granola",
+  "name": "Granola",
+  "aliases": [
+   "granola cereal",
+   "granola mix",
+   "granolla",
+   "oat granola"
+  ],
+  "category": "grains_breads",
+  "kcal_100g": 489,
+  "protein_100g": 13.7,
+  "carbs_100g": 53.9,
+  "fat_100g": 24.3,
+  "default_portion_g": 45,
+  "portion_label": "1 serving"
+ },
+ {
+  "id": "instant-noodles-prepared",
+  "name": "Instant Noodles (Prepared)",
+  "aliases": [
+   "maggi",
+   "maggie",
+   "noodles",
+   "instant noodles",
+   "2 minute noodles",
+   "ramen"
+  ],
+  "category": "grains_breads",
+  "kcal_100g": 112,
+  "protein_100g": 2.4,
+  "carbs_100g": 15.1,
+  "fat_100g": 4.6,
+  "default_portion_g": 280,
+  "portion_label": "1 pack prepared"
+ },
+ {
+  "id": "maida",
+  "name": "Maida (Refined Flour)",
+  "aliases": [
+   "refined flour",
+   "all purpose flour",
+   "white flour",
+   "mayda"
+  ],
+  "category": "grains_breads",
+  "kcal_100g": 348,
+  "protein_100g": 10.3,
+  "carbs_100g": 74.3,
+  "fat_100g": 1,
+  "default_portion_g": 30,
+  "portion_label": "1 serving"
+ },
+ {
+  "id": "muesli",
+  "name": "Muesli",
+  "aliases": [
+   "musli",
+   "muesli cereal",
+   "fruit muesli",
+   "muslee"
+  ],
+  "category": "grains_breads",
+  "kcal_100g": 358,
+  "protein_100g": 9.7,
+  "carbs_100g": 66.2,
+  "fat_100g": 5.9,
+  "default_portion_g": 50,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "multigrain-bread",
+  "name": "Multigrain Bread",
+  "aliases": [
+   "multi grain bread",
+   "multigrain",
+   "seed bread",
+   "grain bread"
+  ],
+  "category": "grains_breads",
+  "kcal_100g": 265,
+  "protein_100g": 13.4,
+  "carbs_100g": 43.3,
+  "fat_100g": 4.2,
+  "default_portion_g": 30,
+  "portion_label": "1 slice"
+ },
+ {
+  "id": "oats-dry-rolled",
+  "name": "Oats (Rolled, Dry)",
+  "aliases": [
+   "rolled oats",
+   "oats",
+   "raw oats",
+   "quaker oats",
+   "dry oats"
+  ],
+  "category": "grains_breads",
+  "kcal_100g": 389,
+  "protein_100g": 16.9,
+  "carbs_100g": 66.3,
+  "fat_100g": 6.9,
+  "default_portion_g": 40,
+  "portion_label": "1 serving (dry)"
+ },
+ {
+  "id": "oats-cooked-water",
+  "name": "Oats Cooked with Water",
+  "aliases": [
+   "oatmeal",
+   "oats porridge",
+   "cooked oats",
+   "oats with water",
+   "porridge"
+  ],
+  "category": "grains_breads",
+  "kcal_100g": 71,
+  "protein_100g": 2.5,
+  "carbs_100g": 12,
+  "fat_100g": 1.5,
+  "default_portion_g": 250,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "pasta-cooked",
+  "name": "Pasta (Cooked)",
+  "aliases": [
+   "pasta",
+   "penne",
+   "macaroni",
+   "spaghetti",
+   "boiled pasta"
+  ],
+  "category": "grains_breads",
+  "kcal_100g": 158,
+  "protein_100g": 5.8,
+  "carbs_100g": 31,
+  "fat_100g": 0.9,
+  "default_portion_g": 200,
+  "portion_label": "1 plate"
+ },
+ {
+  "id": "pita-bread",
+  "name": "Pita Bread",
+  "aliases": [
+   "pita",
+   "pitta bread",
+   "peeta bread",
+   "lebanese bread",
+   "shawarma bread"
+  ],
+  "category": "grains_breads",
+  "kcal_100g": 275,
+  "protein_100g": 9.1,
+  "carbs_100g": 55.7,
+  "fat_100g": 1.2,
+  "default_portion_g": 60,
+  "portion_label": "1 pita"
+ },
+ {
+  "id": "popcorn-air-popped",
+  "name": "Popcorn (Air-Popped)",
+  "aliases": [
+   "popcorn",
+   "pop corn",
+   "plain popcorn",
+   "air popped popcorn",
+   "makka popcorn"
+  ],
+  "category": "grains_breads",
+  "kcal_100g": 387,
+  "protein_100g": 12.9,
+  "carbs_100g": 77.8,
+  "fat_100g": 4.5,
+  "default_portion_g": 25,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "quinoa-cooked",
+  "name": "Quinoa (Cooked)",
+  "aliases": [
+   "quinoa",
+   "kinoa",
+   "keenwa",
+   "cooked quinoa"
+  ],
+  "category": "grains_breads",
+  "kcal_100g": 120,
+  "protein_100g": 4.4,
+  "carbs_100g": 21.3,
+  "fat_100g": 1.9,
+  "default_portion_g": 185,
+  "portion_label": "1 cup"
+ },
+ {
+  "id": "ragi-flour",
+  "name": "Ragi Flour (Finger Millet)",
+  "aliases": [
+   "ragi",
+   "nachni",
+   "finger millet flour",
+   "ragi atta",
+   "nachni flour",
+   "mandua"
+  ],
+  "category": "grains_breads",
+  "kcal_100g": 328,
+  "protein_100g": 7.3,
+  "carbs_100g": 72,
+  "fat_100g": 1.9,
+  "default_portion_g": 30,
+  "portion_label": "1 roti worth"
+ },
+ {
+  "id": "rice-raw",
+  "name": "Rice (Raw)",
+  "aliases": [
+   "rice",
+   "chawal",
+   "chaawal",
+   "uncooked rice",
+   "basmati rice raw"
+  ],
+  "category": "grains_breads",
+  "kcal_100g": 365,
+  "protein_100g": 7.1,
+  "carbs_100g": 80,
+  "fat_100g": 0.7,
+  "default_portion_g": 60,
+  "portion_label": "1 bowl (cooked) worth"
+ },
+ {
+  "id": "rice-cakes",
+  "name": "Rice Cakes",
+  "aliases": [
+   "rice cake",
+   "puffed rice cake",
+   "rice crackers"
+  ],
+  "category": "grains_breads",
+  "kcal_100g": 387,
+  "protein_100g": 8.2,
+  "carbs_100g": 81.5,
+  "fat_100g": 2.8,
+  "default_portion_g": 9,
+  "portion_label": "1 rice cake"
+ },
+ {
+  "id": "sooji-semolina",
+  "name": "Semolina (Sooji/Rava)",
+  "aliases": [
+   "sooji",
+   "suji",
+   "rava",
+   "rawa",
+   "semolina"
+  ],
+  "category": "grains_breads",
+  "kcal_100g": 360,
+  "protein_100g": 12.7,
+  "carbs_100g": 72.8,
+  "fat_100g": 1.1,
+  "default_portion_g": 50,
+  "portion_label": "1 serving"
+ },
+ {
+  "id": "tortilla-wrap",
+  "name": "Tortilla / Wrap",
+  "aliases": [
+   "tortilla",
+   "wrap",
+   "flour tortilla",
+   "roti wrap",
+   "kathi roll wrap"
+  ],
+  "category": "grains_breads",
+  "kcal_100g": 306,
+  "protein_100g": 8.2,
+  "carbs_100g": 49.4,
+  "fat_100g": 7.7,
+  "default_portion_g": 50,
+  "portion_label": "1 wrap"
+ },
+ {
+  "id": "white-bread-slice",
+  "name": "White Bread",
+  "aliases": [
+   "bread",
+   "double roti",
+   "sandwich bread",
+   "maida bread"
+  ],
+  "category": "grains_breads",
+  "kcal_100g": 265,
+  "protein_100g": 9,
+  "carbs_100g": 49,
+  "fat_100g": 3.2,
+  "default_portion_g": 25,
+  "portion_label": "1 slice"
+ },
+ {
+  "id": "whole-wheat-bread",
+  "name": "Whole Wheat Bread",
+  "aliases": [
+   "brown bread",
+   "wheat bread",
+   "atta bread",
+   "whole wheat brown bread"
+  ],
+  "category": "grains_breads",
+  "kcal_100g": 250,
+  "protein_100g": 12,
+  "carbs_100g": 43,
+  "fat_100g": 3.5,
+  "default_portion_g": 30,
+  "portion_label": "1 slice"
+ },
+ {
+  "id": "whole-wheat-atta",
+  "name": "Whole Wheat Flour (Atta)",
+  "aliases": [
+   "atta",
+   "aata",
+   "wheat flour",
+   "gehu ka atta",
+   "chakki atta"
+  ],
+  "category": "grains_breads",
+  "kcal_100g": 340,
+  "protein_100g": 13.2,
+  "carbs_100g": 72,
+  "fat_100g": 2.5,
+  "default_portion_g": 30,
+  "portion_label": "1 roti worth"
+ },
+ {
+  "id": "aloo-gobi",
+  "name": "Aloo Gobi",
+  "aliases": [
+   "aloo gobhi",
+   "potato cauliflower sabzi",
+   "alu gobi",
+   "gobi aloo",
+   "aloo gobi ki sabji"
+  ],
+  "category": "indian_curries",
+  "kcal_100g": 112,
+  "protein_100g": 2.5,
+  "carbs_100g": 12,
+  "fat_100g": 6,
+  "default_portion_g": 150,
+  "portion_label": "1 katori"
+ },
+ {
+  "id": "baingan-bharta",
+  "name": "Baingan Bharta",
+  "aliases": [
+   "baigan bharta",
+   "eggplant bharta",
+   "brinjal bharta",
+   "vangyache bharit",
+   "roasted eggplant mash"
+  ],
+  "category": "indian_curries",
+  "kcal_100g": 103,
+  "protein_100g": 2,
+  "carbs_100g": 8,
+  "fat_100g": 7,
+  "default_portion_g": 150,
+  "portion_label": "1 katori"
+ },
+ {
+  "id": "bhindi-masala",
+  "name": "Bhindi Masala",
+  "aliases": [
+   "okra fry",
+   "bhindi fry",
+   "ladyfinger sabzi",
+   "bhindi ki sabji",
+   "okra masala",
+   "bendakaya fry"
+  ],
+  "category": "indian_curries",
+  "kcal_100g": 114,
+  "protein_100g": 2.5,
+  "carbs_100g": 8,
+  "fat_100g": 8,
+  "default_portion_g": 150,
+  "portion_label": "1 katori"
+ },
+ {
+  "id": "butter-chicken",
+  "name": "Butter Chicken",
+  "aliases": [
+   "murgh makhani",
+   "chicken makhani",
+   "makhani chicken",
+   "buttr chicken",
+   "butter chiken"
+  ],
+  "category": "indian_curries",
+  "kcal_100g": 176,
+  "protein_100g": 12,
+  "carbs_100g": 5,
+  "fat_100g": 12,
+  "default_portion_g": 200,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "chana-masala",
+  "name": "Chana Masala (Chole)",
+  "aliases": [
+   "chole",
+   "chickpea curry",
+   "chholay",
+   "punjabi chole",
+   "kabuli chana curry",
+   "chana curry"
+  ],
+  "category": "indian_curries",
+  "kcal_100g": 146,
+  "protein_100g": 7,
+  "carbs_100g": 16,
+  "fat_100g": 6,
+  "default_portion_g": 200,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "chicken-65",
+  "name": "Chicken 65",
+  "aliases": [
+   "chicken sixty five",
+   "chicken65",
+   "fried chicken 65",
+   "hyderabadi chicken 65",
+   "chiken 65"
+  ],
+  "category": "indian_curries",
+  "kcal_100g": 235,
+  "protein_100g": 17,
+  "carbs_100g": 8,
+  "fat_100g": 15,
+  "default_portion_g": 150,
+  "portion_label": "1 plate"
+ },
+ {
+  "id": "chicken-curry-home-style",
+  "name": "Chicken Curry (Home Style)",
+  "aliases": [
+   "desi chicken curry",
+   "murgh curry",
+   "chicken masala",
+   "chicken gravy",
+   "ghar wali chicken curry",
+   "chiken curry"
+  ],
+  "category": "indian_curries",
+  "kcal_100g": 140,
+  "protein_100g": 13,
+  "carbs_100g": 4,
+  "fat_100g": 8,
+  "default_portion_g": 200,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "chicken-tikka-masala",
+  "name": "Chicken Tikka Masala",
+  "aliases": [
+   "tikka masala",
+   "ctm",
+   "chicken tikka gravy",
+   "chiken tikka masala",
+   "murgh tikka masala"
+  ],
+  "category": "indian_curries",
+  "kcal_100g": 167,
+  "protein_100g": 12,
+  "carbs_100g": 5,
+  "fat_100g": 11,
+  "default_portion_g": 200,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "dal-makhani",
+  "name": "Dal Makhani",
+  "aliases": [
+   "black dal",
+   "kali dal",
+   "maa ki dal",
+   "makhani dal",
+   "daal makhani"
+  ],
+  "category": "indian_curries",
+  "kcal_100g": 144,
+  "protein_100g": 6,
+  "carbs_100g": 12,
+  "fat_100g": 8,
+  "default_portion_g": 200,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "dal-tadka",
+  "name": "Dal Tadka",
+  "aliases": [
+   "yellow dal",
+   "dal fry",
+   "tadka dal",
+   "toor dal tadka",
+   "arhar dal",
+   "daal tadka"
+  ],
+  "category": "indian_curries",
+  "kcal_100g": 117,
+  "protein_100g": 6,
+  "carbs_100g": 12,
+  "fat_100g": 5,
+  "default_portion_g": 200,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "dum-aloo",
+  "name": "Dum Aloo",
+  "aliases": [
+   "kashmiri dum aloo",
+   "dam aloo",
+   "aloo dum",
+   "baby potato curry",
+   "alu dum"
+  ],
+  "category": "indian_curries",
+  "kcal_100g": 138,
+  "protein_100g": 2.5,
+  "carbs_100g": 14,
+  "fat_100g": 8,
+  "default_portion_g": 150,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "egg-curry",
+  "name": "Egg Curry",
+  "aliases": [
+   "anda curry",
+   "anda masala",
+   "egg masala",
+   "dimer jhol",
+   "boiled egg gravy"
+  ],
+  "category": "indian_curries",
+  "kcal_100g": 138,
+  "protein_100g": 8,
+  "carbs_100g": 4,
+  "fat_100g": 10,
+  "default_portion_g": 200,
+  "portion_label": "1 bowl (2 eggs)"
+ },
+ {
+  "id": "fish-curry",
+  "name": "Fish Curry",
+  "aliases": [
+   "machli curry",
+   "macher jhol",
+   "meen curry",
+   "fish masala",
+   "machha jhola",
+   "fish gravy"
+  ],
+  "category": "indian_curries",
+  "kcal_100g": 136,
+  "protein_100g": 12,
+  "carbs_100g": 4,
+  "fat_100g": 8,
+  "default_portion_g": 200,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "kadhai-paneer",
+  "name": "Kadhai Paneer",
+  "aliases": [
+   "karahi paneer",
+   "kadai paneer",
+   "kadhai panner",
+   "paneer karahi",
+   "capsicum paneer masala"
+  ],
+  "category": "indian_curries",
+  "kcal_100g": 168,
+  "protein_100g": 8,
+  "carbs_100g": 7,
+  "fat_100g": 12,
+  "default_portion_g": 150,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "kadhi",
+  "name": "Kadhi",
+  "aliases": [
+   "kadhi pakora",
+   "punjabi kadhi",
+   "gujarati kadhi",
+   "curd curry",
+   "besan kadhi",
+   "karhi"
+  ],
+  "category": "indian_curries",
+  "kcal_100g": 98,
+  "protein_100g": 4,
+  "carbs_100g": 7,
+  "fat_100g": 6,
+  "default_portion_g": 200,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "mutton-keema",
+  "name": "Keema",
+  "aliases": [
+   "kheema",
+   "mutton keema",
+   "keema matar",
+   "minced meat curry",
+   "qeema",
+   "kima"
+  ],
+  "category": "indian_curries",
+  "kcal_100g": 189,
+  "protein_100g": 14,
+  "carbs_100g": 4,
+  "fat_100g": 13,
+  "default_portion_g": 150,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "malai-kofta",
+  "name": "Malai Kofta",
+  "aliases": [
+   "malai kofta curry",
+   "paneer kofta",
+   "kofta curry",
+   "malai kofte",
+   "veg kofta gravy"
+  ],
+  "category": "indian_curries",
+  "kcal_100g": 212,
+  "protein_100g": 5,
+  "carbs_100g": 12,
+  "fat_100g": 16,
+  "default_portion_g": 150,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "matar-paneer",
+  "name": "Matar Paneer",
+  "aliases": [
+   "mutter paneer",
+   "peas paneer",
+   "matar panner",
+   "paneer matar",
+   "green pea paneer curry"
+  ],
+  "category": "indian_curries",
+  "kcal_100g": 150,
+  "protein_100g": 7,
+  "carbs_100g": 8,
+  "fat_100g": 10,
+  "default_portion_g": 150,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "mixed-veg-sabzi",
+  "name": "Mixed Veg Sabzi",
+  "aliases": [
+   "mix veg",
+   "mixed vegetable curry",
+   "veg sabji",
+   "sabzi",
+   "mixed veg dry",
+   "milijuli sabzi"
+  ],
+  "category": "indian_curries",
+  "kcal_100g": 106,
+  "protein_100g": 3,
+  "carbs_100g": 10,
+  "fat_100g": 6,
+  "default_portion_g": 150,
+  "portion_label": "1 katori"
+ },
+ {
+  "id": "mutton-curry-rogan-josh",
+  "name": "Mutton Curry (Rogan Josh)",
+  "aliases": [
+   "rogan josh",
+   "mutton masala",
+   "gosht curry",
+   "lamb curry",
+   "mutton gravy",
+   "roganjosh"
+  ],
+  "category": "indian_curries",
+  "kcal_100g": 176,
+  "protein_100g": 14,
+  "carbs_100g": 3,
+  "fat_100g": 12,
+  "default_portion_g": 200,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "navratan-korma",
+  "name": "Navratan Korma",
+  "aliases": [
+   "navratna korma",
+   "navrattan korma",
+   "nine gem korma",
+   "veg korma creamy",
+   "navratan kurma"
+  ],
+  "category": "indian_curries",
+  "kcal_100g": 168,
+  "protein_100g": 4,
+  "carbs_100g": 11,
+  "fat_100g": 12,
+  "default_portion_g": 150,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "palak-paneer",
+  "name": "Palak Paneer",
+  "aliases": [
+   "spinach paneer",
+   "saag paneer",
+   "palak panner",
+   "paneer palak",
+   "spinach cottage cheese curry"
+  ],
+  "category": "indian_curries",
+  "kcal_100g": 147,
+  "protein_100g": 7,
+  "carbs_100g": 5,
+  "fat_100g": 11,
+  "default_portion_g": 150,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "paneer-butter-masala",
+  "name": "Paneer Butter Masala",
+  "aliases": [
+   "paneer makhani",
+   "butter paneer",
+   "paneer makhanwala",
+   "panner butter masala",
+   "pbm"
+  ],
+  "category": "indian_curries",
+  "kcal_100g": 197,
+  "protein_100g": 8,
+  "carbs_100g": 7,
+  "fat_100g": 15,
+  "default_portion_g": 150,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "paneer-tikka",
+  "name": "Paneer Tikka",
+  "aliases": [
+   "panner tikka",
+   "grilled paneer",
+   "paneer tikka dry",
+   "tandoori paneer",
+   "paner tikka"
+  ],
+  "category": "indian_curries",
+  "kcal_100g": 233,
+  "protein_100g": 15,
+  "carbs_100g": 5,
+  "fat_100g": 17,
+  "default_portion_g": 100,
+  "portion_label": "4 pieces"
+ },
+ {
+  "id": "pav-bhaji-bhaji",
+  "name": "Pav Bhaji (Bhaji only)",
+  "aliases": [
+   "bhaji",
+   "pav bhaji masala",
+   "mumbai bhaji",
+   "paav bhaji",
+   "bhaji gravy"
+  ],
+  "category": "indian_curries",
+  "kcal_100g": 123,
+  "protein_100g": 3,
+  "carbs_100g": 12,
+  "fat_100g": 7,
+  "default_portion_g": 200,
+  "portion_label": "1 plate bhaji"
+ },
+ {
+  "id": "rajma-curry",
+  "name": "Rajma",
+  "aliases": [
+   "kidney bean curry",
+   "rajma masala",
+   "rajmah",
+   "red bean curry",
+   "rajma chawal beans"
+  ],
+  "category": "indian_curries",
+  "kcal_100g": 127,
+  "protein_100g": 6.5,
+  "carbs_100g": 15,
+  "fat_100g": 4.5,
+  "default_portion_g": 200,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "sarson-ka-saag",
+  "name": "Saag (Sarson ka Saag)",
+  "aliases": [
+   "sarson da saag",
+   "mustard greens curry",
+   "saag sabzi",
+   "punjabi saag",
+   "sarso ka saag"
+  ],
+  "category": "indian_curries",
+  "kcal_100g": 101,
+  "protein_100g": 3.5,
+  "carbs_100g": 6,
+  "fat_100g": 7,
+  "default_portion_g": 150,
+  "portion_label": "1 katori"
+ },
+ {
+  "id": "sambar",
+  "name": "Sambar",
+  "aliases": [
+   "sambhar",
+   "south indian dal",
+   "sambar dal",
+   "saambar",
+   "lentil vegetable stew"
+  ],
+  "category": "indian_curries",
+  "kcal_100g": 67,
+  "protein_100g": 3,
+  "carbs_100g": 8,
+  "fat_100g": 2.5,
+  "default_portion_g": 200,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "tandoori-chicken",
+  "name": "Tandoori Chicken",
+  "aliases": [
+   "tandoori murgh",
+   "tanduri chicken",
+   "tandoori chiken",
+   "grilled chicken tandoori",
+   "chicken tandoori"
+  ],
+  "category": "indian_curries",
+  "kcal_100g": 185,
+  "protein_100g": 24,
+  "carbs_100g": 2,
+  "fat_100g": 9,
+  "default_portion_g": 150,
+  "portion_label": "2 pieces"
+ },
+ {
+  "id": "veg-kurma",
+  "name": "Veg Kurma",
+  "aliases": [
+   "vegetable korma",
+   "veg korma",
+   "kurma",
+   "hotel style kurma",
+   "coconut veg korma"
+  ],
+  "category": "indian_curries",
+  "kcal_100g": 135,
+  "protein_100g": 3.5,
+  "carbs_100g": 10,
+  "fat_100g": 9,
+  "default_portion_g": 150,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "aloo-paratha",
+  "name": "Aloo Paratha",
+  "aliases": [
+   "alu paratha",
+   "aloo parantha",
+   "potato paratha",
+   "allu paratha"
+  ],
+  "category": "indian_staples",
+  "kcal_100g": 265,
+  "protein_100g": 6,
+  "carbs_100g": 38,
+  "fat_100g": 10,
+  "default_portion_g": 100,
+  "portion_label": "1 paratha"
+ },
+ {
+  "id": "appam",
+  "name": "Appam",
+  "aliases": [
+   "aappam",
+   "palappam",
+   "hoppers",
+   "vellayappam"
+  ],
+  "category": "indian_staples",
+  "kcal_100g": 120,
+  "protein_100g": 2.5,
+  "carbs_100g": 23,
+  "fat_100g": 2,
+  "default_portion_g": 60,
+  "portion_label": "1 appam"
+ },
+ {
+  "id": "bajra-roti",
+  "name": "Bajra Roti",
+  "aliases": [
+   "bajra bhakri",
+   "pearl millet roti",
+   "bajre ki roti",
+   "sajje rotti"
+  ],
+  "category": "indian_staples",
+  "kcal_100g": 264,
+  "protein_100g": 9,
+  "carbs_100g": 48,
+  "fat_100g": 4,
+  "default_portion_g": 60,
+  "portion_label": "1 roti"
+ },
+ {
+  "id": "basmati-rice-cooked",
+  "name": "Basmati Rice (Cooked)",
+  "aliases": [
+   "basmati chawal",
+   "basmathi rice",
+   "steamed basmati",
+   "long grain rice"
+  ],
+  "category": "indian_staples",
+  "kcal_100g": 132,
+  "protein_100g": 3,
+  "carbs_100g": 29,
+  "fat_100g": 0.4,
+  "default_portion_g": 150,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "bhatura",
+  "name": "Bhatura",
+  "aliases": [
+   "bhature",
+   "batura",
+   "bhatoora",
+   "chole bhature bread"
+  ],
+  "category": "indian_staples",
+  "kcal_100g": 330,
+  "protein_100g": 8,
+  "carbs_100g": 45,
+  "fat_100g": 13,
+  "default_portion_g": 85,
+  "portion_label": "1 bhatura"
+ },
+ {
+  "id": "brown-rice-cooked",
+  "name": "Brown Rice (Cooked)",
+  "aliases": [
+   "brown chawal",
+   "whole grain rice",
+   "brwon rice",
+   "unpolished rice"
+  ],
+  "category": "indian_staples",
+  "kcal_100g": 123,
+  "protein_100g": 2.7,
+  "carbs_100g": 25.6,
+  "fat_100g": 1,
+  "default_portion_g": 150,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "chicken-biryani",
+  "name": "Chicken Biryani",
+  "aliases": [
+   "biryani",
+   "chicken biriyani",
+   "murgh biryani",
+   "chiken biryani",
+   "chicken biriani"
+  ],
+  "category": "indian_staples",
+  "kcal_100g": 165,
+  "protein_100g": 8.5,
+  "carbs_100g": 18,
+  "fat_100g": 6.5,
+  "default_portion_g": 250,
+  "portion_label": "1 plate"
+ },
+ {
+  "id": "curd-rice",
+  "name": "Curd Rice",
+  "aliases": [
+   "dahi chawal",
+   "thayir sadam",
+   "yogurt rice",
+   "daddojanam",
+   "mosaranna"
+  ],
+  "category": "indian_staples",
+  "kcal_100g": 105,
+  "protein_100g": 3,
+  "carbs_100g": 17,
+  "fat_100g": 2.8,
+  "default_portion_g": 200,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "dalia-porridge",
+  "name": "Dalia (Broken Wheat Porridge)",
+  "aliases": [
+   "daliya",
+   "broken wheat porridge",
+   "bulgur porridge",
+   "godhuma rava",
+   "cracked wheat"
+  ],
+  "category": "indian_staples",
+  "kcal_100g": 98,
+  "protein_100g": 3,
+  "carbs_100g": 18,
+  "fat_100g": 1.5,
+  "default_portion_g": 200,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "idli-steamed",
+  "name": "Idli",
+  "aliases": [
+   "idly",
+   "idlee",
+   "rice idli",
+   "steamed idli"
+  ],
+  "category": "indian_staples",
+  "kcal_100g": 129,
+  "protein_100g": 4,
+  "carbs_100g": 27,
+  "fat_100g": 0.5,
+  "default_portion_g": 60,
+  "portion_label": "1 idli"
+ },
+ {
+  "id": "jeera-rice",
+  "name": "Jeera Rice",
+  "aliases": [
+   "cumin rice",
+   "zeera rice",
+   "jira rice",
+   "jeera chawal"
+  ],
+  "category": "indian_staples",
+  "kcal_100g": 160,
+  "protein_100g": 3,
+  "carbs_100g": 27,
+  "fat_100g": 4.5,
+  "default_portion_g": 150,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "jowar-roti",
+  "name": "Jowar Roti",
+  "aliases": [
+   "jowar bhakri",
+   "sorghum roti",
+   "jwari bhakri",
+   "jonna rotte",
+   "jowar ki roti"
+  ],
+  "category": "indian_staples",
+  "kcal_100g": 250,
+  "protein_100g": 8,
+  "carbs_100g": 50,
+  "fat_100g": 2,
+  "default_portion_g": 55,
+  "portion_label": "1 roti"
+ },
+ {
+  "id": "khichdi-moong-dal",
+  "name": "Khichdi (Rice & Moong Dal)",
+  "aliases": [
+   "khichri",
+   "kichdi",
+   "moong dal khichdi",
+   "khichadi",
+   "kitchari"
+  ],
+  "category": "indian_staples",
+  "kcal_100g": 121,
+  "protein_100g": 4.5,
+  "carbs_100g": 19,
+  "fat_100g": 3,
+  "default_portion_g": 250,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "kulcha",
+  "name": "Kulcha",
+  "aliases": [
+   "plain kulcha",
+   "amritsari kulcha",
+   "kulchas",
+   "kulcha naan"
+  ],
+  "category": "indian_staples",
+  "kcal_100g": 297,
+  "protein_100g": 8.5,
+  "carbs_100g": 50,
+  "fat_100g": 7,
+  "default_portion_g": 80,
+  "portion_label": "1 kulcha"
+ },
+ {
+  "id": "lemon-rice",
+  "name": "Lemon Rice",
+  "aliases": [
+   "nimbu rice",
+   "chitranna",
+   "elumichai sadam",
+   "nimmakaya pulihora"
+  ],
+  "category": "indian_staples",
+  "kcal_100g": 148,
+  "protein_100g": 2.8,
+  "carbs_100g": 24,
+  "fat_100g": 4.5,
+  "default_portion_g": 180,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "makki-roti",
+  "name": "Makki Roti",
+  "aliases": [
+   "makki ki roti",
+   "makke ki roti",
+   "corn roti",
+   "maize roti"
+  ],
+  "category": "indian_staples",
+  "kcal_100g": 274,
+  "protein_100g": 6.5,
+  "carbs_100g": 44,
+  "fat_100g": 8,
+  "default_portion_g": 65,
+  "portion_label": "1 roti"
+ },
+ {
+  "id": "masala-dosa",
+  "name": "Masala Dosa",
+  "aliases": [
+   "masala dosai",
+   "masala dhosa",
+   "potato dosa",
+   "masala dose"
+  ],
+  "category": "indian_staples",
+  "kcal_100g": 164,
+  "protein_100g": 3.5,
+  "carbs_100g": 25,
+  "fat_100g": 5.5,
+  "default_portion_g": 180,
+  "portion_label": "1 dosa"
+ },
+ {
+  "id": "naan-plain",
+  "name": "Naan",
+  "aliases": [
+   "nan",
+   "butter naan",
+   "plain nan",
+   "tandoori naan"
+  ],
+  "category": "indian_staples",
+  "kcal_100g": 310,
+  "protein_100g": 9,
+  "carbs_100g": 50,
+  "fat_100g": 8,
+  "default_portion_g": 90,
+  "portion_label": "1 naan"
+ },
+ {
+  "id": "dosa-plain",
+  "name": "Plain Dosa",
+  "aliases": [
+   "dosai",
+   "sada dosa",
+   "dhosa",
+   "plain dose",
+   "paper dosa"
+  ],
+  "category": "indian_staples",
+  "kcal_100g": 185,
+  "protein_100g": 4,
+  "carbs_100g": 30,
+  "fat_100g": 5.5,
+  "default_portion_g": 100,
+  "portion_label": "1 dosa"
+ },
+ {
+  "id": "paratha-plain",
+  "name": "Plain Paratha",
+  "aliases": [
+   "parantha",
+   "plain parantha",
+   "tawa paratha",
+   "parota",
+   "paratha roti"
+  ],
+  "category": "indian_staples",
+  "kcal_100g": 320,
+  "protein_100g": 8,
+  "carbs_100g": 45,
+  "fat_100g": 12,
+  "default_portion_g": 70,
+  "portion_label": "1 paratha"
+ },
+ {
+  "id": "poha-cooked",
+  "name": "Poha",
+  "aliases": [
+   "pohe",
+   "flattened rice",
+   "kanda poha",
+   "avalakki",
+   "chivda poha"
+  ],
+  "category": "indian_staples",
+  "kcal_100g": 149,
+  "protein_100g": 3,
+  "carbs_100g": 24,
+  "fat_100g": 4.5,
+  "default_portion_g": 180,
+  "portion_label": "1 plate"
+ },
+ {
+  "id": "puri-fried",
+  "name": "Puri",
+  "aliases": [
+   "poori",
+   "pooris",
+   "puri bhaji bread",
+   "fried puri"
+  ],
+  "category": "indian_staples",
+  "kcal_100g": 375,
+  "protein_100g": 7.5,
+  "carbs_100g": 45,
+  "fat_100g": 18,
+  "default_portion_g": 25,
+  "portion_label": "1 puri"
+ },
+ {
+  "id": "roti-chapati-plain",
+  "name": "Roti (Plain Chapati)",
+  "aliases": [
+   "chapati",
+   "phulka",
+   "chapathi",
+   "fulka",
+   "whole wheat roti"
+  ],
+  "category": "indian_staples",
+  "kcal_100g": 268,
+  "protein_100g": 9.5,
+  "carbs_100g": 50,
+  "fat_100g": 3.5,
+  "default_portion_g": 40,
+  "portion_label": "1 roti"
+ },
+ {
+  "id": "sabudana-khichdi",
+  "name": "Sabudana Khichdi",
+  "aliases": [
+   "sago khichdi",
+   "sabudana kichdi",
+   "tapioca khichdi",
+   "sabudana khichadi",
+   "sabu dana khichdi"
+  ],
+  "category": "indian_staples",
+  "kcal_100g": 212,
+  "protein_100g": 3,
+  "carbs_100g": 32,
+  "fat_100g": 8,
+  "default_portion_g": 180,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "tandoori-roti",
+  "name": "Tandoori Roti",
+  "aliases": [
+   "tandoor roti",
+   "tanduri roti",
+   "tandori roti",
+   "clay oven roti"
+  ],
+  "category": "indian_staples",
+  "kcal_100g": 280,
+  "protein_100g": 10,
+  "carbs_100g": 54,
+  "fat_100g": 3,
+  "default_portion_g": 55,
+  "portion_label": "1 roti"
+ },
+ {
+  "id": "thepla",
+  "name": "Thepla",
+  "aliases": [
+   "methi thepla",
+   "dhebra",
+   "teplas",
+   "gujarati thepla"
+  ],
+  "category": "indian_staples",
+  "kcal_100g": 282,
+  "protein_100g": 8,
+  "carbs_100g": 40,
+  "fat_100g": 10,
+  "default_portion_g": 45,
+  "portion_label": "1 thepla"
+ },
+ {
+  "id": "upma-rava",
+  "name": "Upma",
+  "aliases": [
+   "rava upma",
+   "uppma",
+   "suji upma",
+   "uppittu",
+   "sooji upma"
+  ],
+  "category": "indian_staples",
+  "kcal_100g": 156,
+  "protein_100g": 3.5,
+  "carbs_100g": 22,
+  "fat_100g": 6,
+  "default_portion_g": 180,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "uttapam",
+  "name": "Uttapam",
+  "aliases": [
+   "uthappam",
+   "utappam",
+   "oothappam",
+   "onion uttapam"
+  ],
+  "category": "indian_staples",
+  "kcal_100g": 167,
+  "protein_100g": 4.5,
+  "carbs_100g": 27,
+  "fat_100g": 4.5,
+  "default_portion_g": 120,
+  "portion_label": "1 uttapam"
+ },
+ {
+  "id": "veg-biryani",
+  "name": "Vegetable Biryani",
+  "aliases": [
+   "veg biriyani",
+   "vegetable biriyani",
+   "sabzi biryani",
+   "veg biriani"
+  ],
+  "category": "indian_staples",
+  "kcal_100g": 139,
+  "protein_100g": 3,
+  "carbs_100g": 21,
+  "fat_100g": 4.8,
+  "default_portion_g": 250,
+  "portion_label": "1 plate"
+ },
+ {
+  "id": "veg-pulao",
+  "name": "Vegetable Pulao",
+  "aliases": [
+   "pulav",
+   "pilaf",
+   "pulao rice",
+   "veg pulav",
+   "pilau"
+  ],
+  "category": "indian_staples",
+  "kcal_100g": 143,
+  "protein_100g": 3,
+  "carbs_100g": 23,
+  "fat_100g": 4.3,
+  "default_portion_g": 200,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "vermicelli-upma",
+  "name": "Vermicelli Upma",
+  "aliases": [
+   "semiya upma",
+   "seviyan upma",
+   "shavige bath",
+   "sevai upma",
+   "namkeen seviyan"
+  ],
+  "category": "indian_staples",
+  "kcal_100g": 155,
+  "protein_100g": 3.5,
+  "carbs_100g": 25,
+  "fat_100g": 4.5,
+  "default_portion_g": 180,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "white-rice-cooked",
+  "name": "White Rice (Cooked)",
+  "aliases": [
+   "chawal",
+   "plain rice",
+   "steamed rice",
+   "boiled rice",
+   "sada chawal"
+  ],
+  "category": "indian_staples",
+  "kcal_100g": 130,
+  "protein_100g": 2.7,
+  "carbs_100g": 28.2,
+  "fat_100g": 0.3,
+  "default_portion_g": 150,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "almonds-raw",
+  "name": "Almonds",
+  "aliases": [
+   "badam",
+   "almond",
+   "baadam",
+   "almnds",
+   "raw almonds"
+  ],
+  "category": "legumes_nuts",
+  "kcal_100g": 579,
+  "protein_100g": 21.2,
+  "carbs_100g": 21.6,
+  "fat_100g": 49.9,
+  "default_portion_g": 28,
+  "portion_label": "1 handful (~23 nuts)"
+ },
+ {
+  "id": "kala-chana-boiled",
+  "name": "Black Chana (boiled)",
+  "aliases": [
+   "kala chana boiled",
+   "black chickpeas boiled",
+   "desi chana boiled",
+   "bengal gram whole boiled",
+   "kale chane"
+  ],
+  "category": "legumes_nuts",
+  "kcal_100g": 150,
+  "protein_100g": 8.5,
+  "carbs_100g": 24,
+  "fat_100g": 2.5,
+  "default_portion_g": 150,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "cashews-raw",
+  "name": "Cashews",
+  "aliases": [
+   "kaju",
+   "cashew nut",
+   "kajoo",
+   "cashew",
+   "kaju nuts"
+  ],
+  "category": "legumes_nuts",
+  "kcal_100g": 553,
+  "protein_100g": 18.2,
+  "carbs_100g": 30.2,
+  "fat_100g": 43.9,
+  "default_portion_g": 28,
+  "portion_label": "1 handful (~18 nuts)"
+ },
+ {
+  "id": "chana-dal-dry",
+  "name": "Chana Dal (dry)",
+  "aliases": [
+   "bengal gram dal",
+   "chana daal",
+   "split chickpea dal",
+   "chane ki dal"
+  ],
+  "category": "legumes_nuts",
+  "kcal_100g": 360,
+  "protein_100g": 21.5,
+  "carbs_100g": 59,
+  "fat_100g": 5.3,
+  "default_portion_g": 30,
+  "portion_label": "1 serving (dry)"
+ },
+ {
+  "id": "chia-seeds",
+  "name": "Chia Seeds",
+  "aliases": [
+   "chia",
+   "chia seed",
+   "chiya seeds",
+   "chia beej"
+  ],
+  "category": "legumes_nuts",
+  "kcal_100g": 486,
+  "protein_100g": 16.5,
+  "carbs_100g": 42.1,
+  "fat_100g": 30.7,
+  "default_portion_g": 12,
+  "portion_label": "1 tbsp"
+ },
+ {
+  "id": "chickpeas-boiled",
+  "name": "Chickpeas (boiled)",
+  "aliases": [
+   "kabuli chana boiled",
+   "chole boiled",
+   "garbanzo beans",
+   "safed chana boiled",
+   "chickpea cooked"
+  ],
+  "category": "legumes_nuts",
+  "kcal_100g": 164,
+  "protein_100g": 8.9,
+  "carbs_100g": 27.4,
+  "fat_100g": 2.6,
+  "default_portion_g": 150,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "edamame-boiled",
+  "name": "Edamame (boiled)",
+  "aliases": [
+   "green soybeans",
+   "edamame beans",
+   "soya beans boiled",
+   "edamme",
+   "young soybeans"
+  ],
+  "category": "legumes_nuts",
+  "kcal_100g": 121,
+  "protein_100g": 11.9,
+  "carbs_100g": 8.9,
+  "fat_100g": 5.2,
+  "default_portion_g": 80,
+  "portion_label": "1/2 cup (shelled)"
+ },
+ {
+  "id": "flax-seeds",
+  "name": "Flax Seeds",
+  "aliases": [
+   "alsi",
+   "flaxseed",
+   "linseed",
+   "alsi ke beej",
+   "flax seed"
+  ],
+  "category": "legumes_nuts",
+  "kcal_100g": 534,
+  "protein_100g": 18.3,
+  "carbs_100g": 28.9,
+  "fat_100g": 42.2,
+  "default_portion_g": 10,
+  "portion_label": "1 tbsp"
+ },
+ {
+  "id": "groundnut-chikki",
+  "name": "Groundnut Chikki",
+  "aliases": [
+   "peanut chikki",
+   "moongfali chikki",
+   "gud chikki",
+   "peanut brittle",
+   "sing chikki"
+  ],
+  "category": "legumes_nuts",
+  "kcal_100g": 500,
+  "protein_100g": 14,
+  "carbs_100g": 56,
+  "fat_100g": 25,
+  "default_portion_g": 20,
+  "portion_label": "1 piece"
+ },
+ {
+  "id": "hummus",
+  "name": "Hummus",
+  "aliases": [
+   "humus",
+   "hummus dip",
+   "chickpea dip",
+   "hoummus",
+   "chana dip"
+  ],
+  "category": "legumes_nuts",
+  "kcal_100g": 166,
+  "protein_100g": 7.9,
+  "carbs_100g": 14.3,
+  "fat_100g": 9.6,
+  "default_portion_g": 30,
+  "portion_label": "2 tbsp"
+ },
+ {
+  "id": "lobia-boiled",
+  "name": "Lobia / Black-eyed Peas (boiled)",
+  "aliases": [
+   "black eyed peas boiled",
+   "cowpeas boiled",
+   "chawli boiled",
+   "lobhia",
+   "rongi boiled"
+  ],
+  "category": "legumes_nuts",
+  "kcal_100g": 116,
+  "protein_100g": 7.7,
+  "carbs_100g": 20.8,
+  "fat_100g": 0.5,
+  "default_portion_g": 150,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "makhana-fox-nuts",
+  "name": "Makhana / Fox Nuts",
+  "aliases": [
+   "fox nuts",
+   "phool makhana",
+   "lotus seeds",
+   "makhane",
+   "makhana roasted"
+  ],
+  "category": "legumes_nuts",
+  "kcal_100g": 347,
+  "protein_100g": 9.7,
+  "carbs_100g": 76.9,
+  "fat_100g": 0.1,
+  "default_portion_g": 25,
+  "portion_label": "1 bowl (roasted)"
+ },
+ {
+  "id": "masoor-dal-dry",
+  "name": "Masoor Dal (dry)",
+  "aliases": [
+   "red lentil",
+   "masur dal",
+   "masoor daal",
+   "lal masoor",
+   "pink lentil"
+  ],
+  "category": "legumes_nuts",
+  "kcal_100g": 352,
+  "protein_100g": 24.5,
+  "carbs_100g": 63.3,
+  "fat_100g": 1.1,
+  "default_portion_g": 30,
+  "portion_label": "1 serving (dry)"
+ },
+ {
+  "id": "moong-dal-dry",
+  "name": "Moong Dal (dry)",
+  "aliases": [
+   "mung dal",
+   "moong daal",
+   "yellow moong dal",
+   "green gram dal split",
+   "mung daal"
+  ],
+  "category": "legumes_nuts",
+  "kcal_100g": 347,
+  "protein_100g": 24,
+  "carbs_100g": 62.6,
+  "fat_100g": 1.2,
+  "default_portion_g": 30,
+  "portion_label": "1 serving (dry)"
+ },
+ {
+  "id": "moong-sprouts",
+  "name": "Moong Sprouts",
+  "aliases": [
+   "sprouted moong",
+   "mung sprouts",
+   "ankurit moong",
+   "moong sprout salad",
+   "sprouts"
+  ],
+  "category": "legumes_nuts",
+  "kcal_100g": 105,
+  "protein_100g": 7.5,
+  "carbs_100g": 18.5,
+  "fat_100g": 0.5,
+  "default_portion_g": 100,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "peanuts-roasted",
+  "name": "Peanuts (roasted)",
+  "aliases": [
+   "moongfali",
+   "roasted groundnut",
+   "sing dana",
+   "mungfali bhuni",
+   "peanut roasted"
+  ],
+  "category": "legumes_nuts",
+  "kcal_100g": 587,
+  "protein_100g": 23.7,
+  "carbs_100g": 21.5,
+  "fat_100g": 49.7,
+  "default_portion_g": 30,
+  "portion_label": "1 handful"
+ },
+ {
+  "id": "pistachios-raw",
+  "name": "Pistachios",
+  "aliases": [
+   "pista",
+   "pistachio",
+   "pistas",
+   "pista nuts"
+  ],
+  "category": "legumes_nuts",
+  "kcal_100g": 560,
+  "protein_100g": 20.2,
+  "carbs_100g": 27.2,
+  "fat_100g": 45.3,
+  "default_portion_g": 28,
+  "portion_label": "1 handful (~49 kernels)"
+ },
+ {
+  "id": "pumpkin-seeds",
+  "name": "Pumpkin Seeds",
+  "aliases": [
+   "pepitas",
+   "kaddu ke beej",
+   "pumpkin seed",
+   "kaddu beej"
+  ],
+  "category": "legumes_nuts",
+  "kcal_100g": 559,
+  "protein_100g": 30.2,
+  "carbs_100g": 10.7,
+  "fat_100g": 49.1,
+  "default_portion_g": 15,
+  "portion_label": "1 tbsp"
+ },
+ {
+  "id": "rajma-boiled",
+  "name": "Rajma / Kidney Beans (boiled)",
+  "aliases": [
+   "kidney beans boiled",
+   "rajmah",
+   "red beans boiled",
+   "rajma cooked",
+   "rajma uble"
+  ],
+  "category": "legumes_nuts",
+  "kcal_100g": 127,
+  "protein_100g": 8.7,
+  "carbs_100g": 22.8,
+  "fat_100g": 0.5,
+  "default_portion_g": 150,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "sesame-seeds",
+  "name": "Sesame Seeds",
+  "aliases": [
+   "til",
+   "safed til",
+   "sesame",
+   "gingelly seeds",
+   "til seeds"
+  ],
+  "category": "legumes_nuts",
+  "kcal_100g": 573,
+  "protein_100g": 17.7,
+  "carbs_100g": 23.4,
+  "fat_100g": 49.7,
+  "default_portion_g": 9,
+  "portion_label": "1 tbsp"
+ },
+ {
+  "id": "soybean-dry",
+  "name": "Soybean (dry)",
+  "aliases": [
+   "soya bean",
+   "soyabean",
+   "soy bean raw",
+   "bhatmas",
+   "soyabean dana"
+  ],
+  "category": "legumes_nuts",
+  "kcal_100g": 446,
+  "protein_100g": 36.5,
+  "carbs_100g": 30.2,
+  "fat_100g": 19.9,
+  "default_portion_g": 30,
+  "portion_label": "1 serving (dry)"
+ },
+ {
+  "id": "sunflower-seeds",
+  "name": "Sunflower Seeds",
+  "aliases": [
+   "surajmukhi ke beej",
+   "sunflower seed",
+   "sunflower kernels",
+   "surajmukhi beej"
+  ],
+  "category": "legumes_nuts",
+  "kcal_100g": 584,
+  "protein_100g": 20.8,
+  "carbs_100g": 20,
+  "fat_100g": 51.5,
+  "default_portion_g": 15,
+  "portion_label": "1 tbsp"
+ },
+ {
+  "id": "toor-dal-dry",
+  "name": "Toor Dal (dry)",
+  "aliases": [
+   "arhar dal",
+   "tur dal",
+   "pigeon pea split",
+   "tuvar dal",
+   "toor daal"
+  ],
+  "category": "legumes_nuts",
+  "kcal_100g": 343,
+  "protein_100g": 22,
+  "carbs_100g": 63,
+  "fat_100g": 1.5,
+  "default_portion_g": 30,
+  "portion_label": "1 serving (dry)"
+ },
+ {
+  "id": "urad-dal-dry",
+  "name": "Urad Dal (dry)",
+  "aliases": [
+   "black gram dal",
+   "urad daal",
+   "urd dal",
+   "white urad",
+   "dhuli urad"
+  ],
+  "category": "legumes_nuts",
+  "kcal_100g": 341,
+  "protein_100g": 25,
+  "carbs_100g": 59,
+  "fat_100g": 1.6,
+  "default_portion_g": 30,
+  "portion_label": "1 serving (dry)"
+ },
+ {
+  "id": "walnuts-raw",
+  "name": "Walnuts",
+  "aliases": [
+   "akhrot",
+   "walnut",
+   "akhrott",
+   "walnut halves"
+  ],
+  "category": "legumes_nuts",
+  "kcal_100g": 654,
+  "protein_100g": 15.2,
+  "carbs_100g": 13.7,
+  "fat_100g": 65.2,
+  "default_portion_g": 28,
+  "portion_label": "1 handful (~7 halves)"
+ },
+ {
+  "id": "moong-whole-boiled",
+  "name": "Whole Moong (boiled)",
+  "aliases": [
+   "boiled moong",
+   "sabut moong boiled",
+   "green moong cooked",
+   "mung beans boiled",
+   "hara moong uble"
+  ],
+  "category": "legumes_nuts",
+  "kcal_100g": 105,
+  "protein_100g": 7,
+  "carbs_100g": 19.2,
+  "fat_100g": 0.4,
+  "default_portion_g": 150,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "bacon-cooked",
+  "name": "Bacon (cooked)",
+  "aliases": [
+   "bacon strips",
+   "pork bacon",
+   "bekan",
+   "bacon rasher"
+  ],
+  "category": "meats_eggs",
+  "kcal_100g": 541,
+  "protein_100g": 37,
+  "carbs_100g": 1.4,
+  "fat_100g": 42,
+  "default_portion_g": 10,
+  "portion_label": "1 rasher"
+ },
+ {
+  "id": "beef-cooked",
+  "name": "Beef (cooked)",
+  "aliases": [
+   "beef",
+   "beef meat",
+   "beef roast",
+   "beef pieces"
+  ],
+  "category": "meats_eggs",
+  "kcal_100g": 250,
+  "protein_100g": 26,
+  "carbs_100g": 0,
+  "fat_100g": 15.4,
+  "default_portion_g": 100,
+  "portion_label": "100 g"
+ },
+ {
+  "id": "boiled-egg",
+  "name": "Boiled Egg",
+  "aliases": [
+   "ubla anda",
+   "hard boiled egg",
+   "boilded egg",
+   "uble ande",
+   "egg boiled"
+  ],
+  "category": "meats_eggs",
+  "kcal_100g": 155,
+  "protein_100g": 12.6,
+  "carbs_100g": 1.1,
+  "fat_100g": 10.6,
+  "default_portion_g": 50,
+  "portion_label": "1 egg"
+ },
+ {
+  "id": "chicken-breast-cooked",
+  "name": "Chicken Breast (cooked/grilled)",
+  "aliases": [
+   "grilled chicken",
+   "grilled chicken breast",
+   "roasted chicken breast",
+   "chicken brest cooked",
+   "chiken breast"
+  ],
+  "category": "meats_eggs",
+  "kcal_100g": 165,
+  "protein_100g": 31,
+  "carbs_100g": 0,
+  "fat_100g": 3.6,
+  "default_portion_g": 100,
+  "portion_label": "1 breast piece (100 g)"
+ },
+ {
+  "id": "chicken-breast-raw",
+  "name": "Chicken Breast (raw)",
+  "aliases": [
+   "raw chicken breast",
+   "murgh breast",
+   "chicken brest",
+   "skinless chicken breast",
+   "chicken breast kacha"
+  ],
+  "category": "meats_eggs",
+  "kcal_100g": 120,
+  "protein_100g": 22.5,
+  "carbs_100g": 0,
+  "fat_100g": 2.6,
+  "default_portion_g": 100,
+  "portion_label": "100 g"
+ },
+ {
+  "id": "chicken-drumstick",
+  "name": "Chicken Drumstick (cooked)",
+  "aliases": [
+   "leg piece",
+   "chicken leg piece",
+   "tangdi",
+   "murgh tangdi",
+   "drumstick chicken"
+  ],
+  "category": "meats_eggs",
+  "kcal_100g": 155,
+  "protein_100g": 24.2,
+  "carbs_100g": 0,
+  "fat_100g": 5.7,
+  "default_portion_g": 70,
+  "portion_label": "1 drumstick"
+ },
+ {
+  "id": "chicken-liver-cooked",
+  "name": "Chicken Liver (cooked)",
+  "aliases": [
+   "kaleji",
+   "murgh kaleji",
+   "liver",
+   "chicken kaleji",
+   "kalezi"
+  ],
+  "category": "meats_eggs",
+  "kcal_100g": 167,
+  "protein_100g": 24.5,
+  "carbs_100g": 0.9,
+  "fat_100g": 6.5,
+  "default_portion_g": 100,
+  "portion_label": "100 g"
+ },
+ {
+  "id": "chicken-thigh-cooked",
+  "name": "Chicken Thigh (cooked)",
+  "aliases": [
+   "roasted chicken thigh",
+   "grilled chicken thigh",
+   "chicken leg meat",
+   "chiken thigh cooked"
+  ],
+  "category": "meats_eggs",
+  "kcal_100g": 179,
+  "protein_100g": 24.5,
+  "carbs_100g": 0,
+  "fat_100g": 8.1,
+  "default_portion_g": 100,
+  "portion_label": "1 thigh (100 g)"
+ },
+ {
+  "id": "chicken-thigh-raw",
+  "name": "Chicken Thigh (raw)",
+  "aliases": [
+   "raw chicken thigh",
+   "murgh thigh",
+   "boneless chicken thigh",
+   "chicken thigh kacha"
+  ],
+  "category": "meats_eggs",
+  "kcal_100g": 119,
+  "protein_100g": 19.7,
+  "carbs_100g": 0,
+  "fat_100g": 4.1,
+  "default_portion_g": 100,
+  "portion_label": "100 g"
+ },
+ {
+  "id": "chicken-wings",
+  "name": "Chicken Wings (cooked, with skin)",
+  "aliases": [
+   "wings",
+   "chikn wings",
+   "murgh wings",
+   "chicken wing"
+  ],
+  "category": "meats_eggs",
+  "kcal_100g": 290,
+  "protein_100g": 27,
+  "carbs_100g": 0,
+  "fat_100g": 19.5,
+  "default_portion_g": 35,
+  "portion_label": "1 wing"
+ },
+ {
+  "id": "egg-white",
+  "name": "Egg White",
+  "aliases": [
+   "egg whites",
+   "anda safedi",
+   "albumen",
+   "egg white raw"
+  ],
+  "category": "meats_eggs",
+  "kcal_100g": 52,
+  "protein_100g": 10.9,
+  "carbs_100g": 0.7,
+  "fat_100g": 0.2,
+  "default_portion_g": 33,
+  "portion_label": "1 egg white"
+ },
+ {
+  "id": "egg-yolk",
+  "name": "Egg Yolk",
+  "aliases": [
+   "yolk",
+   "anda zardi",
+   "egg yellow",
+   "yellow of egg"
+  ],
+  "category": "meats_eggs",
+  "kcal_100g": 322,
+  "protein_100g": 15.9,
+  "carbs_100g": 3.6,
+  "fat_100g": 26.5,
+  "default_portion_g": 17,
+  "portion_label": "1 yolk"
+ },
+ {
+  "id": "fish-fried",
+  "name": "Fish Fried",
+  "aliases": [
+   "fried fish",
+   "fish fry",
+   "machli fry",
+   "tali machli",
+   "fish pakora style fry"
+  ],
+  "category": "meats_eggs",
+  "kcal_100g": 225,
+  "protein_100g": 20,
+  "carbs_100g": 6,
+  "fat_100g": 13.5,
+  "default_portion_g": 100,
+  "portion_label": "1 piece"
+ },
+ {
+  "id": "fish-rohu-raw",
+  "name": "Fish Rohu (raw)",
+  "aliases": [
+   "rohu",
+   "rui",
+   "rui fish",
+   "rohu machli",
+   "rohu fish"
+  ],
+  "category": "meats_eggs",
+  "kcal_100g": 95,
+  "protein_100g": 17,
+  "carbs_100g": 0,
+  "fat_100g": 2.8,
+  "default_portion_g": 100,
+  "portion_label": "1 piece (100 g)"
+ },
+ {
+  "id": "ham",
+  "name": "Ham (sliced)",
+  "aliases": [
+   "ham slice",
+   "pork ham",
+   "chicken ham",
+   "sandwich ham"
+  ],
+  "category": "meats_eggs",
+  "kcal_100g": 145,
+  "protein_100g": 18.5,
+  "carbs_100g": 1.5,
+  "fat_100g": 7,
+  "default_portion_g": 30,
+  "portion_label": "1 slice"
+ },
+ {
+  "id": "seekh-kebab",
+  "name": "Kebab (seekh)",
+  "aliases": [
+   "seekh kabab",
+   "sheek kabab",
+   "kabab",
+   "seekh",
+   "mutton seekh kebab"
+  ],
+  "category": "meats_eggs",
+  "kcal_100g": 265,
+  "protein_100g": 18,
+  "carbs_100g": 5,
+  "fat_100g": 19,
+  "default_portion_g": 60,
+  "portion_label": "1 kebab"
+ },
+ {
+  "id": "mutton-cooked",
+  "name": "Mutton/Lamb (cooked)",
+  "aliases": [
+   "mutton",
+   "lamb",
+   "goat meat",
+   "bakra gosht",
+   "mutton pieces"
+  ],
+  "category": "meats_eggs",
+  "kcal_100g": 258,
+  "protein_100g": 25.5,
+  "carbs_100g": 0,
+  "fat_100g": 16.5,
+  "default_portion_g": 100,
+  "portion_label": "100 g"
+ },
+ {
+  "id": "omelette-2-egg",
+  "name": "Omelette (2-egg, with oil)",
+  "aliases": [
+   "omelet",
+   "omlette",
+   "amlet",
+   "anda omelette",
+   "egg omelette",
+   "masala omelette"
+  ],
+  "category": "meats_eggs",
+  "kcal_100g": 200,
+  "protein_100g": 11,
+  "carbs_100g": 1,
+  "fat_100g": 17,
+  "default_portion_g": 110,
+  "portion_label": "1 omelette (2 eggs)"
+ },
+ {
+  "id": "pork-cooked",
+  "name": "Pork (cooked)",
+  "aliases": [
+   "pork",
+   "pork meat",
+   "suar ka meat",
+   "pork roast"
+  ],
+  "category": "meats_eggs",
+  "kcal_100g": 242,
+  "protein_100g": 27,
+  "carbs_100g": 0,
+  "fat_100g": 14,
+  "default_portion_g": 100,
+  "portion_label": "100 g"
+ },
+ {
+  "id": "prawns-shrimp-cooked",
+  "name": "Prawns/Shrimp (cooked)",
+  "aliases": [
+   "prawns",
+   "shrimp",
+   "jhinga",
+   "chingri",
+   "prawn"
+  ],
+  "category": "meats_eggs",
+  "kcal_100g": 99,
+  "protein_100g": 24,
+  "carbs_100g": 0.2,
+  "fat_100g": 0.3,
+  "default_portion_g": 100,
+  "portion_label": "100 g"
+ },
+ {
+  "id": "salmon-raw",
+  "name": "Salmon (raw, farmed)",
+  "aliases": [
+   "salmon fish",
+   "salman fish",
+   "rawas",
+   "atlantic salmon"
+  ],
+  "category": "meats_eggs",
+  "kcal_100g": 208,
+  "protein_100g": 20.4,
+  "carbs_100g": 0,
+  "fat_100g": 13.4,
+  "default_portion_g": 150,
+  "portion_label": "1 fillet"
+ },
+ {
+  "id": "sausage-chicken",
+  "name": "Sausage (chicken)",
+  "aliases": [
+   "chicken sausage",
+   "sausages",
+   "sosej",
+   "chicken frankfurter",
+   "franks"
+  ],
+  "category": "meats_eggs",
+  "kcal_100g": 220,
+  "protein_100g": 14,
+  "carbs_100g": 4,
+  "fat_100g": 16.5,
+  "default_portion_g": 45,
+  "portion_label": "1 sausage"
+ },
+ {
+  "id": "scrambled-eggs",
+  "name": "Scrambled Eggs",
+  "aliases": [
+   "egg bhurji",
+   "anda bhurji",
+   "bhurji",
+   "scrambled egg",
+   "scrambld eggs"
+  ],
+  "category": "meats_eggs",
+  "kcal_100g": 170,
+  "protein_100g": 11,
+  "carbs_100g": 1.5,
+  "fat_100g": 13.5,
+  "default_portion_g": 110,
+  "portion_label": "1 serving (2 eggs)"
+ },
+ {
+  "id": "soya-chunks-dry",
+  "name": "Soya Chunks (dry)",
+  "aliases": [
+   "soya",
+   "nutrela",
+   "soya badi",
+   "soya nuggets",
+   "soyabean chunks",
+   "soya wadi"
+  ],
+  "category": "meats_eggs",
+  "kcal_100g": 345,
+  "protein_100g": 52,
+  "carbs_100g": 33,
+  "fat_100g": 0.5,
+  "default_portion_g": 30,
+  "portion_label": "1 serving (dry)"
+ },
+ {
+  "id": "tofu",
+  "name": "Tofu (firm)",
+  "aliases": [
+   "soya paneer",
+   "bean curd",
+   "tofu paneer",
+   "toffu"
+  ],
+  "category": "meats_eggs",
+  "kcal_100g": 83,
+  "protein_100g": 8.5,
+  "carbs_100g": 2,
+  "fat_100g": 4.5,
+  "default_portion_g": 100,
+  "portion_label": "100 g"
+ },
+ {
+  "id": "tuna-canned-water",
+  "name": "Tuna Canned in Water",
+  "aliases": [
+   "canned tuna",
+   "tuna in water",
+   "tuna can",
+   "tinned tuna",
+   "tuna fish"
+  ],
+  "category": "meats_eggs",
+  "kcal_100g": 116,
+  "protein_100g": 25.5,
+  "carbs_100g": 0,
+  "fat_100g": 0.8,
+  "default_portion_g": 120,
+  "portion_label": "1 small can (drained)"
+ },
+ {
+  "id": "turkey-breast-cooked",
+  "name": "Turkey Breast (cooked)",
+  "aliases": [
+   "turkey",
+   "roast turkey",
+   "turkey slice",
+   "turky breast"
+  ],
+  "category": "meats_eggs",
+  "kcal_100g": 147,
+  "protein_100g": 30.1,
+  "carbs_100g": 0,
+  "fat_100g": 2.1,
+  "default_portion_g": 100,
+  "portion_label": "100 g"
+ },
+ {
+  "id": "whole-egg-raw",
+  "name": "Whole Egg (raw)",
+  "aliases": [
+   "anda",
+   "egg",
+   "raw egg",
+   "unda",
+   "desi anda"
+  ],
+  "category": "meats_eggs",
+  "kcal_100g": 143,
+  "protein_100g": 12.6,
+  "carbs_100g": 0.7,
+  "fat_100g": 9.5,
+  "default_portion_g": 50,
+  "portion_label": "1 egg"
+ },
+ {
+  "id": "aloo-bhujia",
+  "name": "Aloo Bhujia",
+  "aliases": [
+   "bhujia",
+   "bikaneri bhujia",
+   "alu bhujia",
+   "bhujiya",
+   "aloo bhujiya"
+  ],
+  "category": "snacks_street",
+  "kcal_100g": 570,
+  "protein_100g": 9,
+  "carbs_100g": 48,
+  "fat_100g": 38,
+  "default_portion_g": 30,
+  "portion_label": "1 small bowl"
+ },
+ {
+  "id": "aloo-tikki",
+  "name": "Aloo Tikki (shallow-fried)",
+  "aliases": [
+   "alu tikki",
+   "aloo tikiya",
+   "potato tikki",
+   "aloo patty",
+   "ragda pattice"
+  ],
+  "category": "snacks_street",
+  "kcal_100g": 205,
+  "protein_100g": 3.5,
+  "carbs_100g": 26,
+  "fat_100g": 10,
+  "default_portion_g": 80,
+  "portion_label": "1 tikki"
+ },
+ {
+  "id": "banana-chips",
+  "name": "Banana Chips",
+  "aliases": [
+   "kela chips",
+   "kerala chips",
+   "nendran chips",
+   "banana wafers",
+   "kele ke chips"
+  ],
+  "category": "snacks_street",
+  "kcal_100g": 535,
+  "protein_100g": 2.3,
+  "carbs_100g": 58,
+  "fat_100g": 33.5,
+  "default_portion_g": 30,
+  "portion_label": "1 small bowl"
+ },
+ {
+  "id": "bhel-puri",
+  "name": "Bhel Puri",
+  "aliases": [
+   "bhel",
+   "bhelpuri",
+   "jhal muri",
+   "churumuri",
+   "bhel poori"
+  ],
+  "category": "snacks_street",
+  "kcal_100g": 200,
+  "protein_100g": 5,
+  "carbs_100g": 32,
+  "fat_100g": 6,
+  "default_portion_g": 150,
+  "portion_label": "1 plate"
+ },
+ {
+  "id": "bread-pakora",
+  "name": "Bread Pakora",
+  "aliases": [
+   "bread pakoda",
+   "bread bhajiya",
+   "bread fritter",
+   "stuffed bread pakora"
+  ],
+  "category": "snacks_street",
+  "kcal_100g": 295,
+  "protein_100g": 7,
+  "carbs_100g": 33,
+  "fat_100g": 15,
+  "default_portion_g": 100,
+  "portion_label": "1 piece"
+ },
+ {
+  "id": "chana-chaat",
+  "name": "Chana Chaat",
+  "aliases": [
+   "chola chaat",
+   "channa chaat",
+   "chickpea chaat",
+   "chana salad",
+   "kala chana chaat"
+  ],
+  "category": "snacks_street",
+  "kcal_100g": 155,
+  "protein_100g": 7.5,
+  "carbs_100g": 22,
+  "fat_100g": 4,
+  "default_portion_g": 150,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "corn-chaat",
+  "name": "Corn Chaat",
+  "aliases": [
+   "bhutta chaat",
+   "sweet corn chaat",
+   "masala corn",
+   "corn bhel",
+   "makai chaat"
+  ],
+  "category": "snacks_street",
+  "kcal_100g": 135,
+  "protein_100g": 3.5,
+  "carbs_100g": 22,
+  "fat_100g": 3.5,
+  "default_portion_g": 130,
+  "portion_label": "1 cup"
+ },
+ {
+  "id": "veg-cutlet-fried",
+  "name": "Cutlet (veg, fried)",
+  "aliases": [
+   "veg cutlet",
+   "vegetable cutlet",
+   "katlet",
+   "aloo cutlet",
+   "cutlets"
+  ],
+  "category": "snacks_street",
+  "kcal_100g": 240,
+  "protein_100g": 4.5,
+  "carbs_100g": 28,
+  "fat_100g": 12,
+  "default_portion_g": 70,
+  "portion_label": "1 cutlet"
+ },
+ {
+  "id": "dahi-puri",
+  "name": "Dahi Puri",
+  "aliases": [
+   "dahi poori",
+   "dahi batata puri",
+   "dahipuri",
+   "dahi golgappa"
+  ],
+  "category": "snacks_street",
+  "kcal_100g": 180,
+  "protein_100g": 5.5,
+  "carbs_100g": 24,
+  "fat_100g": 7,
+  "default_portion_g": 150,
+  "portion_label": "1 plate (6 puris)"
+ },
+ {
+  "id": "dhokla-steamed",
+  "name": "Dhokla (steamed)",
+  "aliases": [
+   "khaman",
+   "khaman dhokla",
+   "besan dhokla",
+   "dhokra",
+   "dhokala"
+  ],
+  "category": "snacks_street",
+  "kcal_100g": 170,
+  "protein_100g": 7,
+  "carbs_100g": 22,
+  "fat_100g": 6,
+  "default_portion_g": 100,
+  "portion_label": "2 pieces"
+ },
+ {
+  "id": "kachori-fried",
+  "name": "Kachori (fried, dal filling)",
+  "aliases": [
+   "khasta kachori",
+   "kachauri",
+   "dal kachori",
+   "kachodi",
+   "pyaz kachori"
+  ],
+  "category": "snacks_street",
+  "kcal_100g": 425,
+  "protein_100g": 8,
+  "carbs_100g": 40,
+  "fat_100g": 26,
+  "default_portion_g": 50,
+  "portion_label": "1 kachori"
+ },
+ {
+  "id": "khakhra-roasted",
+  "name": "Khakhra (roasted)",
+  "aliases": [
+   "khakra",
+   "kakra",
+   "methi khakhra",
+   "masala khakhra",
+   "khakhara"
+  ],
+  "category": "snacks_street",
+  "kcal_100g": 405,
+  "protein_100g": 12,
+  "carbs_100g": 60,
+  "fat_100g": 13,
+  "default_portion_g": 15,
+  "portion_label": "1 khakhra"
+ },
+ {
+  "id": "khandvi",
+  "name": "Khandvi",
+  "aliases": [
+   "suralichi vadi",
+   "patuli",
+   "dahivadi",
+   "khandavi",
+   "besan rolls"
+  ],
+  "category": "snacks_street",
+  "kcal_100g": 155,
+  "protein_100g": 6,
+  "carbs_100g": 17,
+  "fat_100g": 7,
+  "default_portion_g": 80,
+  "portion_label": "4-5 rolls"
+ },
+ {
+  "id": "mathri-fried",
+  "name": "Mathri (fried)",
+  "aliases": [
+   "matthi",
+   "mathiya",
+   "mathari",
+   "namkeen mathri",
+   "methi mathri"
+  ],
+  "category": "snacks_street",
+  "kcal_100g": 500,
+  "protein_100g": 8,
+  "carbs_100g": 52,
+  "fat_100g": 29,
+  "default_portion_g": 20,
+  "portion_label": "1 piece"
+ },
+ {
+  "id": "misal-pav",
+  "name": "Misal Pav",
+  "aliases": [
+   "misal",
+   "missal pav",
+   "usal pav",
+   "kolhapuri misal",
+   "misal paav"
+  ],
+  "category": "snacks_street",
+  "kcal_100g": 185,
+  "protein_100g": 7,
+  "carbs_100g": 22,
+  "fat_100g": 7.5,
+  "default_portion_g": 350,
+  "portion_label": "1 plate"
+ },
+ {
+  "id": "momos-fried",
+  "name": "Momos (fried)",
+  "aliases": [
+   "fried momo",
+   "crispy momos",
+   "fried momos",
+   "fried dimsum",
+   "kurkure momos"
+  ],
+  "category": "snacks_street",
+  "kcal_100g": 225,
+  "protein_100g": 7.5,
+  "carbs_100g": 26,
+  "fat_100g": 10,
+  "default_portion_g": 150,
+  "portion_label": "1 plate (6 momos)"
+ },
+ {
+  "id": "momos-steamed",
+  "name": "Momos (steamed, veg/chicken)",
+  "aliases": [
+   "momo",
+   "veg momos",
+   "chicken momos",
+   "steamed momo",
+   "dimsum",
+   "momoz"
+  ],
+  "category": "snacks_street",
+  "kcal_100g": 148,
+  "protein_100g": 7,
+  "carbs_100g": 22,
+  "fat_100g": 3.5,
+  "default_portion_g": 150,
+  "portion_label": "1 plate (6 momos)"
+ },
+ {
+  "id": "murukku-chakli",
+  "name": "Murukku / Chakli",
+  "aliases": [
+   "chakli",
+   "chakri",
+   "murku",
+   "chakali",
+   "jantikalu",
+   "muruku"
+  ],
+  "category": "snacks_street",
+  "kcal_100g": 510,
+  "protein_100g": 7,
+  "carbs_100g": 55,
+  "fat_100g": 29,
+  "default_portion_g": 25,
+  "portion_label": "2 pieces"
+ },
+ {
+  "id": "namkeen-mixture",
+  "name": "Namkeen Mixture",
+  "aliases": [
+   "mixture",
+   "chivda",
+   "farsan",
+   "bombay mix",
+   "namkin",
+   "chanachur"
+  ],
+  "category": "snacks_street",
+  "kcal_100g": 545,
+  "protein_100g": 12,
+  "carbs_100g": 45,
+  "fat_100g": 35,
+  "default_portion_g": 30,
+  "portion_label": "1 small bowl"
+ },
+ {
+  "id": "pakora-veg-fried",
+  "name": "Pakora / Bhajiya (veg, fried)",
+  "aliases": [
+   "bhajiya",
+   "pakoda",
+   "bhaji",
+   "bajji",
+   "onion pakora",
+   "veg fritters"
+  ],
+  "category": "snacks_street",
+  "kcal_100g": 310,
+  "protein_100g": 7,
+  "carbs_100g": 28,
+  "fat_100g": 19,
+  "default_portion_g": 70,
+  "portion_label": "1 plate (4-5 pieces)"
+ },
+ {
+  "id": "pani-puri",
+  "name": "Pani Puri (with pani & filling)",
+  "aliases": [
+   "golgappa",
+   "puchka",
+   "gol gappa",
+   "gupchup",
+   "phuchka",
+   "pani poori"
+  ],
+  "category": "snacks_street",
+  "kcal_100g": 155,
+  "protein_100g": 3.5,
+  "carbs_100g": 25,
+  "fat_100g": 4.5,
+  "default_portion_g": 150,
+  "portion_label": "1 plate (6 puris)"
+ },
+ {
+  "id": "papad-fried",
+  "name": "Papad (fried)",
+  "aliases": [
+   "fried papad",
+   "tala papad",
+   "appalam fried",
+   "papadam fried",
+   "tala hua papad"
+  ],
+  "category": "snacks_street",
+  "kcal_100g": 500,
+  "protein_100g": 18,
+  "carbs_100g": 48,
+  "fat_100g": 26,
+  "default_portion_g": 12,
+  "portion_label": "1 papad"
+ },
+ {
+  "id": "papad-roasted",
+  "name": "Papad (roasted)",
+  "aliases": [
+   "roasted papad",
+   "bhuna papad",
+   "papadum",
+   "appalam roasted",
+   "papad bhuna"
+  ],
+  "category": "snacks_street",
+  "kcal_100g": 350,
+  "protein_100g": 22,
+  "carbs_100g": 58,
+  "fat_100g": 3,
+  "default_portion_g": 10,
+  "portion_label": "1 papad"
+ },
+ {
+  "id": "potato-chips",
+  "name": "Potato Chips",
+  "aliases": [
+   "chips",
+   "wafers",
+   "aloo chips",
+   "crisps",
+   "lays",
+   "potato wafers"
+  ],
+  "category": "snacks_street",
+  "kcal_100g": 540,
+  "protein_100g": 6.5,
+  "carbs_100g": 52,
+  "fat_100g": 34,
+  "default_portion_g": 30,
+  "portion_label": "1 small pack"
+ },
+ {
+  "id": "samosa-fried",
+  "name": "Samosa (fried, potato filling)",
+  "aliases": [
+   "aloo samosa",
+   "singara",
+   "smosa",
+   "samosa punjabi",
+   "sambusa"
+  ],
+  "category": "snacks_street",
+  "kcal_100g": 300,
+  "protein_100g": 4.7,
+  "carbs_100g": 32,
+  "fat_100g": 17,
+  "default_portion_g": 90,
+  "portion_label": "1 samosa"
+ },
+ {
+  "id": "sev-puri",
+  "name": "Sev Puri",
+  "aliases": [
+   "sevpuri",
+   "sev poori",
+   "sev batata puri",
+   "sav puri"
+  ],
+  "category": "snacks_street",
+  "kcal_100g": 250,
+  "protein_100g": 6,
+  "carbs_100g": 32,
+  "fat_100g": 11,
+  "default_portion_g": 120,
+  "portion_label": "1 plate (6 puris)"
+ },
+ {
+  "id": "spring-roll-veg-fried",
+  "name": "Spring Roll (veg, fried)",
+  "aliases": [
+   "veg spring roll",
+   "springroll",
+   "spring rolls",
+   "chinese roll",
+   "veg roll fried"
+  ],
+  "category": "snacks_street",
+  "kcal_100g": 260,
+  "protein_100g": 5.5,
+  "carbs_100g": 30,
+  "fat_100g": 13,
+  "default_portion_g": 80,
+  "portion_label": "1 roll"
+ },
+ {
+  "id": "vada-pav",
+  "name": "Vada Pav",
+  "aliases": [
+   "wada pav",
+   "vada pao",
+   "batata vada pav",
+   "bombay burger",
+   "vadapav"
+  ],
+  "category": "snacks_street",
+  "kcal_100g": 280,
+  "protein_100g": 6.5,
+  "carbs_100g": 39,
+  "fat_100g": 11,
+  "default_portion_g": 150,
+  "portion_label": "1 vada pav"
+ },
+ {
+  "id": "barfi-plain",
+  "name": "Barfi (plain milk)",
+  "aliases": [
+   "burfi",
+   "khoya barfi",
+   "milk barfi",
+   "plain burfi"
+  ],
+  "category": "sweets_desserts",
+  "kcal_100g": 400,
+  "protein_100g": 8,
+  "carbs_100g": 48,
+  "fat_100g": 20,
+  "default_portion_g": 35,
+  "portion_label": "1 piece"
+ },
+ {
+  "id": "besan-ladoo",
+  "name": "Besan Ladoo",
+  "aliases": [
+   "besan laddu",
+   "besan laddoo",
+   "gram flour ladoo",
+   "besan ke laddu"
+  ],
+  "category": "sweets_desserts",
+  "kcal_100g": 460,
+  "protein_100g": 10,
+  "carbs_100g": 52,
+  "fat_100g": 24,
+  "default_portion_g": 40,
+  "portion_label": "1 ladoo"
+ },
+ {
+  "id": "brownie",
+  "name": "Brownie",
+  "aliases": [
+   "chocolate brownie",
+   "brownee",
+   "fudge brownie"
+  ],
+  "category": "sweets_desserts",
+  "kcal_100g": 405,
+  "protein_100g": 4.8,
+  "carbs_100g": 59,
+  "fat_100g": 17,
+  "default_portion_g": 50,
+  "portion_label": "1 brownie"
+ },
+ {
+  "id": "sponge-cake",
+  "name": "Cake (sponge)",
+  "aliases": [
+   "plain cake",
+   "vanilla cake",
+   "tea cake",
+   "sponge"
+  ],
+  "category": "sweets_desserts",
+  "kcal_100g": 290,
+  "protein_100g": 5.4,
+  "carbs_100g": 58,
+  "fat_100g": 4.5,
+  "default_portion_g": 50,
+  "portion_label": "1 slice"
+ },
+ {
+  "id": "chocolate-cake",
+  "name": "Chocolate Cake",
+  "aliases": [
+   "choclate cake",
+   "choco cake",
+   "chocolate pastry",
+   "truffle cake"
+  ],
+  "category": "sweets_desserts",
+  "kcal_100g": 370,
+  "protein_100g": 4,
+  "carbs_100g": 55,
+  "fat_100g": 15.5,
+  "default_portion_g": 80,
+  "portion_label": "1 slice"
+ },
+ {
+  "id": "chocolate-ice-cream",
+  "name": "Chocolate Ice Cream",
+  "aliases": [
+   "choclate ice cream",
+   "chocolate icecream",
+   "choco ice cream"
+  ],
+  "category": "sweets_desserts",
+  "kcal_100g": 216,
+  "protein_100g": 3.8,
+  "carbs_100g": 28,
+  "fat_100g": 11,
+  "default_portion_g": 65,
+  "portion_label": "1 scoop"
+ },
+ {
+  "id": "marie-biscuit",
+  "name": "Cookie/Biscuit (Marie)",
+  "aliases": [
+   "marie gold",
+   "marie",
+   "tea biscuit",
+   "mari biscuit",
+   "plain biscuit"
+  ],
+  "category": "sweets_desserts",
+  "kcal_100g": 440,
+  "protein_100g": 7,
+  "carbs_100g": 76,
+  "fat_100g": 12,
+  "default_portion_g": 6,
+  "portion_label": "1 biscuit"
+ },
+ {
+  "id": "cream-biscuit",
+  "name": "Cream Biscuit",
+  "aliases": [
+   "cream sandwich biscuit",
+   "bourbon biscuit",
+   "oreo",
+   "creme biscuit"
+  ],
+  "category": "sweets_desserts",
+  "kcal_100g": 480,
+  "protein_100g": 5,
+  "carbs_100g": 68,
+  "fat_100g": 21,
+  "default_portion_g": 12,
+  "portion_label": "1 biscuit"
+ },
+ {
+  "id": "dark-chocolate",
+  "name": "Dark Chocolate (70% cocoa)",
+  "aliases": [
+   "dark choclate",
+   "bitter chocolate",
+   "70 percent chocolate",
+   "dark choco"
+  ],
+  "category": "sweets_desserts",
+  "kcal_100g": 598,
+  "protein_100g": 7.8,
+  "carbs_100g": 46,
+  "fat_100g": 43,
+  "default_portion_g": 25,
+  "portion_label": "1 small bar"
+ },
+ {
+  "id": "donut-glazed",
+  "name": "Donut (glazed)",
+  "aliases": [
+   "doughnut",
+   "glazed donut",
+   "donuts",
+   "sugar donut"
+  ],
+  "category": "sweets_desserts",
+  "kcal_100g": 420,
+  "protein_100g": 5,
+  "carbs_100g": 51,
+  "fat_100g": 22,
+  "default_portion_g": 60,
+  "portion_label": "1 donut"
+ },
+ {
+  "id": "gajar-halwa",
+  "name": "Gajar Halwa",
+  "aliases": [
+   "gajar ka halwa",
+   "carrot halwa",
+   "gajrela",
+   "carrot halva"
+  ],
+  "category": "sweets_desserts",
+  "kcal_100g": 250,
+  "protein_100g": 4,
+  "carbs_100g": 30,
+  "fat_100g": 13,
+  "default_portion_g": 100,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "gulab-jamun",
+  "name": "Gulab Jamun",
+  "aliases": [
+   "gulab jamoon",
+   "gulaab jamun",
+   "gulabjamun",
+   "jamun sweet"
+  ],
+  "category": "sweets_desserts",
+  "kcal_100g": 320,
+  "protein_100g": 4,
+  "carbs_100g": 50,
+  "fat_100g": 12,
+  "default_portion_g": 50,
+  "portion_label": "1 piece"
+ },
+ {
+  "id": "jalebi",
+  "name": "Jalebi",
+  "aliases": [
+   "jilebi",
+   "jalebee",
+   "jilapi",
+   "jangiri"
+  ],
+  "category": "sweets_desserts",
+  "kcal_100g": 400,
+  "protein_100g": 3,
+  "carbs_100g": 60,
+  "fat_100g": 16,
+  "default_portion_g": 30,
+  "portion_label": "1 piece"
+ },
+ {
+  "id": "kaju-katli",
+  "name": "Kaju Katli",
+  "aliases": [
+   "kaju barfi",
+   "cashew barfi",
+   "kaju katri",
+   "kaju sweet"
+  ],
+  "category": "sweets_desserts",
+  "kcal_100g": 460,
+  "protein_100g": 10,
+  "carbs_100g": 48,
+  "fat_100g": 26,
+  "default_portion_g": 20,
+  "portion_label": "1 piece"
+ },
+ {
+  "id": "kheer-rice",
+  "name": "Kheer (rice)",
+  "aliases": [
+   "rice kheer",
+   "payasam",
+   "chawal ki kheer",
+   "payesh",
+   "rice pudding"
+  ],
+  "category": "sweets_desserts",
+  "kcal_100g": 134,
+  "protein_100g": 3.5,
+  "carbs_100g": 20,
+  "fat_100g": 4.5,
+  "default_portion_g": 150,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "kulfi",
+  "name": "Kulfi",
+  "aliases": [
+   "malai kulfi",
+   "matka kulfi",
+   "qulfi",
+   "kulfi ice cream"
+  ],
+  "category": "sweets_desserts",
+  "kcal_100g": 220,
+  "protein_100g": 6,
+  "carbs_100g": 25,
+  "fat_100g": 11,
+  "default_portion_g": 70,
+  "portion_label": "1 kulfi"
+ },
+ {
+  "id": "milk-chocolate",
+  "name": "Milk Chocolate",
+  "aliases": [
+   "milk choclate",
+   "dairy milk",
+   "chocolate bar",
+   "choco"
+  ],
+  "category": "sweets_desserts",
+  "kcal_100g": 535,
+  "protein_100g": 7.7,
+  "carbs_100g": 59,
+  "fat_100g": 30,
+  "default_portion_g": 25,
+  "portion_label": "1 small bar"
+ },
+ {
+  "id": "motichoor-ladoo",
+  "name": "Motichoor Ladoo",
+  "aliases": [
+   "motichur laddu",
+   "boondi ladoo",
+   "motichoor laddoo",
+   "boondi laddu"
+  ],
+  "category": "sweets_desserts",
+  "kcal_100g": 400,
+  "protein_100g": 6,
+  "carbs_100g": 55,
+  "fat_100g": 18,
+  "default_portion_g": 40,
+  "portion_label": "1 ladoo"
+ },
+ {
+  "id": "mysore-pak",
+  "name": "Mysore Pak",
+  "aliases": [
+   "mysurpa",
+   "mysore paak",
+   "ghee mysore pak",
+   "maisur pak"
+  ],
+  "category": "sweets_desserts",
+  "kcal_100g": 515,
+  "protein_100g": 6,
+  "carbs_100g": 55,
+  "fat_100g": 30,
+  "default_portion_g": 30,
+  "portion_label": "1 piece"
+ },
+ {
+  "id": "peda",
+  "name": "Peda",
+  "aliases": [
+   "pedha",
+   "milk peda",
+   "mathura peda",
+   "doodh peda"
+  ],
+  "category": "sweets_desserts",
+  "kcal_100g": 415,
+  "protein_100g": 9,
+  "carbs_100g": 55,
+  "fat_100g": 18,
+  "default_portion_g": 25,
+  "portion_label": "1 piece"
+ },
+ {
+  "id": "rasgulla",
+  "name": "Rasgulla",
+  "aliases": [
+   "rosogolla",
+   "rasgula",
+   "roshogolla",
+   "bengali rasgulla"
+  ],
+  "category": "sweets_desserts",
+  "kcal_100g": 186,
+  "protein_100g": 4,
+  "carbs_100g": 38,
+  "fat_100g": 2,
+  "default_portion_g": 55,
+  "portion_label": "1 piece"
+ },
+ {
+  "id": "rasmalai",
+  "name": "Rasmalai",
+  "aliases": [
+   "ras malai",
+   "rossomalai",
+   "rasamalai",
+   "rash malai"
+  ],
+  "category": "sweets_desserts",
+  "kcal_100g": 228,
+  "protein_100g": 8,
+  "carbs_100g": 22,
+  "fat_100g": 12,
+  "default_portion_g": 100,
+  "portion_label": "1 piece with milk"
+ },
+ {
+  "id": "sandesh",
+  "name": "Sandesh",
+  "aliases": [
+   "sondesh",
+   "shondesh",
+   "bengali sandesh",
+   "sandes"
+  ],
+  "category": "sweets_desserts",
+  "kcal_100g": 335,
+  "protein_100g": 10,
+  "carbs_100g": 40,
+  "fat_100g": 15,
+  "default_portion_g": 30,
+  "portion_label": "1 piece"
+ },
+ {
+  "id": "soan-papdi",
+  "name": "Soan Papdi",
+  "aliases": [
+   "son papdi",
+   "sohan papdi",
+   "patisa",
+   "soan papri"
+  ],
+  "category": "sweets_desserts",
+  "kcal_100g": 500,
+  "protein_100g": 7,
+  "carbs_100g": 58,
+  "fat_100g": 27,
+  "default_portion_g": 30,
+  "portion_label": "1 piece"
+ },
+ {
+  "id": "sooji-halwa",
+  "name": "Sooji Halwa",
+  "aliases": [
+   "suji halwa",
+   "sheera",
+   "rava kesari",
+   "semolina halwa",
+   "sooji ka halwa"
+  ],
+  "category": "sweets_desserts",
+  "kcal_100g": 330,
+  "protein_100g": 4,
+  "carbs_100g": 45,
+  "fat_100g": 15,
+  "default_portion_g": 90,
+  "portion_label": "1 bowl"
+ },
+ {
+  "id": "vanilla-ice-cream",
+  "name": "Vanilla Ice Cream",
+  "aliases": [
+   "vanila ice cream",
+   "vanilla icecream",
+   "ice cream vanilla",
+   "plain ice cream"
+  ],
+  "category": "sweets_desserts",
+  "kcal_100g": 207,
+  "protein_100g": 3.5,
+  "carbs_100g": 24,
+  "fat_100g": 11,
+  "default_portion_g": 65,
+  "portion_label": "1 scoop"
+ },
+ {
+  "id": "beetroot-raw",
+  "name": "Beetroot (raw)",
+  "aliases": [
+   "chukandar",
+   "chukander",
+   "beet",
+   "beetroot"
+  ],
+  "category": "vegetables",
+  "kcal_100g": 43,
+  "protein_100g": 1.6,
+  "carbs_100g": 9.6,
+  "fat_100g": 0.2,
+  "default_portion_g": 80,
+  "portion_label": "1 medium beet"
+ },
+ {
+  "id": "bottle-gourd-raw",
+  "name": "Bottle Gourd (lauki, raw)",
+  "aliases": [
+   "lauki",
+   "doodhi",
+   "ghiya",
+   "dudhi",
+   "calabash"
+  ],
+  "category": "vegetables",
+  "kcal_100g": 15,
+  "protein_100g": 0.6,
+  "carbs_100g": 3.4,
+  "fat_100g": 0.1,
+  "default_portion_g": 100,
+  "portion_label": "1 cup chopped"
+ },
+ {
+  "id": "brinjal-raw",
+  "name": "Brinjal (eggplant, raw)",
+  "aliases": [
+   "baingan",
+   "baigan",
+   "eggplant",
+   "aubergine",
+   "brinjal"
+  ],
+  "category": "vegetables",
+  "kcal_100g": 26,
+  "protein_100g": 1,
+  "carbs_100g": 5.9,
+  "fat_100g": 0.2,
+  "default_portion_g": 100,
+  "portion_label": "1 cup cubed"
+ },
+ {
+  "id": "broccoli-raw",
+  "name": "Broccoli (raw)",
+  "aliases": [
+   "hari gobhi",
+   "brocoli",
+   "brockoli",
+   "broccoli florets"
+  ],
+  "category": "vegetables",
+  "kcal_100g": 36,
+  "protein_100g": 2.8,
+  "carbs_100g": 6.4,
+  "fat_100g": 0.4,
+  "default_portion_g": 90,
+  "portion_label": "1 cup florets"
+ },
+ {
+  "id": "cabbage-raw",
+  "name": "Cabbage (raw)",
+  "aliases": [
+   "patta gobhi",
+   "band gobhi",
+   "patta gobi",
+   "cabbage"
+  ],
+  "category": "vegetables",
+  "kcal_100g": 26,
+  "protein_100g": 1.3,
+  "carbs_100g": 5.8,
+  "fat_100g": 0.1,
+  "default_portion_g": 70,
+  "portion_label": "1 cup shredded"
+ },
+ {
+  "id": "capsicum-raw",
+  "name": "Capsicum (green, raw)",
+  "aliases": [
+   "shimla mirch",
+   "bell pepper",
+   "green pepper",
+   "capsicum"
+  ],
+  "category": "vegetables",
+  "kcal_100g": 21,
+  "protein_100g": 0.9,
+  "carbs_100g": 4.6,
+  "fat_100g": 0.2,
+  "default_portion_g": 100,
+  "portion_label": "1 medium"
+ },
+ {
+  "id": "carrot-raw",
+  "name": "Carrot (raw)",
+  "aliases": [
+   "gajar",
+   "gajjar",
+   "carrots",
+   "carrot"
+  ],
+  "category": "vegetables",
+  "kcal_100g": 41,
+  "protein_100g": 0.9,
+  "carbs_100g": 9.6,
+  "fat_100g": 0.2,
+  "default_portion_g": 60,
+  "portion_label": "1 medium carrot"
+ },
+ {
+  "id": "cauliflower-raw",
+  "name": "Cauliflower (raw)",
+  "aliases": [
+   "gobhi",
+   "phool gobhi",
+   "gobi",
+   "cauliflower"
+  ],
+  "category": "vegetables",
+  "kcal_100g": 27,
+  "protein_100g": 1.9,
+  "carbs_100g": 5,
+  "fat_100g": 0.3,
+  "default_portion_g": 100,
+  "portion_label": "1 cup florets"
+ },
+ {
+  "id": "cucumber-raw",
+  "name": "Cucumber (raw)",
+  "aliases": [
+   "kheera",
+   "khira",
+   "kakdi",
+   "cucumber"
+  ],
+  "category": "vegetables",
+  "kcal_100g": 16,
+  "protein_100g": 0.7,
+  "carbs_100g": 3.6,
+  "fat_100g": 0.1,
+  "default_portion_g": 100,
+  "portion_label": "1 cup sliced"
+ },
+ {
+  "id": "drumstick-pods-raw",
+  "name": "Drumstick Pods (moringa, raw)",
+  "aliases": [
+   "moringa",
+   "sahjan",
+   "saijan",
+   "shevga",
+   "munaga"
+  ],
+  "category": "vegetables",
+  "kcal_100g": 40,
+  "protein_100g": 2.1,
+  "carbs_100g": 8.5,
+  "fat_100g": 0.2,
+  "default_portion_g": 50,
+  "portion_label": "2 pods"
+ },
+ {
+  "id": "ginger-garlic-raw",
+  "name": "Ginger-Garlic (raw)",
+  "aliases": [
+   "adrak lehsun",
+   "ginger garlic paste",
+   "adrak",
+   "lehsun",
+   "lasun"
+  ],
+  "category": "vegetables",
+  "kcal_100g": 115,
+  "protein_100g": 4.1,
+  "carbs_100g": 25.4,
+  "fat_100g": 0.6,
+  "default_portion_g": 15,
+  "portion_label": "1 tbsp paste"
+ },
+ {
+  "id": "green-beans-raw",
+  "name": "Green Beans (raw)",
+  "aliases": [
+   "french beans",
+   "beans",
+   "farasbi",
+   "fansi"
+  ],
+  "category": "vegetables",
+  "kcal_100g": 33,
+  "protein_100g": 1.8,
+  "carbs_100g": 7,
+  "fat_100g": 0.2,
+  "default_portion_g": 100,
+  "portion_label": "1 cup chopped"
+ },
+ {
+  "id": "green-peas-raw",
+  "name": "Green Peas (raw)",
+  "aliases": [
+   "matar",
+   "mutter",
+   "hara matar",
+   "peas"
+  ],
+  "category": "vegetables",
+  "kcal_100g": 81,
+  "protein_100g": 5.4,
+  "carbs_100g": 14.5,
+  "fat_100g": 0.4,
+  "default_portion_g": 80,
+  "portion_label": "1/2 cup"
+ },
+ {
+  "id": "lettuce-raw",
+  "name": "Lettuce (raw)",
+  "aliases": [
+   "salad patta",
+   "iceberg lettuce",
+   "letuce",
+   "lettuce leaves"
+  ],
+  "category": "vegetables",
+  "kcal_100g": 17,
+  "protein_100g": 1.4,
+  "carbs_100g": 2.9,
+  "fat_100g": 0.2,
+  "default_portion_g": 50,
+  "portion_label": "1 cup shredded"
+ },
+ {
+  "id": "mushroom-raw",
+  "name": "Mushroom (button, raw)",
+  "aliases": [
+   "khumb",
+   "button mushroom",
+   "mashroom",
+   "mushrooms"
+  ],
+  "category": "vegetables",
+  "kcal_100g": 25,
+  "protein_100g": 3.1,
+  "carbs_100g": 3.3,
+  "fat_100g": 0.3,
+  "default_portion_g": 70,
+  "portion_label": "1 cup sliced"
+ },
+ {
+  "id": "okra-raw",
+  "name": "Okra (bhindi, raw)",
+  "aliases": [
+   "bhindi",
+   "lady finger",
+   "ladyfinger",
+   "bhendi",
+   "okra"
+  ],
+  "category": "vegetables",
+  "kcal_100g": 35,
+  "protein_100g": 1.9,
+  "carbs_100g": 7.5,
+  "fat_100g": 0.2,
+  "default_portion_g": 100,
+  "portion_label": "1 cup sliced"
+ },
+ {
+  "id": "onion-raw",
+  "name": "Onion (raw)",
+  "aliases": [
+   "pyaz",
+   "pyaaz",
+   "kanda",
+   "onion"
+  ],
+  "category": "vegetables",
+  "kcal_100g": 40,
+  "protein_100g": 1.1,
+  "carbs_100g": 9.3,
+  "fat_100g": 0.1,
+  "default_portion_g": 100,
+  "portion_label": "1 medium onion"
+ },
+ {
+  "id": "potato-boiled",
+  "name": "Potato (boiled)",
+  "aliases": [
+   "aloo",
+   "alu",
+   "ubla aloo",
+   "boiled aloo",
+   "potato"
+  ],
+  "category": "vegetables",
+  "kcal_100g": 87,
+  "protein_100g": 1.9,
+  "carbs_100g": 20.1,
+  "fat_100g": 0.1,
+  "default_portion_g": 150,
+  "portion_label": "1 medium potato"
+ },
+ {
+  "id": "pumpkin-raw",
+  "name": "Pumpkin (raw)",
+  "aliases": [
+   "kaddu",
+   "kadu",
+   "bhopla",
+   "pumpkin"
+  ],
+  "category": "vegetables",
+  "kcal_100g": 28,
+  "protein_100g": 1,
+  "carbs_100g": 6.5,
+  "fat_100g": 0.1,
+  "default_portion_g": 100,
+  "portion_label": "1 cup cubed"
+ },
+ {
+  "id": "radish-raw",
+  "name": "Radish (raw)",
+  "aliases": [
+   "mooli",
+   "muli",
+   "white radish",
+   "radish"
+  ],
+  "category": "vegetables",
+  "kcal_100g": 16,
+  "protein_100g": 0.7,
+  "carbs_100g": 3.4,
+  "fat_100g": 0.1,
+  "default_portion_g": 100,
+  "portion_label": "1 cup sliced"
+ },
+ {
+  "id": "ridge-gourd-raw",
+  "name": "Ridge Gourd (turai, raw)",
+  "aliases": [
+   "turai",
+   "tori",
+   "torai",
+   "luffa",
+   "ridge gourd"
+  ],
+  "category": "vegetables",
+  "kcal_100g": 20,
+  "protein_100g": 1.2,
+  "carbs_100g": 3.8,
+  "fat_100g": 0.2,
+  "default_portion_g": 100,
+  "portion_label": "1 cup chopped"
+ },
+ {
+  "id": "spinach-raw",
+  "name": "Spinach (raw)",
+  "aliases": [
+   "palak",
+   "paalak",
+   "spinach leaves",
+   "spinach"
+  ],
+  "category": "vegetables",
+  "kcal_100g": 26,
+  "protein_100g": 2.9,
+  "carbs_100g": 3.6,
+  "fat_100g": 0.4,
+  "default_portion_g": 50,
+  "portion_label": "1 cup chopped"
+ },
+ {
+  "id": "sweet-corn-boiled",
+  "name": "Sweet Corn (boiled)",
+  "aliases": [
+   "makai",
+   "bhutta",
+   "makka",
+   "boiled corn",
+   "corn"
+  ],
+  "category": "vegetables",
+  "kcal_100g": 96,
+  "protein_100g": 3.4,
+  "carbs_100g": 20,
+  "fat_100g": 1.5,
+  "default_portion_g": 80,
+  "portion_label": "1/2 cup kernels"
+ },
+ {
+  "id": "sweet-potato-boiled",
+  "name": "Sweet Potato (boiled)",
+  "aliases": [
+   "shakarkandi",
+   "shakarkand",
+   "sakarkand",
+   "sweet potato"
+  ],
+  "category": "vegetables",
+  "kcal_100g": 76,
+  "protein_100g": 1.4,
+  "carbs_100g": 17.7,
+  "fat_100g": 0.1,
+  "default_portion_g": 130,
+  "portion_label": "1 medium"
+ },
+ {
+  "id": "tomato-raw",
+  "name": "Tomato (raw)",
+  "aliases": [
+   "tamatar",
+   "tamater",
+   "tomatoe",
+   "tomato"
+  ],
+  "category": "vegetables",
+  "kcal_100g": 20,
+  "protein_100g": 0.9,
+  "carbs_100g": 3.9,
+  "fat_100g": 0.2,
+  "default_portion_g": 100,
+  "portion_label": "1 medium tomato"
+ },
+ {
+  "id": "zucchini-raw",
+  "name": "Zucchini (raw)",
+  "aliases": [
+   "courgette",
+   "zuchini",
+   "zucini",
+   "zucchini squash"
+  ],
+  "category": "vegetables",
+  "kcal_100g": 18,
+  "protein_100g": 1.2,
+  "carbs_100g": 3.1,
+  "fat_100g": 0.3,
+  "default_portion_g": 100,
+  "portion_label": "1 cup sliced"
+ }
+]
