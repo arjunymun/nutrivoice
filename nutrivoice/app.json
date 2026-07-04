@@ -9,7 +9,7 @@
     "userInterfaceStyle": "dark",
     "backgroundColor": "#0B0D10",
     "ios": {
-      "icon": "./assets/expo.icon",
+      "icon": "./assets/images/icon.png",
       "bundleIdentifier": "com.arjun.nutrivoice",
       "infoPlist": {
         "NSCameraUsageDescription": "NutriVoice uses the camera to scan food barcodes."
