@@ -86,12 +86,25 @@ export default function LogScreen() {
     return () => data.subscription.unsubscribe();
   }, []);
 
-  const runParse = (text: string) => {
+  const parseSeq = useRef(0);
+
+  const runParse = async (text: string) => {
     setSpeechError(null);
+    const seq = ++parseSeq.current;
     const parsed = parseFoodText(text, pool);
     setItems(parsed);
     if (!parsed.length && text.trim()) {
       setSpeechError('Could not find any food in that. Try “200 g chicken breast and 1 roti”.');
+      return;
+    }
+    // auto-resolve unknown foods with AI when signed in
+    const unknown = parsed.filter((i) => !i.food);
+    if (unknown.length && signedIn) {
+      setAiLoading(true);
+      const aiItems = await aiParseFood(unknown.map((i) => i.raw).join(' and '), pool);
+      setAiLoading(false);
+      if (seq !== parseSeq.current) return; // user parsed something newer meanwhile
+      if (aiItems) setItems([...parsed.filter((i) => i.food), ...aiItems]);
     }
   };
 
@@ -245,24 +258,27 @@ export default function LogScreen() {
                 </View>
               )}
 
-              {signedIn && (transcript || typed || items.length > 0) ? (
-                aiLoading ? (
+              {aiLoading ? (
+                <View style={{ flexDirection: 'row', alignItems: 'center', gap: spacing(2) }}>
                   <ActivityIndicator color={colors.accent} />
-                ) : (
+                  <Muted style={{ fontSize: 13 }}>✨ AI is looking up unknown foods… (free model, can take ~15 s)</Muted>
+                </View>
+              ) : signedIn ? (
+                (transcript || typed || items.length > 0) && (
                   <Pressable onPress={tryAiParse}>
                     <Text style={styles.aiLink}>
                       {unmatchedCount > 0
                         ? `✨ Resolve ${unmatchedCount} unknown food${unmatchedCount > 1 ? 's' : ''} with AI`
-                        : '✨ Try AI parse (any food)'}
+                        : '✨ Re-parse with AI (understands any food)'}
                     </Text>
                   </Pressable>
                 )
-              ) : null}
-              {!signedIn && unmatchedCount > 0 ? (
+              ) : (
                 <Muted style={{ fontSize: 12, textAlign: 'center' }}>
-                  Sign in (Profile tab) to resolve unknown foods with AI — free, works for any food.
+                  ✨ AI mode: sign in (Profile tab) and any food on earth becomes loggable — unknown
+                  items get macro estimates automatically. Free, no key needed.
                 </Muted>
-              ) : null}
+              )}
             </Card>
           )}
 
