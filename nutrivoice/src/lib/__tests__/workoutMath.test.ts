@@ -17,6 +17,7 @@ const mkSet = (workoutId: string, exerciseId: string, weightKg: number | null, r
   durationS: null,
   rpe: null,
   isWarmup: false,
+  setType: 'normal',
   updatedAt: '2026-01-01T00:00:00Z',
   deleted: false,
   ...extra,

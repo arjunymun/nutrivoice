@@ -1,4 +1,4 @@
-import { Exercise, Workout, WorkoutSet } from './workoutTypes';
+import { Exercise, MuscleGroup, Workout, WorkoutSet } from './workoutTypes';
 
 /** Big lifts whose PRs get surfaced on the Stats tab (catalog ids). */
 export const BIG_LIFTS: { id: string; label: string }[] = [
@@ -74,6 +74,152 @@ export function detectPrs(allSets: WorkoutSet[], workouts: Workout[], workoutId:
     if (prev == null || e1rm > prev) prs.push({ exerciseId, newE1Rm: e1rm, previousE1Rm: prev });
   }
   return prs;
+}
+
+// ---------------- per-exercise records & history ----------------
+
+export interface ExerciseSession {
+  workoutId: string;
+  startedAt: string;
+  e1rm: number | null;
+  volume: number;
+  topWeightKg: number | null;
+  topReps: number | null;
+  sets: number;
+}
+
+export interface ExerciseRecords {
+  sessions: ExerciseSession[]; // oldest → newest
+  bestE1Rm: number | null;
+  heaviestKg: number | null;
+  bestSessionVolume: number;
+  mostReps: number | null;
+  totalSets: number;
+  totalVolume: number;
+}
+
+/**
+ * All-time records and per-session history for one exercise, across every live
+ * (non-deleted) workout. Warmup/deleted sets are excluded. Sessions are ordered
+ * oldest → newest so a chart can plot progress left-to-right.
+ */
+export function exerciseRecords(
+  allSets: WorkoutSet[],
+  workouts: Workout[],
+  exerciseId: string,
+): ExerciseRecords {
+  const live = new Map(workouts.filter((w) => !w.deleted).map((w) => [w.id, w]));
+  const byWorkout = new Map<string, WorkoutSet[]>();
+  for (const s of allSets) {
+    if (s.exerciseId !== exerciseId || !countableSet(s) || !live.has(s.workoutId)) continue;
+    const arr = byWorkout.get(s.workoutId) ?? [];
+    arr.push(s);
+    byWorkout.set(s.workoutId, arr);
+  }
+
+  const sessions: ExerciseSession[] = [];
+  for (const [workoutId, sets] of byWorkout) {
+    const w = live.get(workoutId)!;
+    let e1rm: number | null = null;
+    let volume = 0;
+    let topWeightKg: number | null = null;
+    let topReps: number | null = null;
+    for (const s of sets) {
+      volume += setVolume(s);
+      const e = s.weightKg != null && s.reps != null ? epley1Rm(s.weightKg, s.reps) : null;
+      if (e != null && (e1rm == null || e > e1rm)) e1rm = e;
+      if (s.weightKg != null && (topWeightKg == null || s.weightKg > topWeightKg)) {
+        topWeightKg = s.weightKg;
+      }
+      if (s.reps != null && (topReps == null || s.reps > topReps)) topReps = s.reps;
+    }
+    sessions.push({
+      workoutId,
+      startedAt: w.startedAt,
+      e1rm,
+      volume: Math.round(volume),
+      topWeightKg,
+      topReps,
+      sets: sets.length,
+    });
+  }
+  sessions.sort((a, b) => (a.startedAt < b.startedAt ? -1 : 1));
+
+  return {
+    sessions,
+    bestE1Rm: sessions.reduce<number | null>((m, s) => (s.e1rm != null && (m == null || s.e1rm > m) ? s.e1rm : m), null),
+    heaviestKg: sessions.reduce<number | null>(
+      (m, s) => (s.topWeightKg != null && (m == null || s.topWeightKg > m) ? s.topWeightKg : m),
+      null,
+    ),
+    bestSessionVolume: sessions.reduce((m, s) => Math.max(m, s.volume), 0),
+    mostReps: sessions.reduce<number | null>((m, s) => (s.topReps != null && (m == null || s.topReps > m) ? s.topReps : m), null),
+    totalSets: sessions.reduce((n, s) => n + s.sets, 0),
+    totalVolume: sessions.reduce((n, s) => n + s.volume, 0),
+  };
+}
+
+// ---------------- weekly muscle-group volume ----------------
+
+/**
+ * Working sets per muscle group in the trailing window (default 7 days).
+ * The primary muscle counts as a full set, each secondary muscle as a half set
+ * (the standard way volume-per-muscle is apportioned). Warmups excluded.
+ */
+export function muscleWeeklyVolume(
+  allSets: WorkoutSet[],
+  workouts: Workout[],
+  exercises: Map<string, Pick<Exercise, 'primary_muscle' | 'secondary_muscles'>>,
+  opts: { sinceDays?: number; nowMs?: number } = {},
+): Map<MuscleGroup, number> {
+  const sinceDays = opts.sinceDays ?? 7;
+  const nowMs = opts.nowMs ?? Date.now();
+  const cutoff = nowMs - sinceDays * 86_400_000;
+  const inWindow = new Set(
+    workouts.filter((w) => !w.deleted && new Date(w.startedAt).getTime() >= cutoff).map((w) => w.id),
+  );
+  const out = new Map<MuscleGroup, number>();
+  const add = (m: MuscleGroup, n: number) => out.set(m, (out.get(m) ?? 0) + n);
+  for (const s of allSets) {
+    if (!countableSet(s) || !inWindow.has(s.workoutId)) continue;
+    const ex = exercises.get(s.exerciseId);
+    if (!ex) continue;
+    add(ex.primary_muscle, 1);
+    for (const sec of ex.secondary_muscles) add(sec, 0.5);
+  }
+  return out;
+}
+
+// ---------------- plate calculator ----------------
+
+export interface PlateLoad {
+  barKg: number;
+  /** Plates on ONE side, heaviest first. */
+  perSide: number[];
+  /** kg that couldn't be made with the available plates (per bar, both sides). */
+  leftover: number;
+}
+
+const KG_PLATES = [25, 20, 15, 10, 5, 2.5, 1.25];
+
+/** Greedy plates-per-side for a target barbell weight. */
+export function plateBreakdown(
+  totalKg: number,
+  barKg = 20,
+  available: number[] = KG_PLATES,
+): PlateLoad {
+  if (!(totalKg > 0) || totalKg < barKg) {
+    return { barKg, perSide: [], leftover: Math.max(0, Math.round((totalKg - barKg) * 100) / 100) };
+  }
+  let perSideKg = (totalKg - barKg) / 2;
+  const perSide: number[] = [];
+  for (const p of [...available].sort((a, b) => b - a)) {
+    while (perSideKg >= p - 1e-9) {
+      perSide.push(p);
+      perSideKg = Math.round((perSideKg - p) * 100) / 100;
+    }
+  }
+  return { barKg, perSide, leftover: Math.round(perSideKg * 2 * 100) / 100 };
 }
 
 export interface ProgressionSuggestion {

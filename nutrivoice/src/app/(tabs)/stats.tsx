@@ -8,10 +8,10 @@ import { Card, LabeledInput, Muted, PrimaryButton, SectionTitle, StatTile } from
 import exercisesJson from '@/data/exercises.json';
 import { ageFromBirthYear, bmi, bmiCategory, bmr, tdee } from '@/lib/nutrition';
 import { addDays, dateKeyToDate, toDateKey, todayKey } from '@/lib/types';
-import { BIG_LIFTS, bestE1RmByExercise, workoutVolume } from '@/lib/workoutMath';
+import { BIG_LIFTS, bestE1RmByExercise, muscleWeeklyVolume, workoutVolume } from '@/lib/workoutMath';
 import { Exercise } from '@/lib/workoutTypes';
 import { dayTotals, useLogStore } from '@/stores/useLogStore';
-import { setsForWorkout, useWorkoutStore } from '@/stores/useWorkoutStore';
+import { exercisePool, setsForWorkout, useWorkoutStore } from '@/stores/useWorkoutStore';
 import { useProfileStore } from '@/stores/useProfileStore';
 import { colors, font, spacing } from '@/theme';
 
@@ -25,6 +25,7 @@ export default function Stats() {
   const addWeight = useLogStore((s) => s.addWeight);
   const workouts = useWorkoutStore((s) => s.workouts);
   const allSets = useWorkoutStore((s) => s.sets);
+  const customExercises = useWorkoutStore((s) => s.customExercises);
   const { width } = useWindowDimensions();
   const chartWidth = Math.min(width, 560) - spacing(4) * 2 - spacing(4) * 2;
 
@@ -96,6 +97,14 @@ export default function Stats() {
     };
   }, [workouts, allSets]);
 
+  const muscleVol = useMemo(() => {
+    const index = new Map(exercisePool(EXERCISE_DB, customExercises).map((e) => [e.id, e]));
+    return [...muscleWeeklyVolume(allSets, workouts, index, { sinceDays: 7 }).entries()].sort(
+      (a, b) => b[1] - a[1],
+    );
+  }, [allSets, workouts, customExercises]);
+  const muscleMax = muscleVol.length ? muscleVol[0][1] : 1;
+
   const logWeight = () => {
     const w = Number(weightInput);
     if (!Number.isFinite(w) || w < 20 || w > 400) return;
@@ -142,6 +151,24 @@ export default function Stats() {
                 ))}
               </View>
             )}
+          </Card>
+        )}
+
+        {muscleVol.length > 0 && (
+          <Card style={{ gap: spacing(2.5) }}>
+            <SectionTitle>Muscle volume — last 7 days</SectionTitle>
+            {muscleVol.map(([m, v]) => (
+              <View key={m} style={styles.muscleRow}>
+                <Text style={styles.muscleLabel}>{m.replace('_', ' ')}</Text>
+                <View style={styles.muscleTrack}>
+                  <View style={[styles.muscleFill, { width: `${Math.max(6, (v / muscleMax) * 100)}%` }]} />
+                </View>
+                <Text style={styles.muscleVal}>{Number.isInteger(v) ? v : v.toFixed(1)}</Text>
+              </View>
+            ))}
+            <Muted style={{ fontSize: 11 }}>
+              Working sets per muscle (primary = 1, secondary = ½). Hevy locks this behind Pro.
+            </Muted>
           </Card>
         )}
 
@@ -210,5 +237,29 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: spacing(3),
     alignItems: 'flex-end',
+  },
+  muscleRow: { flexDirection: 'row', alignItems: 'center', gap: spacing(2.5) },
+  muscleLabel: {
+    width: 76,
+    color: colors.textMuted,
+    fontFamily: font.medium,
+    fontSize: 12,
+    textTransform: 'capitalize',
+  },
+  muscleTrack: {
+    flex: 1,
+    height: 10,
+    backgroundColor: colors.surfaceAlt,
+    borderRadius: 5,
+    overflow: 'hidden',
+  },
+  muscleFill: { height: 10, backgroundColor: colors.accent, borderRadius: 5 },
+  muscleVal: {
+    width: 28,
+    textAlign: 'right',
+    color: colors.text,
+    fontFamily: font.bold,
+    fontSize: 12,
+    fontVariant: ['tabular-nums'],
   },
 });

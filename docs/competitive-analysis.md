@@ -2,8 +2,14 @@
 
 ## Hevy (added after the Train module shipped, 2026-07-05)
 
-**Where Hevy wins:** social feed/friends/leagues, Apple Watch + Wear OS apps, exercise
-demo videos, years of polish, supersets/drop-sets UI.
+**Where Hevy wins (remaining):** social feed/friends/leagues, Apple Watch + Wear OS apps,
+exercise demo videos/animations, years of polish, and **supersets** (grouped exercises) —
+the one core-logging gap we haven't closed yet (next pass; it needs a set-grouping model).
+
+**Parity reached (2026-07-06 pass):** editable set grid with inline weight/reps/RPE, warmup
+/drop/failure **set types**, per-row previous-session ghosts, reorder/replace/remove
+exercises mid-session, **plate calculator**, per-exercise **records + e1RM trend chart**,
+**weekly muscle-group volume** (Hevy gates this behind Pro), and repeat-a-past-workout.
 
 **Where NutriVoice wins:**
 - **Voice set logging** — "squats 5x5 at 100, bench 3x8 60" logs eight sets in one

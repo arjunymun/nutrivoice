@@ -23,9 +23,13 @@ calories + macros. One account, synced everywhere.
 - **Bodybuilding-aware targets** — Mifflin-St Jeor BMR → TDEE, cut/maintain/bulk calorie
   goals, protein at 2 g/kg, BMI card, weight trend chart. All targets overridable.
 - **Train module (Hevy-class)** — 171-exercise catalog with gym-slang aliases, voice set
-  logging ("squats 5x5 at 100" → logged), routines, ✨ AI routine builder (free LLM),
-  rest timer, previous-performance ghosts, deterministic double-progression hints,
-  PR detection (Epley e1RM), weekly volume charts, full offline + sync.
+  logging ("squats 5x5 at 100" → logged) **and** a full editable set grid (inline
+  weight/reps/RPE, warmup/drop/failure set types, per-row previous-session ghosts),
+  reorder / replace / remove exercises mid-session, **plate calculator**, routines,
+  ✨ AI routine builder (free LLM), rest timer, deterministic double-progression hints,
+  **per-exercise records screen** (best e1RM, heaviest, best volume + e1RM trend chart),
+  **weekly muscle-group volume** (Hevy Pro-gated — free here), PR detection (Epley e1RM),
+  repeat-a-past-workout, full offline + sync.
 - **Adaptive TDEE** — MacroFactor's flagship, free: recalibrates your real calorie burn
   from weight trend + food logs (least-squares trend, partial-day filtering, clamped and
   confidence-blended). Suggests — never silently changes — your targets.

@@ -183,6 +183,7 @@ const setToRow = (s: WorkoutSet, userId: string) => ({
   duration_s: s.durationS,
   rpe: s.rpe,
   is_warmup: s.isWarmup,
+  set_type: s.setType,
   updated_at: s.updatedAt,
   deleted: s.deleted,
 });
@@ -197,6 +198,8 @@ const rowToSet = (r: any): WorkoutSet => ({
   durationS: r.duration_s == null ? null : Number(r.duration_s),
   rpe: r.rpe == null ? null : Number(r.rpe),
   isWarmup: r.is_warmup,
+  // rows synced before the set_type column existed fall back to the legacy flag
+  setType: (r.set_type as WorkoutSet['setType']) ?? (r.is_warmup ? 'warmup' : 'normal'),
   updatedAt: r.updated_at,
   deleted: r.deleted,
   dirty: false,

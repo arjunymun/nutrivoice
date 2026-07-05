@@ -8,6 +8,7 @@ import {
   Exercise,
   Routine,
   RoutineItem,
+  SetType,
   Workout,
   WorkoutSet,
 } from '../lib/workoutTypes';
@@ -50,11 +51,19 @@ interface WorkoutState {
     durationS?: number | null;
     rpe?: number | null;
     isWarmup?: boolean;
+    setType?: SetType;
   }) => WorkoutSet | null;
-  updateSet: (id: string, patch: Partial<Pick<WorkoutSet, 'weightKg' | 'reps' | 'durationS' | 'rpe' | 'isWarmup'>>) => void;
+  updateSet: (
+    id: string,
+    patch: Partial<Pick<WorkoutSet, 'weightKg' | 'reps' | 'durationS' | 'rpe' | 'isWarmup' | 'setType'>>,
+  ) => void;
   removeSet: (id: string) => void;
   addPlanned: (exerciseId: string) => void;
   removePlanned: (exerciseId: string) => void;
+  /** Reorder an exercise within the active session (dir -1 = up, +1 = down). */
+  moveExercise: (exerciseId: string, dir: -1 | 1) => void;
+  /** Swap a planned exercise for another (only meaningful before sets are logged). */
+  replaceExercise: (oldExerciseId: string, newExerciseId: string) => void;
   setRestEndsAt: (ts: number | null) => void;
   finishWorkout: (notes?: string) => Workout | null;
   discardActiveWorkout: () => void;
@@ -128,6 +137,7 @@ export const useWorkoutStore = create<WorkoutState>()(
         const existing = get().sets.filter(
           (s) => s.workoutId === workoutId && s.exerciseId === input.exerciseId && !s.deleted,
         );
+        const setType: SetType = input.setType ?? (input.isWarmup ? 'warmup' : 'normal');
         const s: WorkoutSet = {
           id: randomUUID(),
           workoutId,
@@ -137,20 +147,34 @@ export const useWorkoutStore = create<WorkoutState>()(
           reps: input.reps,
           durationS: input.durationS ?? null,
           rpe: input.rpe ?? null,
-          isWarmup: input.isWarmup ?? false,
+          isWarmup: setType === 'warmup',
+          setType,
           updatedAt: now(),
           deleted: false,
           dirty: true,
         };
-        set({ sets: [...get().sets, s] });
+        // Keep every exercise that has sets represented in `planned` so the
+        // active-session ordering is stable and reorder/remove operate on one list.
+        const planned = get().planned.some((p) => p.exerciseId === input.exerciseId)
+          ? get().planned
+          : [
+              ...get().planned,
+              { exerciseId: input.exerciseId, targetSets: 3, targetReps: null, targetWeightKg: null },
+            ];
+        set({ sets: [...get().sets, s], planned });
         return s;
       },
 
       updateSet: (id, patch) => {
         set({
-          sets: get().sets.map((s) =>
-            s.id === id ? { ...s, ...patch, updatedAt: now(), dirty: true } : s,
-          ),
+          sets: get().sets.map((s) => {
+            if (s.id !== id) return s;
+            const next = { ...s, ...patch, updatedAt: now(), dirty: true };
+            // keep the two representations of "warmup" consistent whichever the caller set
+            if (patch.setType !== undefined) next.isWarmup = patch.setType === 'warmup';
+            else if (patch.isWarmup !== undefined) next.setType = patch.isWarmup ? 'warmup' : 'normal';
+            return next;
+          }),
         });
       },
 
@@ -174,6 +198,29 @@ export const useWorkoutStore = create<WorkoutState>()(
 
       removePlanned: (exerciseId) => {
         set({ planned: get().planned.filter((p) => p.exerciseId !== exerciseId) });
+      },
+
+      moveExercise: (exerciseId, dir) => {
+        const planned = [...get().planned];
+        const i = planned.findIndex((p) => p.exerciseId === exerciseId);
+        const j = i + dir;
+        if (i < 0 || j < 0 || j >= planned.length) return;
+        [planned[i], planned[j]] = [planned[j], planned[i]];
+        set({ planned });
+      },
+
+      replaceExercise: (oldExerciseId, newExerciseId) => {
+        if (oldExerciseId === newExerciseId) return;
+        if (get().planned.some((p) => p.exerciseId === newExerciseId)) {
+          // target already present → just drop the old slot to avoid a duplicate
+          set({ planned: get().planned.filter((p) => p.exerciseId !== oldExerciseId) });
+          return;
+        }
+        set({
+          planned: get().planned.map((p) =>
+            p.exerciseId === oldExerciseId ? { ...p, exerciseId: newExerciseId } : p,
+          ),
+        });
       },
 
       setRestEndsAt: (restEndsAt) => set({ restEndsAt }),

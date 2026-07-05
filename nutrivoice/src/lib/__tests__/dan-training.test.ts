@@ -68,7 +68,7 @@ describe('Dan v2 — four-week bulk simulation', () => {
           sets.push({
             id: `s${++setN}`, workoutId: w.id, exerciseId: g.exercise!.id,
             setNumber: s + 1, weightKg: g.weightKg, reps: g.reps, durationS: null,
-            rpe: null, isWarmup: false, updatedAt: w.updatedAt, deleted: false,
+            rpe: null, isWarmup: false, setType: 'normal', updatedAt: w.updatedAt, deleted: false,
           });
         }
       }

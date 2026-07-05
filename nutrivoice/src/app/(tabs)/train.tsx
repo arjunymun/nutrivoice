@@ -25,7 +25,7 @@ import { isSpeechAvailable, SpeechSession, startListening } from '@/lib/speech';
 import { supabase } from '@/lib/supabase';
 import { toDateKey } from '@/lib/types';
 import { detectPrs, workoutSetCount, workoutVolume } from '@/lib/workoutMath';
-import { Exercise, Routine } from '@/lib/workoutTypes';
+import { Exercise, Routine, WorkoutSet } from '@/lib/workoutTypes';
 import { exercisePool, setsForWorkout, useWorkoutStore } from '@/stores/useWorkoutStore';
 import { colors, font, radius, spacing } from '@/theme';
 
@@ -58,6 +58,7 @@ export default function Train() {
   const elapsed = useElapsed(active?.startedAt ?? null);
 
   const [pickerOpen, setPickerOpen] = useState(false);
+  const [replaceTargetId, setReplaceTargetId] = useState<string | null>(null);
   const [summary, setSummary] = useState<{ volume: number; sets: number; prs: number } | null>(null);
   const [banner, setBanner] = useState<string | null>(null);
   const bannerTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -128,7 +129,14 @@ export default function Train() {
             activeSets={activeSets}
             sessionsFor={sessionsFor}
             pool={pool}
-            onAddExercise={() => setPickerOpen(true)}
+            onAddExercise={() => {
+              setReplaceTargetId(null);
+              setPickerOpen(true);
+            }}
+            onReplaceExercise={(id) => {
+              setReplaceTargetId(id);
+              setPickerOpen(true);
+            }}
             onFinish={finish}
             onDiscard={() => store.discardActiveWorkout()}
           />
@@ -154,10 +162,15 @@ export default function Train() {
       {pickerOpen && (
         <ExercisePicker
           pool={pool}
-          onClose={() => setPickerOpen(false)}
-          onPick={(e) => {
-            store.addPlanned(e.id);
+          onClose={() => {
             setPickerOpen(false);
+            setReplaceTargetId(null);
+          }}
+          onPick={(e) => {
+            if (replaceTargetId) store.replaceExercise(replaceTargetId, e.id);
+            else store.addPlanned(e.id);
+            setPickerOpen(false);
+            setReplaceTargetId(null);
           }}
         />
       )}
@@ -200,6 +213,7 @@ function ActiveWorkout({
   sessionsFor,
   pool,
   onAddExercise,
+  onReplaceExercise,
   onFinish,
   onDiscard,
 }: {
@@ -210,6 +224,7 @@ function ActiveWorkout({
   sessionsFor: (exerciseId: string) => ReturnType<typeof setsForWorkout>[];
   pool: Exercise[];
   onAddExercise: () => void;
+  onReplaceExercise: (exerciseId: string) => void;
   onFinish: () => void;
   onDiscard: () => void;
 }) {
@@ -302,7 +317,7 @@ function ActiveWorkout({
       </View>
       {voiceError && <Text style={styles.error}>{voiceError}</Text>}
 
-      {blocks.map((e) => {
+      {blocks.map((e, i) => {
         const history = sessionsFor(e.id);
         return (
           <ExerciseBlock
@@ -311,6 +326,9 @@ function ActiveWorkout({
             sets={activeSets.filter((s) => s.exerciseId === e.id)}
             lastSessionSets={history[history.length - 1] ?? []}
             historySessions={history.slice(-3)}
+            canMoveUp={i > 0}
+            canMoveDown={i < blocks.length - 1}
+            onReplace={() => onReplaceExercise(e.id)}
           />
         );
       })}
@@ -361,6 +379,27 @@ function IdleView({
         targetWeightKg: i.weightKg,
       })),
     );
+  };
+
+  // Re-run a past session as a template: same exercises/order, targets seeded
+  // from that day's working sets (last set's weight × reps).
+  const repeatWorkout = (w: ReturnType<typeof useWorkoutStore.getState>['workouts'][number]) => {
+    const sets = setsForWorkout(useWorkoutStore.getState().sets, w.id).filter((s) => !s.isWarmup);
+    const order: string[] = [];
+    const byEx = new Map<string, WorkoutSet[]>();
+    for (const s of sets) {
+      if (!byEx.has(s.exerciseId)) {
+        byEx.set(s.exerciseId, []);
+        order.push(s.exerciseId);
+      }
+      byEx.get(s.exerciseId)!.push(s);
+    }
+    const planned = order.map((id) => {
+      const ss = byEx.get(id)!;
+      const last = ss[ss.length - 1];
+      return { exerciseId: id, targetSets: ss.length, targetReps: last.reps, targetWeightKg: last.weightKg };
+    });
+    store.startWorkout(w.name, planned);
   };
 
   const runCoach = async () => {
@@ -477,20 +516,29 @@ function IdleView({
         {finishedWorkouts.slice(0, 8).map((w) => {
           const sets = setsForWorkout(useWorkoutStore.getState().sets, w.id);
           return (
-            <Pressable
-              key={w.id}
-              style={({ pressed }) => [styles.historyRow, pressed && { opacity: 0.6 }]}
-              onPress={() => router.push(`/workout/${w.id}` as Parameters<typeof router.push>[0])}
-            >
-              <View style={{ flex: 1 }}>
+            <View key={w.id} style={styles.historyRow}>
+              <Pressable
+                style={({ pressed }) => [{ flex: 1 }, pressed && { opacity: 0.6 }]}
+                onPress={() => router.push(`/workout/${w.id}` as Parameters<typeof router.push>[0])}
+              >
                 <Text style={styles.routineName}>{w.name}</Text>
                 <Muted style={{ fontSize: 12 }}>
                   {toDateKey(new Date(w.startedAt))} · {Math.round((w.durationS ?? 0) / 60)} min ·{' '}
                   {workoutSetCount(sets)} sets · {workoutVolume(sets).toLocaleString()} kg
                 </Muted>
-              </View>
-              <Ionicons name="chevron-forward" size={16} color={colors.textFaint} />
-            </Pressable>
+              </Pressable>
+              <Pressable
+                onPress={() => {
+                  repeatWorkout(w);
+                  showBanner(`Started “${w.name}” again`);
+                }}
+                hitSlop={8}
+                style={styles.repeatChip}
+              >
+                <Ionicons name="refresh" size={13} color={colors.onAccent} />
+                <Text style={styles.repeatChipText}>Repeat</Text>
+              </Pressable>
+            </View>
           );
         })}
       </Card>
@@ -582,7 +630,17 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing(3.5),
     paddingVertical: spacing(3),
   },
-  historyRow: { flexDirection: 'row', alignItems: 'center', gap: spacing(2) },
+  historyRow: { flexDirection: 'row', alignItems: 'center', gap: spacing(2.5) },
+  repeatChip: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing(1),
+    backgroundColor: colors.accent,
+    borderRadius: radius.full,
+    paddingHorizontal: spacing(3),
+    paddingVertical: spacing(1.5),
+  },
+  repeatChipText: { color: colors.onAccent, fontFamily: font.bold, fontSize: 12 },
   timerDock: {
     position: 'absolute',
     bottom: spacing(4),

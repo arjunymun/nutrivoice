@@ -59,6 +59,9 @@ export interface Workout {
   dirty?: boolean;
 }
 
+/** Hevy-style set classification. `warmup` is excluded from volume/e1RM/PRs. */
+export type SetType = 'normal' | 'warmup' | 'drop' | 'failure';
+
 export interface WorkoutSet {
   id: string;
   workoutId: string;
@@ -71,7 +74,9 @@ export interface WorkoutSet {
   /** null for rep sets. */
   durationS: number | null;
   rpe: number | null;
+  /** `isWarmup` is kept in sync with `setType === 'warmup'` for back-compat. */
   isWarmup: boolean;
+  setType: SetType;
   updatedAt: string;
   deleted: boolean;
   dirty?: boolean;

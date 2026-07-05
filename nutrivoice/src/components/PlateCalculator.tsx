@@ -1,0 +1,148 @@
+import React, { useState } from 'react';
+import { Modal, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+
+import { plateBreakdown } from '../lib/workoutMath';
+import { colors, font, radius, spacing } from '../theme';
+
+const BARS = [20, 15, 10, 0];
+
+/**
+ * Barbell plate calculator — given a target weight and bar, show the plates to
+ * load on each side. A staple of every serious lifting app; ours is free.
+ */
+export function PlateCalculator({
+  visible,
+  initialKg,
+  onClose,
+}: {
+  visible: boolean;
+  initialKg?: number | null;
+  onClose: () => void;
+}) {
+  const [weight, setWeight] = useState(initialKg != null ? String(initialKg) : '');
+  const [bar, setBar] = useState(20);
+
+  const total = Number(weight);
+  const load = total > 0 ? plateBreakdown(total, bar) : null;
+
+  return (
+    <Modal visible={visible} transparent animationType="fade" onRequestClose={onClose}>
+      <Pressable style={styles.backdrop} onPress={onClose}>
+        <Pressable style={styles.sheet} onPress={(e) => e.stopPropagation()}>
+          <Text style={styles.title}>Plate calculator</Text>
+
+          <View style={styles.inputRow}>
+            <TextInput
+              style={styles.input}
+              value={weight}
+              onChangeText={setWeight}
+              keyboardType="numeric"
+              placeholder="total kg"
+              placeholderTextColor={colors.textFaint}
+              autoFocus
+            />
+            <Text style={styles.unit}>kg total</Text>
+          </View>
+
+          <View style={styles.barRow}>
+            {BARS.map((b) => (
+              <Pressable
+                key={b}
+                onPress={() => setBar(b)}
+                style={[styles.barChip, bar === b && styles.barChipOn]}
+              >
+                <Text style={[styles.barChipText, bar === b && styles.barChipTextOn]}>
+                  {b === 0 ? 'No bar' : `${b}kg bar`}
+                </Text>
+              </Pressable>
+            ))}
+          </View>
+
+          {load && (
+            <View style={styles.result}>
+              {load.perSide.length > 0 ? (
+                <>
+                  <Text style={styles.perSideLabel}>Per side</Text>
+                  <View style={styles.plates}>
+                    {load.perSide.map((p, i) => (
+                      <View key={i} style={styles.plate}>
+                        <Text style={styles.plateText}>{p}</Text>
+                      </View>
+                    ))}
+                  </View>
+                </>
+              ) : (
+                <Text style={styles.note}>Below bar weight — nothing to load.</Text>
+              )}
+              {load.leftover > 0 && (
+                <Text style={styles.note}>+{load.leftover} kg can’t be made with standard plates.</Text>
+              )}
+            </View>
+          )}
+
+          <Pressable style={styles.done} onPress={onClose}>
+            <Text style={styles.doneText}>Done</Text>
+          </Pressable>
+        </Pressable>
+      </Pressable>
+    </Modal>
+  );
+}
+
+const styles = StyleSheet.create({
+  backdrop: { flex: 1, backgroundColor: 'rgba(0,0,0,0.7)', justifyContent: 'center', padding: spacing(6) },
+  sheet: {
+    backgroundColor: colors.surface,
+    borderRadius: radius.xl,
+    borderWidth: 1,
+    borderColor: colors.border,
+    padding: spacing(5),
+    gap: spacing(4),
+  },
+  title: { color: colors.text, fontFamily: font.extrabold, fontSize: 20, textAlign: 'center' },
+  inputRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing(2),
+    backgroundColor: colors.surfaceAlt,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: colors.border,
+    paddingHorizontal: spacing(3.5),
+  },
+  input: { flex: 1, color: colors.text, fontFamily: font.bold, fontSize: 22, paddingVertical: spacing(3), textAlign: 'center' },
+  unit: { color: colors.textFaint, fontFamily: font.regular, fontSize: 13 },
+  barRow: { flexDirection: 'row', gap: spacing(2), justifyContent: 'center', flexWrap: 'wrap' },
+  barChip: {
+    borderRadius: radius.full,
+    borderWidth: 1,
+    borderColor: colors.border,
+    paddingHorizontal: spacing(3),
+    paddingVertical: spacing(1.5),
+  },
+  barChipOn: { backgroundColor: colors.accent, borderColor: colors.accent },
+  barChipText: { color: colors.textMuted, fontFamily: font.semibold, fontSize: 12 },
+  barChipTextOn: { color: colors.onAccent },
+  result: { alignItems: 'center', gap: spacing(2.5) },
+  perSideLabel: { color: colors.textMuted, fontFamily: font.medium, fontSize: 12 },
+  plates: { flexDirection: 'row', gap: spacing(1.5), flexWrap: 'wrap', justifyContent: 'center' },
+  plate: {
+    backgroundColor: colors.surfaceAlt,
+    borderWidth: 1,
+    borderColor: colors.accent,
+    borderRadius: radius.sm,
+    paddingHorizontal: spacing(2.5),
+    paddingVertical: spacing(2),
+    minWidth: 40,
+    alignItems: 'center',
+  },
+  plateText: { color: colors.text, fontFamily: font.bold, fontSize: 15, fontVariant: ['tabular-nums'] },
+  note: { color: colors.textMuted, fontFamily: font.regular, fontSize: 12, textAlign: 'center' },
+  done: {
+    backgroundColor: colors.accent,
+    borderRadius: radius.full,
+    paddingVertical: spacing(3),
+    alignItems: 'center',
+  },
+  doneText: { color: colors.onAccent, fontFamily: font.bold, fontSize: 15 },
+});
