@@ -4,8 +4,10 @@ import { createJSONStorage, persist } from 'zustand/middleware';
 
 import { useLogStore } from '../stores/useLogStore';
 import { useProfileStore } from '../stores/useProfileStore';
+import { useWorkoutStore } from '../stores/useWorkoutStore';
 import { supabase } from './supabase';
 import { CustomFood, FoodLogEntry, Profile, WeightEntry } from './types';
+import { CustomExercise, Routine, Workout, WorkoutSet } from './workoutTypes';
 
 /**
  * Offline-first sync: push dirty local rows, then pull rows changed since the
@@ -47,7 +49,7 @@ export const useSyncStore = create<SyncState>()(
 
 /** Resolve once every persisted store has rehydrated (guards cold-start sync). */
 function waitForHydration(): Promise<void> {
-  const stores = [useProfileStore, useLogStore, useSyncStore] as const;
+  const stores = [useProfileStore, useLogStore, useWorkoutStore, useSyncStore] as const;
   return Promise.all(
     stores.map(
       (s) =>
@@ -148,6 +150,103 @@ const rowToCustomFood = (r: any): CustomFood => ({
   dirty: false,
 });
 
+const workoutToRow = (w: Workout, userId: string) => ({
+  id: w.id,
+  user_id: userId,
+  started_at: w.startedAt,
+  name: w.name,
+  notes: w.notes,
+  duration_s: w.durationS,
+  updated_at: w.updatedAt,
+  deleted: w.deleted,
+});
+
+const rowToWorkout = (r: any): Workout => ({
+  id: r.id,
+  startedAt: r.started_at,
+  name: r.name,
+  notes: r.notes,
+  durationS: r.duration_s == null ? null : Number(r.duration_s),
+  updatedAt: r.updated_at,
+  deleted: r.deleted,
+  dirty: false,
+});
+
+const setToRow = (s: WorkoutSet, userId: string) => ({
+  id: s.id,
+  workout_id: s.workoutId,
+  user_id: userId,
+  exercise_id: s.exerciseId,
+  set_number: s.setNumber,
+  weight_kg: s.weightKg,
+  reps: s.reps,
+  duration_s: s.durationS,
+  rpe: s.rpe,
+  is_warmup: s.isWarmup,
+  updated_at: s.updatedAt,
+  deleted: s.deleted,
+});
+
+const rowToSet = (r: any): WorkoutSet => ({
+  id: r.id,
+  workoutId: r.workout_id,
+  exerciseId: r.exercise_id,
+  setNumber: Number(r.set_number),
+  weightKg: r.weight_kg == null ? null : Number(r.weight_kg),
+  reps: r.reps == null ? null : Number(r.reps),
+  durationS: r.duration_s == null ? null : Number(r.duration_s),
+  rpe: r.rpe == null ? null : Number(r.rpe),
+  isWarmup: r.is_warmup,
+  updatedAt: r.updated_at,
+  deleted: r.deleted,
+  dirty: false,
+});
+
+const routineToRow = (r: Routine, userId: string) => ({
+  id: r.id,
+  user_id: userId,
+  name: r.name,
+  items: r.items,
+  updated_at: r.updatedAt,
+  deleted: r.deleted,
+});
+
+const rowToRoutine = (r: any): Routine => ({
+  id: r.id,
+  name: r.name,
+  items: Array.isArray(r.items) ? r.items : [],
+  updatedAt: r.updated_at,
+  deleted: r.deleted,
+  dirty: false,
+});
+
+const customExerciseToRow = (e: CustomExercise, userId: string) => ({
+  id: e.id,
+  user_id: userId,
+  name: e.name,
+  primary_muscle: e.primary_muscle,
+  equipment: e.equipment,
+  updated_at: e.updatedAt,
+  deleted: e.deleted,
+});
+
+const rowToCustomExercise = (r: any): CustomExercise => ({
+  id: r.id,
+  name: r.name,
+  aliases: [],
+  primary_muscle: r.primary_muscle,
+  secondary_muscles: [],
+  equipment: r.equipment,
+  category: 'custom',
+  load_type: 'weight_reps',
+  is_unilateral: false,
+  met: 4,
+  cue: '',
+  updatedAt: r.updated_at,
+  deleted: r.deleted,
+  dirty: false,
+});
+
 const profileToRow = (p: Profile, userId: string) => ({
   user_id: userId,
   name: p.name,
@@ -206,18 +305,24 @@ export async function syncAll(): Promise<SyncResult> {
     const { lastUserId } = useSyncStore.getState();
     if (lastUserId && lastUserId !== userId) {
       useLogStore.getState().reset();
+      useWorkoutStore.getState().reset();
       useProfileStore.getState().reset();
       useSyncStore.getState().setLastSyncedAt('1970-01-01T00:00:00Z');
     }
     useSyncStore.getState().setLastUserId(userId);
 
     const log = useLogStore.getState();
+    const gym = useWorkoutStore.getState();
     const profileStore = useProfileStore.getState();
 
     // -- push --
     const dirtyEntries = log.entries.filter((e) => e.dirty);
     const dirtyWeights = log.weights.filter((w) => w.dirty);
     const dirtyCustom = log.customFoods.filter((c) => c.dirty);
+    const dirtyWorkouts = gym.workouts.filter((w) => w.dirty);
+    const dirtySets = gym.sets.filter((s) => s.dirty);
+    const dirtyRoutines = gym.routines.filter((r) => r.dirty);
+    const dirtyCustomEx = gym.customExercises.filter((e) => e.dirty);
 
     if (dirtyEntries.length) {
       const { error } = await supabase
@@ -243,6 +348,38 @@ export async function syncAll(): Promise<SyncResult> {
       customFoods: dirtyCustom.map((c) => ({ id: c.id, updatedAt: c.updatedAt })),
     });
 
+    // gym: parents strictly before children (workout_sets FK → workouts)
+    if (dirtyWorkouts.length) {
+      const { error } = await supabase
+        .from('workouts')
+        .upsert(dirtyWorkouts.map((w) => workoutToRow(w, userId)));
+      if (error) throw new Error(`Pushing workouts failed: ${error.message}`);
+    }
+    if (dirtySets.length) {
+      const { error } = await supabase
+        .from('workout_sets')
+        .upsert(dirtySets.map((s) => setToRow(s, userId)));
+      if (error) throw new Error(`Pushing workout sets failed: ${error.message}`);
+    }
+    if (dirtyRoutines.length) {
+      const { error } = await supabase
+        .from('routines')
+        .upsert(dirtyRoutines.map((r) => routineToRow(r, userId)));
+      if (error) throw new Error(`Pushing routines failed: ${error.message}`);
+    }
+    if (dirtyCustomEx.length) {
+      const { error } = await supabase
+        .from('custom_exercises')
+        .upsert(dirtyCustomEx.map((e) => customExerciseToRow(e, userId)));
+      if (error) throw new Error(`Pushing custom exercises failed: ${error.message}`);
+    }
+    useWorkoutStore.getState().markPushed({
+      workouts: dirtyWorkouts.map((w) => ({ id: w.id, updatedAt: w.updatedAt })),
+      sets: dirtySets.map((s) => ({ id: s.id, updatedAt: s.updatedAt })),
+      routines: dirtyRoutines.map((r) => ({ id: r.id, updatedAt: r.updatedAt })),
+      customExercises: dirtyCustomEx.map((e) => ({ id: e.id, updatedAt: e.updatedAt })),
+    });
+
     if (profileStore.profile && profileStore.dirty) {
       const { error } = await supabase
         .from('profiles')
@@ -254,13 +391,18 @@ export async function syncAll(): Promise<SyncResult> {
     // -- pull --
     const since = useSyncStore.getState().lastSyncedAt ?? '1970-01-01T00:00:00Z';
 
-    const [entriesRes, weightsRes, customRes, profileRes] = await Promise.all([
-      supabase.from('food_logs').select('*').gt('updated_at', since),
-      supabase.from('weight_logs').select('*').gt('updated_at', since),
-      supabase.from('custom_foods').select('*').gt('updated_at', since),
-      supabase.from('profiles').select('*').maybeSingle(),
-    ]);
-    for (const res of [entriesRes, weightsRes, customRes, profileRes]) {
+    const [entriesRes, weightsRes, customRes, profileRes, workoutsRes, setsRes, routinesRes, customExRes] =
+      await Promise.all([
+        supabase.from('food_logs').select('*').gt('updated_at', since),
+        supabase.from('weight_logs').select('*').gt('updated_at', since),
+        supabase.from('custom_foods').select('*').gt('updated_at', since),
+        supabase.from('profiles').select('*').maybeSingle(),
+        supabase.from('workouts').select('*').gt('updated_at', since),
+        supabase.from('workout_sets').select('*').gt('updated_at', since),
+        supabase.from('routines').select('*').gt('updated_at', since),
+        supabase.from('custom_exercises').select('*').gt('updated_at', since),
+      ]);
+    for (const res of [entriesRes, weightsRes, customRes, profileRes, workoutsRes, setsRes, routinesRes, customExRes]) {
       if (res.error) throw new Error(`Pulling data failed: ${res.error.message}`);
     }
 
@@ -269,6 +411,27 @@ export async function syncAll(): Promise<SyncResult> {
       weights: (weightsRes.data ?? []).map(rowToWeight),
       customFoods: (customRes.data ?? []).map(rowToCustomFood),
     });
+    useWorkoutStore.getState().mergeRemote({
+      workouts: (workoutsRes.data ?? []).map(rowToWorkout),
+      sets: (setsRes.data ?? []).map(rowToSet),
+      routines: (routinesRes.data ?? []).map(rowToRoutine),
+      customExercises: (customExRes.data ?? []).map(rowToCustomExercise),
+    });
+
+    // Orphan repair: the parallel pulls share one watermark, so another device
+    // can commit workout W between our `workouts` and `workout_sets` queries —
+    // we'd see W's sets (later updated_at) but never W itself once the
+    // watermark advances past it. Fetch any missing parents by id now.
+    {
+      const state = useWorkoutStore.getState();
+      const known = new Set(state.workouts.map((w) => w.id));
+      const orphanIds = [...new Set(state.sets.filter((s) => !known.has(s.workoutId)).map((s) => s.workoutId))];
+      if (orphanIds.length) {
+        const { data, error } = await supabase.from('workouts').select('*').in('id', orphanIds);
+        if (error) throw new Error(`Orphan repair failed: ${error.message}`);
+        if (data?.length) useWorkoutStore.getState().mergeRemote({ workouts: data.map(rowToWorkout) });
+      }
+    }
 
     const localProfile = useProfileStore.getState().profile;
     if (profileRes.data) {
@@ -286,9 +449,17 @@ export async function syncAll(): Promise<SyncResult> {
       ...(entriesRes.data ?? []).map((r: any) => r.updated_at as string),
       ...(weightsRes.data ?? []).map((r: any) => r.updated_at as string),
       ...(customRes.data ?? []).map((r: any) => r.updated_at as string),
+      ...(workoutsRes.data ?? []).map((r: any) => r.updated_at as string),
+      ...(setsRes.data ?? []).map((r: any) => r.updated_at as string),
+      ...(routinesRes.data ?? []).map((r: any) => r.updated_at as string),
+      ...(customExRes.data ?? []).map((r: any) => r.updated_at as string),
       ...dirtyEntries.map((e) => e.updatedAt),
       ...dirtyWeights.map((w) => w.updatedAt),
       ...dirtyCustom.map((c) => c.updatedAt),
+      ...dirtyWorkouts.map((w) => w.updatedAt),
+      ...dirtySets.map((s) => s.updatedAt),
+      ...dirtyRoutines.map((r) => r.updatedAt),
+      ...dirtyCustomEx.map((e) => e.updatedAt),
     ];
     useSyncStore.getState().setLastSyncedAt(seen.reduce((a, b) => (a > b ? a : b)));
     useSyncStore.getState().setStatus('idle');

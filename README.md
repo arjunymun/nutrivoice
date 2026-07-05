@@ -2,6 +2,7 @@
 
 **Live:** https://nutrivoice-arjunymuns-projects.vercel.app — on iPhone/Android: open in
 Safari/Chrome → Share → **Add to Home Screen** (installs as an offline-capable app).
+**Repo:** https://github.com/arjunymun/nutrivoice
 
 Voice-first calorie tracker for **web, iOS and Android** from a single Expo codebase.
 Say *“I had 200 grams of chicken breast with 200 grams of rice”* — NutriVoice parses it,
@@ -21,6 +22,13 @@ calories + macros. One account, synced everywhere.
 - **Search & manual entry** — fuzzy search, portion defaults, custom foods.
 - **Bodybuilding-aware targets** — Mifflin-St Jeor BMR → TDEE, cut/maintain/bulk calorie
   goals, protein at 2 g/kg, BMI card, weight trend chart. All targets overridable.
+- **Train module (Hevy-class)** — 171-exercise catalog with gym-slang aliases, voice set
+  logging ("squats 5x5 at 100" → logged), routines, ✨ AI routine builder (free LLM),
+  rest timer, previous-performance ghosts, deterministic double-progression hints,
+  PR detection (Epley e1RM), weekly volume charts, full offline + sync.
+- **Adaptive TDEE** — MacroFactor's flagship, free: recalibrates your real calorie burn
+  from weight trend + food logs (least-squares trend, partial-day filtering, clamped and
+  confidence-blended). Suggests — never silently changes — your targets.
 - **Offline-first sync** — everything works signed out (AsyncStorage); sign in (Supabase
   auth) to sync across devices. Last-write-wins on `updated_at`, soft deletes, RLS on every table.
 - **Dark portfolio UI** — custom design system, SVG calorie ring, macro bars, charts, Inter.

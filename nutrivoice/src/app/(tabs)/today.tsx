@@ -8,9 +8,10 @@ import { EntryEditModal } from '@/components/EntryEditModal';
 import { MacroBar } from '@/components/MacroBar';
 import { MealSection } from '@/components/MealSection';
 import { Card } from '@/components/ui';
-import { addDays, FoodLogEntry, Meal, MEALS, todayKey, dateKeyToDate } from '@/lib/types';
+import { addDays, FoodLogEntry, Meal, MEALS, toDateKey, todayKey, dateKeyToDate } from '@/lib/types';
 import { dayTotals, entriesForDay, useLogStore } from '@/stores/useLogStore';
 import { useProfileStore } from '@/stores/useProfileStore';
+import { useWorkoutStore } from '@/stores/useWorkoutStore';
 import { colors, font, macroColor, spacing } from '@/theme';
 
 const DAY_LETTERS = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
@@ -18,6 +19,7 @@ const DAY_LETTERS = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
 export default function Today() {
   const profile = useProfileStore((s) => s.profile);
   const entries = useLogStore((s) => s.entries);
+  const workouts = useWorkoutStore((s) => s.workouts);
   const [dateKey, setDateKey] = useState(todayKey());
   const [editing, setEditing] = useState<FoodLogEntry | null>(null);
 
@@ -32,6 +34,9 @@ export default function Today() {
 
   const byMeal = (meal: Meal) => dayEntries.filter((e) => e.meal === meal);
   const isToday = dateKey === todayKey();
+  const trained = workouts.some(
+    (w) => !w.deleted && w.durationS != null && toDateKey(new Date(w.startedAt)) === dateKey,
+  );
 
   return (
     <SafeAreaView style={styles.safe} edges={['top']}>
@@ -47,6 +52,7 @@ export default function Today() {
                 day: 'numeric',
                 month: 'long',
               })}
+              {trained ? '  ·  trained ✓' : ''}
             </Text>
           </View>
         </View>

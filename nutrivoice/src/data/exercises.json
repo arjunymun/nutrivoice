@@ -1,0 +1,3620 @@
+[
+ {
+  "id": "barbell-curl",
+  "name": "Barbell Curl",
+  "aliases": [
+   "bb curl",
+   "barbell bicep curl",
+   "standing barbell curl",
+   "barbel curl",
+   "straight bar curl"
+  ],
+  "primary_muscle": "biceps",
+  "secondary_muscles": [
+   "forearms"
+  ],
+  "equipment": "barbell",
+  "category": "arms",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3.5,
+  "cue": "Pin elbows to your sides; curl the bar up without swinging your hips."
+ },
+ {
+  "id": "cable-curl",
+  "name": "Cable Curl",
+  "aliases": [
+   "cable bicep curl",
+   "cable curls",
+   "bicep cable curl",
+   "standing cable curl"
+  ],
+  "primary_muscle": "biceps",
+  "secondary_muscles": [
+   "forearms"
+  ],
+  "equipment": "cable",
+  "category": "arms",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3.5,
+  "cue": "Step back for constant tension; keep elbows fixed and resist the negative."
+ },
+ {
+  "id": "close-grip-bench-press",
+  "name": "Close-Grip Bench Press",
+  "aliases": [
+   "cgbp",
+   "close grip bench",
+   "cg bench",
+   "close grip bench press",
+   "narrow grip bench"
+  ],
+  "primary_muscle": "triceps",
+  "secondary_muscles": [
+   "chest",
+   "shoulders"
+  ],
+  "equipment": "barbell",
+  "category": "arms",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 5,
+  "cue": "Hands shoulder-width, elbows tucked; touch low on the chest and press up."
+ },
+ {
+  "id": "concentration-curl",
+  "name": "Concentration Curl",
+  "aliases": [
+   "conc curl",
+   "concentration curls",
+   "seated concentration curl",
+   "arnold concentration curl"
+  ],
+  "primary_muscle": "biceps",
+  "secondary_muscles": [],
+  "equipment": "dumbbell",
+  "category": "arms",
+  "load_type": "weight_reps",
+  "is_unilateral": true,
+  "met": 3,
+  "cue": "Brace elbow against inner thigh; curl slow and squeeze at the top."
+ },
+ {
+  "id": "drag-curl",
+  "name": "Drag Curl",
+  "aliases": [
+   "drag curls",
+   "barbell drag curl",
+   "bb drag curl"
+  ],
+  "primary_muscle": "biceps",
+  "secondary_muscles": [
+   "forearms"
+  ],
+  "equipment": "barbell",
+  "category": "arms",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3,
+  "cue": "Drag the bar up your torso, elbows driving back instead of forward."
+ },
+ {
+  "id": "dumbbell-curl",
+  "name": "Dumbbell Curl",
+  "aliases": [
+   "db curl",
+   "dumbell curl",
+   "bicep curl",
+   "dumbbell bicep curl",
+   "alternating curl"
+  ],
+  "primary_muscle": "biceps",
+  "secondary_muscles": [
+   "forearms"
+  ],
+  "equipment": "dumbbell",
+  "category": "arms",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3.5,
+  "cue": "Rotate pinky toward the ceiling as you curl; control the lowering."
+ },
+ {
+  "id": "ez-bar-curl",
+  "name": "EZ Bar Curl",
+  "aliases": [
+   "ez curl",
+   "ezbar curl",
+   "ez bar bicep curl",
+   "cambered bar curl",
+   "easy bar curl"
+  ],
+  "primary_muscle": "biceps",
+  "secondary_muscles": [
+   "forearms"
+  ],
+  "equipment": "barbell",
+  "category": "arms",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3.5,
+  "cue": "Grip the angled handles, elbows glued to ribs; squeeze hard at the top."
+ },
+ {
+  "id": "farmers-hold",
+  "name": "Farmer's Hold",
+  "aliases": [
+   "farmer hold",
+   "farmers hold",
+   "farmers carry hold",
+   "static hold",
+   "grip hold",
+   "heavy hold"
+  ],
+  "primary_muscle": "forearms",
+  "secondary_muscles": [
+   "core"
+  ],
+  "equipment": "dumbbell",
+  "category": "arms",
+  "load_type": "duration",
+  "is_unilateral": false,
+  "met": 4,
+  "cue": "Stand tall, shoulders back; crush the handles and don't let posture sag."
+ },
+ {
+  "id": "hammer-curl",
+  "name": "Hammer Curl",
+  "aliases": [
+   "hammers",
+   "db hammer curl",
+   "hammer curls",
+   "neutral grip curl",
+   "hamer curl"
+  ],
+  "primary_muscle": "biceps",
+  "secondary_muscles": [
+   "forearms"
+  ],
+  "equipment": "dumbbell",
+  "category": "arms",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3.5,
+  "cue": "Keep palms facing each other; curl up like swinging a hammer, no body english."
+ },
+ {
+  "id": "incline-dumbbell-curl",
+  "name": "Incline Dumbbell Curl",
+  "aliases": [
+   "incline curl",
+   "incline db curl",
+   "incline bicep curl",
+   "incline curls"
+  ],
+  "primary_muscle": "biceps",
+  "secondary_muscles": [
+   "forearms"
+  ],
+  "equipment": "dumbbell",
+  "category": "arms",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3,
+  "cue": "Let arms hang behind your torso; curl without letting elbows drift forward."
+ },
+ {
+  "id": "machine-dip",
+  "name": "Machine Dip",
+  "aliases": [
+   "dip machine",
+   "machine dips",
+   "seated dip machine",
+   "seated dips",
+   "tricep dip machine"
+  ],
+  "primary_muscle": "triceps",
+  "secondary_muscles": [
+   "chest",
+   "shoulders"
+  ],
+  "equipment": "machine",
+  "category": "arms",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 4,
+  "cue": "Chest up, shoulders down; press through the handles to full elbow lockout."
+ },
+ {
+  "id": "overhead-cable-triceps-extension",
+  "name": "Overhead Cable Triceps Extension",
+  "aliases": [
+   "cable overhead extension",
+   "overhead rope extension",
+   "cable french press",
+   "overhead cable extension"
+  ],
+  "primary_muscle": "triceps",
+  "secondary_muscles": [],
+  "equipment": "cable",
+  "category": "arms",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3.5,
+  "cue": "Face away from the stack, elbows high; stretch the triceps, then lock out."
+ },
+ {
+  "id": "overhead-dumbbell-triceps-extension",
+  "name": "Overhead Dumbbell Triceps Extension",
+  "aliases": [
+   "overhead tricep extension",
+   "db overhead extension",
+   "seated tricep extension",
+   "overhead dumbbell extension",
+   "french press"
+  ],
+  "primary_muscle": "triceps",
+  "secondary_muscles": [],
+  "equipment": "dumbbell",
+  "category": "arms",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3.5,
+  "cue": "Keep elbows close to your ears; lower deep behind the head, then extend."
+ },
+ {
+  "id": "preacher-curl",
+  "name": "Preacher Curl",
+  "aliases": [
+   "preacher",
+   "preacher curls",
+   "ez preacher curl",
+   "scott curl",
+   "preachers"
+  ],
+  "primary_muscle": "biceps",
+  "secondary_muscles": [
+   "forearms"
+  ],
+  "equipment": "barbell",
+  "category": "arms",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3.5,
+  "cue": "Keep armpits snug on the pad; lower slowly and stop just short of lockout."
+ },
+ {
+  "id": "reverse-curl",
+  "name": "Reverse Curl",
+  "aliases": [
+   "reverse curls",
+   "reverse barbell curl",
+   "reverse grip curl",
+   "overhand curl",
+   "ez reverse curl"
+  ],
+  "primary_muscle": "forearms",
+  "secondary_muscles": [
+   "biceps"
+  ],
+  "equipment": "barbell",
+  "category": "arms",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3.5,
+  "cue": "Overhand grip, wrists straight; curl without letting the knuckles drop."
+ },
+ {
+  "id": "reverse-wrist-curl",
+  "name": "Reverse Wrist Curl",
+  "aliases": [
+   "reverse wrist curls",
+   "wrist extension",
+   "forearm extension",
+   "wrist extensions"
+  ],
+  "primary_muscle": "forearms",
+  "secondary_muscles": [],
+  "equipment": "barbell",
+  "category": "arms",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3,
+  "cue": "Palms down, forearms supported; lift the knuckles toward you, go light."
+ },
+ {
+  "id": "skullcrusher",
+  "name": "Skullcrusher",
+  "aliases": [
+   "skull crusher",
+   "skull crushers",
+   "lying triceps extension",
+   "lying tricep extension",
+   "ez bar skullcrusher",
+   "skullcrushers"
+  ],
+  "primary_muscle": "triceps",
+  "secondary_muscles": [],
+  "equipment": "barbell",
+  "category": "arms",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3.5,
+  "cue": "Lower the bar to your forehead with elbows tucked; extend without flaring."
+ },
+ {
+  "id": "spider-curl",
+  "name": "Spider Curl",
+  "aliases": [
+   "spider curls",
+   "prone incline curl",
+   "incline prone curl",
+   "chest supported curl"
+  ],
+  "primary_muscle": "biceps",
+  "secondary_muscles": [],
+  "equipment": "dumbbell",
+  "category": "arms",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3,
+  "cue": "Chest on the incline pad, arms hanging straight down; curl with zero swing."
+ },
+ {
+  "id": "triceps-bar-pushdown",
+  "name": "Triceps Bar Pushdown",
+  "aliases": [
+   "bar pushdown",
+   "straight bar pushdown",
+   "tricep pressdown",
+   "v bar pushdown",
+   "cable pushdown"
+  ],
+  "primary_muscle": "triceps",
+  "secondary_muscles": [],
+  "equipment": "cable",
+  "category": "arms",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3.5,
+  "cue": "Lock elbows at your sides; press to full extension and control the return."
+ },
+ {
+  "id": "triceps-kickback",
+  "name": "Triceps Kickback",
+  "aliases": [
+   "kickbacks",
+   "tricep kickback",
+   "db kickback",
+   "dumbbell kickback",
+   "kickback"
+  ],
+  "primary_muscle": "triceps",
+  "secondary_muscles": [],
+  "equipment": "dumbbell",
+  "category": "arms",
+  "load_type": "weight_reps",
+  "is_unilateral": true,
+  "met": 3,
+  "cue": "Keep upper arm parallel to the floor; extend fully and pause at lockout."
+ },
+ {
+  "id": "triceps-rope-pushdown",
+  "name": "Triceps Rope Pushdown",
+  "aliases": [
+   "rope pushdown",
+   "rope pressdown",
+   "tricep pushdown",
+   "rope tricep extension",
+   "tricep rope"
+  ],
+  "primary_muscle": "triceps",
+  "secondary_muscles": [],
+  "equipment": "cable",
+  "category": "arms",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3.5,
+  "cue": "Pin elbows to your sides; split the rope apart at the bottom."
+ },
+ {
+  "id": "wrist-curl",
+  "name": "Wrist Curl",
+  "aliases": [
+   "wrist curls",
+   "barbell wrist curl",
+   "forearm curl",
+   "seated wrist curl",
+   "forearm curls"
+  ],
+  "primary_muscle": "forearms",
+  "secondary_muscles": [],
+  "equipment": "barbell",
+  "category": "arms",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3,
+  "cue": "Rest forearms on your thighs; curl the wrists up through a full range."
+ },
+ {
+  "id": "back-extension",
+  "name": "Back Extension",
+  "aliases": [
+   "hyperextension",
+   "hyperextensions",
+   "back extensions",
+   "hypers",
+   "45 degree back extension"
+  ],
+  "primary_muscle": "back",
+  "secondary_muscles": [
+   "glutes",
+   "hamstrings"
+  ],
+  "equipment": "bodyweight",
+  "category": "back",
+  "load_type": "bodyweight_reps",
+  "is_unilateral": false,
+  "met": 3.5,
+  "cue": "Hinge at the hips, rise until your body is straight — don't hyperextend."
+ },
+ {
+  "id": "barbell-bent-over-row",
+  "name": "Barbell Bent-Over Row",
+  "aliases": [
+   "bent over row",
+   "bb row",
+   "barbell row",
+   "bent over rows",
+   "bor"
+  ],
+  "primary_muscle": "back",
+  "secondary_muscles": [
+   "biceps",
+   "forearms",
+   "core"
+  ],
+  "equipment": "barbell",
+  "category": "back",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 6,
+  "cue": "Hinge to 45 degrees, pull the bar to your lower ribs, no torso heave."
+ },
+ {
+  "id": "barbell-shrug",
+  "name": "Barbell Shrug",
+  "aliases": [
+   "shrugs",
+   "bb shrug",
+   "barbell shrugs",
+   "trap shrugs"
+  ],
+  "primary_muscle": "back",
+  "secondary_muscles": [
+   "shoulders",
+   "forearms"
+  ],
+  "equipment": "barbell",
+  "category": "back",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 4,
+  "cue": "Shrug straight up to your ears, pause, and lower slow — no rolling."
+ },
+ {
+  "id": "chest-supported-dumbbell-row",
+  "name": "Chest-Supported Dumbbell Row",
+  "aliases": [
+   "chest supported row",
+   "incline db row",
+   "incline dumbbell row",
+   "csr",
+   "chest supported rows"
+  ],
+  "primary_muscle": "back",
+  "secondary_muscles": [
+   "biceps",
+   "shoulders"
+  ],
+  "equipment": "dumbbell",
+  "category": "back",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 4.5,
+  "cue": "Chest pinned to the incline, drive elbows back without lifting off the pad."
+ },
+ {
+  "id": "chin-up",
+  "name": "Chin-Up",
+  "aliases": [
+   "chins",
+   "chinups",
+   "chin ups",
+   "chinup",
+   "underhand pull up"
+  ],
+  "primary_muscle": "back",
+  "secondary_muscles": [
+   "biceps",
+   "forearms",
+   "core"
+  ],
+  "equipment": "bodyweight",
+  "category": "back",
+  "load_type": "bodyweight_reps",
+  "is_unilateral": false,
+  "met": 8,
+  "cue": "Palms facing you, pull elbows to your ribs and control the way down."
+ },
+ {
+  "id": "close-grip-lat-pulldown",
+  "name": "Close-Grip Lat Pulldown",
+  "aliases": [
+   "close grip pulldown",
+   "cg pulldown",
+   "neutral grip pulldown",
+   "close grip lat pull down",
+   "v bar pulldown"
+  ],
+  "primary_muscle": "back",
+  "secondary_muscles": [
+   "biceps",
+   "forearms"
+  ],
+  "equipment": "cable",
+  "category": "back",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 4.5,
+  "cue": "Lean back slightly and pull the handle to your sternum, elbows tight."
+ },
+ {
+  "id": "conventional-deadlift",
+  "name": "Conventional Deadlift",
+  "aliases": [
+   "deadlift",
+   "deads",
+   "dl",
+   "deadlifts",
+   "conventional dl"
+  ],
+  "primary_muscle": "back",
+  "secondary_muscles": [
+   "glutes",
+   "hamstrings",
+   "core"
+  ],
+  "equipment": "barbell",
+  "category": "back",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 6,
+  "cue": "Brace hard, push the floor away, and keep the bar dragging up your shins."
+ },
+ {
+  "id": "dumbbell-bent-over-row",
+  "name": "Dumbbell Bent-Over Row",
+  "aliases": [
+   "db bent over row",
+   "bent over dumbbell row",
+   "two arm dumbbell row",
+   "double db row"
+  ],
+  "primary_muscle": "back",
+  "secondary_muscles": [
+   "biceps",
+   "forearms"
+  ],
+  "equipment": "dumbbell",
+  "category": "back",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 5,
+  "cue": "Flat back, row both bells to your hips and squeeze the shoulder blades."
+ },
+ {
+  "id": "dumbbell-shrug",
+  "name": "Dumbbell Shrug",
+  "aliases": [
+   "db shrug",
+   "db shrugs",
+   "dumbbell shrugs"
+  ],
+  "primary_muscle": "back",
+  "secondary_muscles": [
+   "shoulders",
+   "forearms"
+  ],
+  "equipment": "dumbbell",
+  "category": "back",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3.5,
+  "cue": "Arms relaxed at your sides, lift the traps straight up and hold the top."
+ },
+ {
+  "id": "good-morning",
+  "name": "Good Morning",
+  "aliases": [
+   "good mornings",
+   "goodmorning",
+   "gms",
+   "bb good morning"
+  ],
+  "primary_muscle": "hamstrings",
+  "secondary_muscles": [
+   "glutes",
+   "back",
+   "core"
+  ],
+  "equipment": "barbell",
+  "category": "back",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 5,
+  "cue": "Soft knees, push hips back until hamstrings load, then stand up tall."
+ },
+ {
+  "id": "lat-pulldown",
+  "name": "Lat Pulldown",
+  "aliases": [
+   "pulldown",
+   "pulldowns",
+   "wide grip pulldown",
+   "lat pull down",
+   "lat pulldowns"
+  ],
+  "primary_muscle": "back",
+  "secondary_muscles": [
+   "biceps",
+   "forearms"
+  ],
+  "equipment": "cable",
+  "category": "back",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 4.5,
+  "cue": "Pull the bar to your collarbone with elbows down, not behind your neck."
+ },
+ {
+  "id": "pendlay-row",
+  "name": "Pendlay Row",
+  "aliases": [
+   "pendlay",
+   "pendlay rows",
+   "pendley row",
+   "dead stop row"
+  ],
+  "primary_muscle": "back",
+  "secondary_muscles": [
+   "biceps",
+   "core"
+  ],
+  "equipment": "barbell",
+  "category": "back",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 6,
+  "cue": "Torso parallel to the floor, rip the bar from a dead stop each rep."
+ },
+ {
+  "id": "pull-up",
+  "name": "Pull-Up",
+  "aliases": [
+   "pullups",
+   "pull ups",
+   "pullup",
+   "wide grip pull up",
+   "dead hang pull up"
+  ],
+  "primary_muscle": "back",
+  "secondary_muscles": [
+   "biceps",
+   "forearms",
+   "core"
+  ],
+  "equipment": "bodyweight",
+  "category": "back",
+  "load_type": "bodyweight_reps",
+  "is_unilateral": false,
+  "met": 8,
+  "cue": "Start from a dead hang and pull your chest to the bar, not chin over it."
+ },
+ {
+  "id": "rack-pull",
+  "name": "Rack Pull",
+  "aliases": [
+   "rack pulls",
+   "rack deadlift",
+   "partial deadlift",
+   "block pull"
+  ],
+  "primary_muscle": "back",
+  "secondary_muscles": [
+   "glutes",
+   "forearms",
+   "hamstrings"
+  ],
+  "equipment": "barbell",
+  "category": "back",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 6,
+  "cue": "Set pins at knee height, brace, and drive hips through to a tall lockout."
+ },
+ {
+  "id": "reverse-grip-lat-pulldown",
+  "name": "Reverse-Grip Lat Pulldown",
+  "aliases": [
+   "reverse grip pulldown",
+   "underhand pulldown",
+   "supinated pulldown",
+   "reverse pulldown"
+  ],
+  "primary_muscle": "back",
+  "secondary_muscles": [
+   "biceps",
+   "forearms"
+  ],
+  "equipment": "cable",
+  "category": "back",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 4.5,
+  "cue": "Underhand grip, drive elbows to your ribs and squeeze the lower lats."
+ },
+ {
+  "id": "seal-row",
+  "name": "Seal Row",
+  "aliases": [
+   "seal rows",
+   "bench row",
+   "prone row",
+   "prone bench row"
+  ],
+  "primary_muscle": "back",
+  "secondary_muscles": [
+   "biceps",
+   "forearms"
+  ],
+  "equipment": "barbell",
+  "category": "back",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 4.5,
+  "cue": "Stay glued to the bench, pull to the pad, and pause the squeeze at the top."
+ },
+ {
+  "id": "seated-cable-row",
+  "name": "Seated Cable Row",
+  "aliases": [
+   "cable row",
+   "seated row",
+   "low row",
+   "cable rows"
+  ],
+  "primary_muscle": "back",
+  "secondary_muscles": [
+   "biceps",
+   "forearms"
+  ],
+  "equipment": "cable",
+  "category": "back",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 4.5,
+  "cue": "Sit tall, pull the handle to your navel, and let the lats stretch forward."
+ },
+ {
+  "id": "single-arm-cable-row",
+  "name": "Single-Arm Cable Row",
+  "aliases": [
+   "one arm cable row",
+   "single arm seated row",
+   "unilateral cable row",
+   "1 arm cable row"
+  ],
+  "primary_muscle": "back",
+  "secondary_muscles": [
+   "biceps",
+   "core"
+  ],
+  "equipment": "cable",
+  "category": "back",
+  "load_type": "weight_reps",
+  "is_unilateral": true,
+  "met": 3.5,
+  "cue": "Resist trunk rotation and drive the elbow straight back past your ribs."
+ },
+ {
+  "id": "single-arm-dumbbell-row",
+  "name": "Single-Arm Dumbbell Row",
+  "aliases": [
+   "db row",
+   "dumbbell row",
+   "one arm row",
+   "single arm row",
+   "one arm dumbbell row",
+   "kroc row"
+  ],
+  "primary_muscle": "back",
+  "secondary_muscles": [
+   "biceps",
+   "forearms",
+   "core"
+  ],
+  "equipment": "dumbbell",
+  "category": "back",
+  "load_type": "weight_reps",
+  "is_unilateral": true,
+  "met": 4,
+  "cue": "Square hips, pull the bell to your hip pocket, not your armpit."
+ },
+ {
+  "id": "straight-arm-pulldown",
+  "name": "Straight-Arm Pulldown",
+  "aliases": [
+   "straight arm pushdown",
+   "lat pushdown",
+   "cable pullover",
+   "rope pullover",
+   "stiff arm pulldown"
+  ],
+  "primary_muscle": "back",
+  "secondary_muscles": [
+   "triceps",
+   "core"
+  ],
+  "equipment": "cable",
+  "category": "back",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3.5,
+  "cue": "Arms nearly straight, sweep the bar to your thighs using only the lats."
+ },
+ {
+  "id": "sumo-deadlift",
+  "name": "Sumo Deadlift",
+  "aliases": [
+   "sumo",
+   "sumo dl",
+   "sumo deads",
+   "sumo deadlifts"
+  ],
+  "primary_muscle": "back",
+  "secondary_muscles": [
+   "glutes",
+   "quads",
+   "hamstrings"
+  ],
+  "equipment": "barbell",
+  "category": "back",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 6,
+  "cue": "Spread the floor with your feet, chest up, and lock out with the glutes."
+ },
+ {
+  "id": "t-bar-row",
+  "name": "T-Bar Row",
+  "aliases": [
+   "t bar",
+   "tbar row",
+   "tbar",
+   "t bar rows",
+   "landmine row"
+  ],
+  "primary_muscle": "back",
+  "secondary_muscles": [
+   "biceps",
+   "forearms",
+   "core"
+  ],
+  "equipment": "barbell",
+  "category": "back",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 5.5,
+  "cue": "Hinge over the bar, keep hips still, and row the handle into your chest."
+ },
+ {
+  "id": "archer-push-up",
+  "name": "Archer Push-Up",
+  "aliases": [
+   "archer pushup",
+   "archers",
+   "side to side push up",
+   "archer press up",
+   "one side push up"
+  ],
+  "primary_muscle": "chest",
+  "secondary_muscles": [
+   "triceps",
+   "shoulders",
+   "core"
+  ],
+  "equipment": "bodyweight",
+  "category": "calisthenics",
+  "load_type": "bodyweight_reps",
+  "is_unilateral": true,
+  "met": 5,
+  "cue": "Lower toward one hand while the other arm stays straight, shift the load side to side."
+ },
+ {
+  "id": "burpee",
+  "name": "Burpee",
+  "aliases": [
+   "burpees",
+   "burpee jump",
+   "squat thrust",
+   "burpies",
+   "berpee"
+  ],
+  "primary_muscle": "full_body",
+  "secondary_muscles": [
+   "cardio",
+   "chest",
+   "quads"
+  ],
+  "equipment": "bodyweight",
+  "category": "calisthenics",
+  "load_type": "bodyweight_reps",
+  "is_unilateral": false,
+  "met": 8,
+  "cue": "Chest to floor, snap hips up, and finish each rep with a full jump and overhead reach."
+ },
+ {
+  "id": "decline-push-up",
+  "name": "Decline Push-Up",
+  "aliases": [
+   "decline pushup",
+   "feet elevated push up",
+   "feet up push up",
+   "decline press up",
+   "incline chest pushup"
+  ],
+  "primary_muscle": "chest",
+  "secondary_muscles": [
+   "shoulders",
+   "triceps",
+   "core"
+  ],
+  "equipment": "bodyweight",
+  "category": "calisthenics",
+  "load_type": "bodyweight_reps",
+  "is_unilateral": false,
+  "met": 4.5,
+  "cue": "Feet on a bench, body in one straight line — don't let hips sag as you press."
+ },
+ {
+  "id": "diamond-push-up",
+  "name": "Diamond Push-Up",
+  "aliases": [
+   "diamond pushup",
+   "diamonds",
+   "triangle push up",
+   "close grip push up",
+   "tricep push up",
+   "diamond press up"
+  ],
+  "primary_muscle": "triceps",
+  "secondary_muscles": [
+   "chest",
+   "shoulders",
+   "core"
+  ],
+  "equipment": "bodyweight",
+  "category": "calisthenics",
+  "load_type": "bodyweight_reps",
+  "is_unilateral": false,
+  "met": 4,
+  "cue": "Form a diamond with thumbs and index fingers, keep elbows tucked as you lower."
+ },
+ {
+  "id": "dip",
+  "name": "Dip",
+  "aliases": [
+   "dips",
+   "bodyweight dips",
+   "parallel bar dips",
+   "bar dips",
+   "chest dips",
+   "tricep dips"
+  ],
+  "primary_muscle": "triceps",
+  "secondary_muscles": [
+   "chest",
+   "shoulders"
+  ],
+  "equipment": "bodyweight",
+  "category": "calisthenics",
+  "load_type": "bodyweight_reps",
+  "is_unilateral": false,
+  "met": 5,
+  "cue": "Lower until shoulders dip below elbows, lean slightly forward, press to lockout."
+ },
+ {
+  "id": "handstand-push-up",
+  "name": "Handstand Push-Up",
+  "aliases": [
+   "handstand pushup",
+   "hspu",
+   "wall handstand push up",
+   "handstand press up",
+   "vertical push up"
+  ],
+  "primary_muscle": "shoulders",
+  "secondary_muscles": [
+   "triceps",
+   "core"
+  ],
+  "equipment": "bodyweight",
+  "category": "calisthenics",
+  "load_type": "bodyweight_reps",
+  "is_unilateral": false,
+  "met": 7,
+  "cue": "Stack wrists, elbows and shoulders — lower head to the floor under control, press straight up."
+ },
+ {
+  "id": "inverted-row",
+  "name": "Inverted Row",
+  "aliases": [
+   "inverted rows",
+   "bodyweight row",
+   "australian pull up",
+   "bar row",
+   "horizontal pull up",
+   "fat man pull up"
+  ],
+  "primary_muscle": "back",
+  "secondary_muscles": [
+   "biceps",
+   "forearms",
+   "core"
+  ],
+  "equipment": "bodyweight",
+  "category": "calisthenics",
+  "load_type": "bodyweight_reps",
+  "is_unilateral": false,
+  "met": 4.5,
+  "cue": "Keep your body rigid like a plank and pull your chest to the bar."
+ },
+ {
+  "id": "jump-squat",
+  "name": "Jump Squat",
+  "aliases": [
+   "jump squats",
+   "squat jumps",
+   "jumping squats",
+   "plyo squat",
+   "explosive squat"
+  ],
+  "primary_muscle": "quads",
+  "secondary_muscles": [
+   "glutes",
+   "calves",
+   "cardio"
+  ],
+  "equipment": "bodyweight",
+  "category": "calisthenics",
+  "load_type": "bodyweight_reps",
+  "is_unilateral": false,
+  "met": 7,
+  "cue": "Sink into a full squat, explode up, and land soft with knees tracking over toes."
+ },
+ {
+  "id": "muscle-up",
+  "name": "Muscle-Up",
+  "aliases": [
+   "muscleup",
+   "muscle ups",
+   "bar muscle up",
+   "ring muscle up",
+   "mu"
+  ],
+  "primary_muscle": "back",
+  "secondary_muscles": [
+   "chest",
+   "triceps",
+   "core"
+  ],
+  "equipment": "bodyweight",
+  "category": "calisthenics",
+  "load_type": "bodyweight_reps",
+  "is_unilateral": false,
+  "met": 7,
+  "cue": "Pull explosively to the sternum, lean over the bar, then press out of the dip."
+ },
+ {
+  "id": "neutral-grip-pull-up",
+  "name": "Neutral-Grip Pull-Up",
+  "aliases": [
+   "neutral grip pullup",
+   "hammer grip pull up",
+   "parallel grip pull up",
+   "neutral pull ups",
+   "commando grip pull up"
+  ],
+  "primary_muscle": "back",
+  "secondary_muscles": [
+   "biceps",
+   "forearms",
+   "core"
+  ],
+  "equipment": "bodyweight",
+  "category": "calisthenics",
+  "load_type": "bodyweight_reps",
+  "is_unilateral": false,
+  "met": 5,
+  "cue": "Palms facing each other, pull elbows to your ribs and keep shoulders away from your ears."
+ },
+ {
+  "id": "pistol-squat",
+  "name": "Pistol Squat",
+  "aliases": [
+   "pistol squats",
+   "pistols",
+   "single leg squat",
+   "one leg squat",
+   "one legged squat"
+  ],
+  "primary_muscle": "quads",
+  "secondary_muscles": [
+   "glutes",
+   "core",
+   "hamstrings"
+  ],
+  "equipment": "bodyweight",
+  "category": "calisthenics",
+  "load_type": "bodyweight_reps",
+  "is_unilateral": true,
+  "met": 6,
+  "cue": "Extend the free leg forward, sit back slowly and keep the heel planted the whole way down."
+ },
+ {
+  "id": "weighted-dip",
+  "name": "Weighted Dip",
+  "aliases": [
+   "weighted dips",
+   "dips with weight",
+   "belt dips",
+   "loaded dips",
+   "weighted bar dips"
+  ],
+  "primary_muscle": "triceps",
+  "secondary_muscles": [
+   "chest",
+   "shoulders"
+  ],
+  "equipment": "bodyweight",
+  "category": "calisthenics",
+  "load_type": "weighted_bodyweight",
+  "is_unilateral": false,
+  "met": 6,
+  "cue": "Let the belt weight settle before descending, stay controlled and press to full lockout."
+ },
+ {
+  "id": "weighted-pull-up",
+  "name": "Weighted Pull-Up",
+  "aliases": [
+   "weighted pullup",
+   "weighted pull ups",
+   "belt pull up",
+   "pull ups with weight",
+   "loaded pull up"
+  ],
+  "primary_muscle": "back",
+  "secondary_muscles": [
+   "biceps",
+   "forearms",
+   "core"
+  ],
+  "equipment": "bodyweight",
+  "category": "calisthenics",
+  "load_type": "weighted_bodyweight",
+  "is_unilateral": false,
+  "met": 6,
+  "cue": "Brace hard to stop the plate swinging, pull chin cleanly over the bar every rep."
+ },
+ {
+  "id": "wide-push-up",
+  "name": "Wide Push-Up",
+  "aliases": [
+   "wide pushup",
+   "wide grip push up",
+   "wide arm push up",
+   "wide press up",
+   "wides"
+  ],
+  "primary_muscle": "chest",
+  "secondary_muscles": [
+   "shoulders",
+   "triceps",
+   "core"
+  ],
+  "equipment": "bodyweight",
+  "category": "calisthenics",
+  "load_type": "bodyweight_reps",
+  "is_unilateral": false,
+  "met": 4,
+  "cue": "Hands wider than shoulders, lower chest between them without flaring elbows past 45 degrees."
+ },
+ {
+  "id": "assault-bike",
+  "name": "Assault Bike",
+  "aliases": [
+   "air bike",
+   "airdyne",
+   "echo bike",
+   "fan bike",
+   "airbike"
+  ],
+  "primary_muscle": "cardio",
+  "secondary_muscles": [
+   "quads",
+   "shoulders",
+   "core"
+  ],
+  "equipment": "machine",
+  "category": "cardio",
+  "load_type": "duration",
+  "is_unilateral": false,
+  "met": 9,
+  "cue": "Push and pull the arms while you pedal — drive with legs and arms together."
+ },
+ {
+  "id": "elliptical",
+  "name": "Elliptical",
+  "aliases": [
+   "elliptical trainer",
+   "cross trainer",
+   "eliptical",
+   "crosstrainer"
+  ],
+  "primary_muscle": "cardio",
+  "secondary_muscles": [
+   "quads",
+   "glutes",
+   "hamstrings"
+  ],
+  "equipment": "machine",
+  "category": "cardio",
+  "load_type": "duration",
+  "is_unilateral": false,
+  "met": 5.5,
+  "cue": "Push through whole foot, stay upright, drive the handles instead of hanging on."
+ },
+ {
+  "id": "farmer-carry",
+  "name": "Farmer Carry",
+  "aliases": [
+   "farmers walk",
+   "farmers carry",
+   "farmer's walk",
+   "loaded carry",
+   "farmer walks"
+  ],
+  "primary_muscle": "full_body",
+  "secondary_muscles": [
+   "forearms",
+   "core",
+   "shoulders"
+  ],
+  "equipment": "dumbbell",
+  "category": "cardio",
+  "load_type": "duration",
+  "is_unilateral": false,
+  "met": 6,
+  "cue": "Chest tall, crush the grip, short quick steps — note the weight used in your log."
+ },
+ {
+  "id": "hiit-circuit",
+  "name": "HIIT Circuit",
+  "aliases": [
+   "hiit",
+   "intervals",
+   "interval training",
+   "circuit training",
+   "metcon",
+   "circuits"
+  ],
+  "primary_muscle": "cardio",
+  "secondary_muscles": [
+   "full_body"
+  ],
+  "equipment": "bodyweight",
+  "category": "cardio",
+  "load_type": "duration",
+  "is_unilateral": false,
+  "met": 9,
+  "cue": "Go hard on work intervals, keep transitions crisp, protect form as you fatigue."
+ },
+ {
+  "id": "hiking",
+  "name": "Hiking",
+  "aliases": [
+   "hike",
+   "trail hike",
+   "trekking",
+   "rucking",
+   "trail walk"
+  ],
+  "primary_muscle": "cardio",
+  "secondary_muscles": [
+   "quads",
+   "glutes",
+   "calves"
+  ],
+  "equipment": "bodyweight",
+  "category": "cardio",
+  "load_type": "duration",
+  "is_unilateral": false,
+  "met": 6,
+  "cue": "Shorten your stride on climbs and drive through the heels, pace your breathing."
+ },
+ {
+  "id": "incline-walk",
+  "name": "Incline Walk",
+  "aliases": [
+   "incline treadmill",
+   "12-3-30",
+   "uphill walk",
+   "treadmill walk",
+   "incline walking"
+  ],
+  "primary_muscle": "cardio",
+  "secondary_muscles": [
+   "glutes",
+   "hamstrings",
+   "calves"
+  ],
+  "equipment": "machine",
+  "category": "cardio",
+  "load_type": "duration",
+  "is_unilateral": false,
+  "met": 5.5,
+  "cue": "Stand tall without holding the rails, drive through the whole foot."
+ },
+ {
+  "id": "jump-rope",
+  "name": "Jump Rope",
+  "aliases": [
+   "skipping",
+   "skipping rope",
+   "rope skipping",
+   "skip rope",
+   "jumping rope"
+  ],
+  "primary_muscle": "cardio",
+  "secondary_muscles": [
+   "calves",
+   "shoulders",
+   "forearms"
+  ],
+  "equipment": "other",
+  "category": "cardio",
+  "load_type": "duration",
+  "is_unilateral": false,
+  "met": 10,
+  "cue": "Stay on the balls of your feet, small low hops, spin the rope from the wrists."
+ },
+ {
+  "id": "outdoor-cycling",
+  "name": "Outdoor Cycling",
+  "aliases": [
+   "cycling",
+   "biking",
+   "bike ride",
+   "road cycling",
+   "road bike"
+  ],
+  "primary_muscle": "cardio",
+  "secondary_muscles": [
+   "quads",
+   "hamstrings",
+   "calves"
+  ],
+  "equipment": "other",
+  "category": "cardio",
+  "load_type": "duration",
+  "is_unilateral": false,
+  "met": 8,
+  "cue": "Keep a steady cadence around 80-90 rpm, relax your grip and shoulders."
+ },
+ {
+  "id": "outdoor-run",
+  "name": "Outdoor Run",
+  "aliases": [
+   "run",
+   "running",
+   "jog",
+   "jogging",
+   "road run"
+  ],
+  "primary_muscle": "cardio",
+  "secondary_muscles": [
+   "quads",
+   "hamstrings",
+   "calves"
+  ],
+  "equipment": "bodyweight",
+  "category": "cardio",
+  "load_type": "duration",
+  "is_unilateral": false,
+  "met": 9.5,
+  "cue": "Quick light steps, slight forward lean from the ankles, easy arm swing."
+ },
+ {
+  "id": "rowing-machine",
+  "name": "Rowing Machine",
+  "aliases": [
+   "rower",
+   "erg",
+   "row erg",
+   "concept 2",
+   "rowing",
+   "ergometer"
+  ],
+  "primary_muscle": "cardio",
+  "secondary_muscles": [
+   "back",
+   "quads",
+   "biceps"
+  ],
+  "equipment": "machine",
+  "category": "cardio",
+  "load_type": "duration",
+  "is_unilateral": false,
+  "met": 7,
+  "cue": "Drive legs first, then swing back, then pull arms — reverse on the return."
+ },
+ {
+  "id": "stair-climber",
+  "name": "Stair Climber",
+  "aliases": [
+   "stairmaster",
+   "stair master",
+   "stepmill",
+   "stairs machine",
+   "step machine"
+  ],
+  "primary_muscle": "cardio",
+  "secondary_muscles": [
+   "glutes",
+   "quads",
+   "calves"
+  ],
+  "equipment": "machine",
+  "category": "cardio",
+  "load_type": "duration",
+  "is_unilateral": false,
+  "met": 9,
+  "cue": "Take full steps, stand tall, rest fingertips on rails — don't lean on them."
+ },
+ {
+  "id": "stationary-bike",
+  "name": "Stationary Bike",
+  "aliases": [
+   "bike",
+   "spin bike",
+   "exercise bike",
+   "spinning",
+   "indoor cycling"
+  ],
+  "primary_muscle": "cardio",
+  "secondary_muscles": [
+   "quads",
+   "hamstrings",
+   "glutes"
+  ],
+  "equipment": "machine",
+  "category": "cardio",
+  "load_type": "duration",
+  "is_unilateral": false,
+  "met": 7,
+  "cue": "Set saddle so knee stays slightly bent at the bottom, pedal smooth circles."
+ },
+ {
+  "id": "swimming",
+  "name": "Swimming",
+  "aliases": [
+   "swim",
+   "laps",
+   "lap swimming",
+   "freestyle",
+   "pool laps"
+  ],
+  "primary_muscle": "cardio",
+  "secondary_muscles": [
+   "back",
+   "shoulders",
+   "core"
+  ],
+  "equipment": "bodyweight",
+  "category": "cardio",
+  "load_type": "duration",
+  "is_unilateral": false,
+  "met": 8,
+  "cue": "Keep body long and level in the water, exhale steadily, rotate with each stroke."
+ },
+ {
+  "id": "treadmill-run",
+  "name": "Treadmill Run",
+  "aliases": [
+   "treadmill",
+   "tread run",
+   "treadmil run",
+   "running on treadmill",
+   "indoor run"
+  ],
+  "primary_muscle": "cardio",
+  "secondary_muscles": [
+   "quads",
+   "hamstrings",
+   "calves"
+  ],
+  "equipment": "machine",
+  "category": "cardio",
+  "load_type": "duration",
+  "is_unilateral": false,
+  "met": 9,
+  "cue": "Run tall, land midfoot under your hips, keep shoulders relaxed."
+ },
+ {
+  "id": "barbell-bench-press",
+  "name": "Barbell Bench Press",
+  "aliases": [
+   "bench",
+   "flat bench",
+   "bb bench",
+   "bench press",
+   "benchpress"
+  ],
+  "primary_muscle": "chest",
+  "secondary_muscles": [
+   "triceps",
+   "shoulders"
+  ],
+  "equipment": "barbell",
+  "category": "chest",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 6,
+  "cue": "Pinch shoulder blades, feet planted, lower bar to mid-chest, press up and slightly back."
+ },
+ {
+  "id": "barbell-floor-press",
+  "name": "Barbell Floor Press",
+  "aliases": [
+   "floor press",
+   "bb floor press",
+   "flat floor press"
+  ],
+  "primary_muscle": "chest",
+  "secondary_muscles": [
+   "triceps",
+   "shoulders"
+  ],
+  "equipment": "barbell",
+  "category": "chest",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 5.5,
+  "cue": "Pause when your triceps touch the floor, then press; keep elbows about 45 degrees."
+ },
+ {
+  "id": "cable-crossover",
+  "name": "Cable Crossover",
+  "aliases": [
+   "crossovers",
+   "cable cross",
+   "cable crossovers",
+   "high to low fly",
+   "high cable fly"
+  ],
+  "primary_muscle": "chest",
+  "secondary_muscles": [
+   "shoulders"
+  ],
+  "equipment": "cable",
+  "category": "chest",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3.5,
+  "cue": "Lean slightly forward; pull the handles down and across, squeezing at the bottom."
+ },
+ {
+  "id": "cable-fly",
+  "name": "Cable Fly",
+  "aliases": [
+   "cable flys",
+   "cable flye",
+   "standing cable fly",
+   "cable chest fly"
+  ],
+  "primary_muscle": "chest",
+  "secondary_muscles": [
+   "shoulders"
+  ],
+  "equipment": "cable",
+  "category": "chest",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3.5,
+  "cue": "Step forward with a slight lean; bring hands together with soft elbows and squeeze."
+ },
+ {
+  "id": "decline-barbell-bench-press",
+  "name": "Decline Barbell Bench Press",
+  "aliases": [
+   "decline bench",
+   "decline bench press",
+   "decline bb press",
+   "decline barbell press"
+  ],
+  "primary_muscle": "chest",
+  "secondary_muscles": [
+   "triceps",
+   "shoulders"
+  ],
+  "equipment": "barbell",
+  "category": "chest",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 6,
+  "cue": "Tuck elbows slightly, lower the bar to your lower chest, keep hips on the bench."
+ },
+ {
+  "id": "decline-dumbbell-bench-press",
+  "name": "Decline Dumbbell Bench Press",
+  "aliases": [
+   "decline db press",
+   "decline dumbbell press",
+   "decline db bench",
+   "decline dumbell press"
+  ],
+  "primary_muscle": "chest",
+  "secondary_muscles": [
+   "triceps",
+   "shoulders"
+  ],
+  "equipment": "dumbbell",
+  "category": "chest",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 6,
+  "cue": "Control the descent; press the dumbbells up over your lower chest, not your neck."
+ },
+ {
+  "id": "dumbbell-bench-press",
+  "name": "Dumbbell Bench Press",
+  "aliases": [
+   "db bench",
+   "dumbbell bench",
+   "flat db press",
+   "db press",
+   "dumbell bench press"
+  ],
+  "primary_muscle": "chest",
+  "secondary_muscles": [
+   "triceps",
+   "shoulders"
+  ],
+  "equipment": "dumbbell",
+  "category": "chest",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 6,
+  "cue": "Keep wrists stacked over elbows; lower the dumbbells to chest level with control."
+ },
+ {
+  "id": "dumbbell-fly",
+  "name": "Dumbbell Fly",
+  "aliases": [
+   "db fly",
+   "flys",
+   "flyes",
+   "chest fly",
+   "dumbbell flye",
+   "dumbell fly"
+  ],
+  "primary_muscle": "chest",
+  "secondary_muscles": [
+   "shoulders"
+  ],
+  "equipment": "dumbbell",
+  "category": "chest",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3.5,
+  "cue": "Slight elbow bend; arc the weights wide like hugging a barrel and feel the stretch."
+ },
+ {
+  "id": "dumbbell-pullover",
+  "name": "Dumbbell Pullover",
+  "aliases": [
+   "pullover",
+   "db pullover",
+   "lying pullover",
+   "pull over",
+   "dumbell pullover"
+  ],
+  "primary_muscle": "chest",
+  "secondary_muscles": [
+   "back",
+   "triceps"
+  ],
+  "equipment": "dumbbell",
+  "category": "chest",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 4,
+  "cue": "Slight elbow bend; lower the dumbbell behind your head, feel the stretch, pull back over."
+ },
+ {
+  "id": "incline-barbell-bench-press",
+  "name": "Incline Barbell Bench Press",
+  "aliases": [
+   "incline bench",
+   "incline bench press",
+   "incline bb press",
+   "incline barbell press",
+   "incline benchpress"
+  ],
+  "primary_muscle": "chest",
+  "secondary_muscles": [
+   "shoulders",
+   "triceps"
+  ],
+  "equipment": "barbell",
+  "category": "chest",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 6,
+  "cue": "Set the bench 30-45 degrees; touch the bar to upper chest with elbows about 45 degrees."
+ },
+ {
+  "id": "incline-dumbbell-bench-press",
+  "name": "Incline Dumbbell Bench Press",
+  "aliases": [
+   "incline db press",
+   "incline dumbbell press",
+   "incline db bench",
+   "incline dumbell press"
+  ],
+  "primary_muscle": "chest",
+  "secondary_muscles": [
+   "shoulders",
+   "triceps"
+  ],
+  "equipment": "dumbbell",
+  "category": "chest",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 6,
+  "cue": "Press up and slightly inward; don't let the dumbbells drift back over your face."
+ },
+ {
+  "id": "incline-dumbbell-fly",
+  "name": "Incline Dumbbell Fly",
+  "aliases": [
+   "incline fly",
+   "incline db fly",
+   "incline flyes",
+   "incline chest fly"
+  ],
+  "primary_muscle": "chest",
+  "secondary_muscles": [
+   "shoulders"
+  ],
+  "equipment": "dumbbell",
+  "category": "chest",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3.5,
+  "cue": "Keep a fixed elbow bend; open wide over the upper chest and squeeze on the way up."
+ },
+ {
+  "id": "incline-machine-chest-press",
+  "name": "Incline Machine Chest Press",
+  "aliases": [
+   "incline chest press",
+   "incline machine press",
+   "incline press machine",
+   "machine incline press"
+  ],
+  "primary_muscle": "chest",
+  "secondary_muscles": [
+   "shoulders",
+   "triceps"
+  ],
+  "equipment": "machine",
+  "category": "chest",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 5,
+  "cue": "Drive the handles up and together; keep shoulder blades pinned to the pad."
+ },
+ {
+  "id": "landmine-press",
+  "name": "Landmine Press",
+  "aliases": [
+   "landmine chest press",
+   "angled barbell press",
+   "landmine",
+   "t bar press"
+  ],
+  "primary_muscle": "chest",
+  "secondary_muscles": [
+   "shoulders",
+   "triceps",
+   "core"
+  ],
+  "equipment": "barbell",
+  "category": "chest",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 5,
+  "cue": "Brace your core and press the bar up and forward; don't let your ribs flare."
+ },
+ {
+  "id": "low-to-high-cable-fly",
+  "name": "Low-to-High Cable Fly",
+  "aliases": [
+   "low cable fly",
+   "low to high fly",
+   "upward cable fly",
+   "low high crossover"
+  ],
+  "primary_muscle": "chest",
+  "secondary_muscles": [
+   "shoulders"
+  ],
+  "equipment": "cable",
+  "category": "chest",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3.5,
+  "cue": "Set pulleys low; sweep hands up and in to eye level, squeezing the upper chest."
+ },
+ {
+  "id": "machine-chest-press",
+  "name": "Machine Chest Press",
+  "aliases": [
+   "chest press",
+   "chest press machine",
+   "seated chest press",
+   "machine press"
+  ],
+  "primary_muscle": "chest",
+  "secondary_muscles": [
+   "triceps",
+   "shoulders"
+  ],
+  "equipment": "machine",
+  "category": "chest",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 5,
+  "cue": "Set the seat so handles line up with mid-chest; press smoothly without slamming the stack."
+ },
+ {
+  "id": "pec-deck",
+  "name": "Pec Deck",
+  "aliases": [
+   "pec dec",
+   "pec deck fly",
+   "butterfly machine",
+   "machine fly",
+   "peck deck"
+  ],
+  "primary_muscle": "chest",
+  "secondary_muscles": [
+   "shoulders"
+  ],
+  "equipment": "machine",
+  "category": "chest",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3.5,
+  "cue": "Sit tall with elbows slightly bent; squeeze the pads together and pause a beat."
+ },
+ {
+  "id": "push-up",
+  "name": "Push-Up",
+  "aliases": [
+   "pushup",
+   "push ups",
+   "pushups",
+   "press up",
+   "push up"
+  ],
+  "primary_muscle": "chest",
+  "secondary_muscles": [
+   "triceps",
+   "shoulders",
+   "core"
+  ],
+  "equipment": "bodyweight",
+  "category": "chest",
+  "load_type": "bodyweight_reps",
+  "is_unilateral": false,
+  "met": 3.8,
+  "cue": "Body in a straight line; lower chest to the floor with elbows about 45 degrees."
+ },
+ {
+  "id": "smith-machine-bench-press",
+  "name": "Smith Machine Bench Press",
+  "aliases": [
+   "smith bench",
+   "smith bench press",
+   "smith machine bench",
+   "smith press"
+  ],
+  "primary_muscle": "chest",
+  "secondary_muscles": [
+   "triceps",
+   "shoulders"
+  ],
+  "equipment": "machine",
+  "category": "chest",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 5.5,
+  "cue": "Position the bench so the bar path meets mid-chest; keep shoulder blades retracted."
+ },
+ {
+  "id": "smith-machine-incline-bench-press",
+  "name": "Smith Machine Incline Bench Press",
+  "aliases": [
+   "smith incline bench",
+   "incline smith press",
+   "smith incline",
+   "incline smith bench"
+  ],
+  "primary_muscle": "chest",
+  "secondary_muscles": [
+   "shoulders",
+   "triceps"
+  ],
+  "equipment": "machine",
+  "category": "chest",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 5.5,
+  "cue": "Touch the bar to your upper chest; press without shrugging your shoulders."
+ },
+ {
+  "id": "ab-wheel-rollout",
+  "name": "Ab Wheel Rollout",
+  "aliases": [
+   "ab wheel",
+   "ab rollout",
+   "rollouts",
+   "wheel rollout",
+   "ab roller"
+  ],
+  "primary_muscle": "core",
+  "secondary_muscles": [
+   "shoulders",
+   "back"
+  ],
+  "equipment": "other",
+  "category": "core",
+  "load_type": "bodyweight_reps",
+  "is_unilateral": false,
+  "met": 4,
+  "cue": "Tuck pelvis, brace hard, roll out only as far as you can without arching."
+ },
+ {
+  "id": "bird-dog",
+  "name": "Bird Dog",
+  "aliases": [
+   "bird dogs",
+   "birddog",
+   "quadruped reach",
+   "bird-dogs"
+  ],
+  "primary_muscle": "core",
+  "secondary_muscles": [
+   "glutes",
+   "back"
+  ],
+  "equipment": "bodyweight",
+  "category": "core",
+  "load_type": "bodyweight_reps",
+  "is_unilateral": true,
+  "met": 2.8,
+  "cue": "Reach opposite arm and leg long, keep hips square and back flat."
+ },
+ {
+  "id": "cable-crunch",
+  "name": "Cable Crunch",
+  "aliases": [
+   "cable crunches",
+   "kneeling cable crunch",
+   "rope crunch",
+   "rope crunches",
+   "kneeling rope crunch"
+  ],
+  "primary_muscle": "core",
+  "secondary_muscles": [],
+  "equipment": "cable",
+  "category": "core",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3.5,
+  "cue": "Keep hips still, crunch spine down by pulling ribs to pelvis, not arms."
+ },
+ {
+  "id": "crunch",
+  "name": "Crunch",
+  "aliases": [
+   "crunches",
+   "ab crunch",
+   "floor crunch",
+   "basic crunch"
+  ],
+  "primary_muscle": "core",
+  "secondary_muscles": [],
+  "equipment": "bodyweight",
+  "category": "core",
+  "load_type": "bodyweight_reps",
+  "is_unilateral": false,
+  "met": 3,
+  "cue": "Curl ribs toward hips, exhale hard at the top, don't pull on your neck."
+ },
+ {
+  "id": "dead-bug",
+  "name": "Dead Bug",
+  "aliases": [
+   "dead bugs",
+   "deadbug",
+   "deadbugs",
+   "dead bug exercise"
+  ],
+  "primary_muscle": "core",
+  "secondary_muscles": [],
+  "equipment": "bodyweight",
+  "category": "core",
+  "load_type": "bodyweight_reps",
+  "is_unilateral": false,
+  "met": 2.8,
+  "cue": "Press lower back flat, extend opposite arm and leg slowly, exhale fully."
+ },
+ {
+  "id": "decline-sit-up",
+  "name": "Decline Sit-Up",
+  "aliases": [
+   "decline situp",
+   "decline sit ups",
+   "decline situps",
+   "decline bench sit-up"
+  ],
+  "primary_muscle": "core",
+  "secondary_muscles": [
+   "quads"
+  ],
+  "equipment": "other",
+  "category": "core",
+  "load_type": "bodyweight_reps",
+  "is_unilateral": false,
+  "met": 4,
+  "cue": "Control the way down, curl up through the spine, don't yank with your neck."
+ },
+ {
+  "id": "hanging-knee-raise",
+  "name": "Hanging Knee Raise",
+  "aliases": [
+   "hkr",
+   "hanging knee raises",
+   "knee raises",
+   "knee ups",
+   "hanging knee tuck"
+  ],
+  "primary_muscle": "core",
+  "secondary_muscles": [
+   "forearms"
+  ],
+  "equipment": "bodyweight",
+  "category": "core",
+  "load_type": "bodyweight_reps",
+  "is_unilateral": false,
+  "met": 3.8,
+  "cue": "Curl knees toward chest and tuck pelvis under, lower slowly without swing."
+ },
+ {
+  "id": "hanging-leg-raise",
+  "name": "Hanging Leg Raise",
+  "aliases": [
+   "hlr",
+   "hanging leg raises",
+   "leg raises",
+   "straight leg raise",
+   "toes to bar"
+  ],
+  "primary_muscle": "core",
+  "secondary_muscles": [
+   "forearms"
+  ],
+  "equipment": "bodyweight",
+  "category": "core",
+  "load_type": "bodyweight_reps",
+  "is_unilateral": false,
+  "met": 4,
+  "cue": "Tilt pelvis back and raise legs with abs, no swinging or momentum."
+ },
+ {
+  "id": "lying-leg-raise",
+  "name": "Lying Leg Raise",
+  "aliases": [
+   "lying leg raises",
+   "leg lifts",
+   "floor leg raise",
+   "leg raise",
+   "supine leg raise"
+  ],
+  "primary_muscle": "core",
+  "secondary_muscles": [
+   "quads"
+  ],
+  "equipment": "bodyweight",
+  "category": "core",
+  "load_type": "bodyweight_reps",
+  "is_unilateral": false,
+  "met": 3,
+  "cue": "Press lower back into the floor, lower legs slowly without arching."
+ },
+ {
+  "id": "mountain-climbers",
+  "name": "Mountain Climbers",
+  "aliases": [
+   "mountain climber",
+   "climbers",
+   "mtn climbers",
+   "running planks"
+  ],
+  "primary_muscle": "core",
+  "secondary_muscles": [
+   "shoulders",
+   "quads",
+   "cardio"
+  ],
+  "equipment": "bodyweight",
+  "category": "core",
+  "load_type": "duration",
+  "is_unilateral": false,
+  "met": 8,
+  "cue": "Keep hips low and level, drive knees fast while shoulders stay over wrists."
+ },
+ {
+  "id": "pallof-press",
+  "name": "Pallof Press",
+  "aliases": [
+   "palof press",
+   "paloff press",
+   "anti-rotation press",
+   "cable pallof",
+   "pallof"
+  ],
+  "primary_muscle": "core",
+  "secondary_muscles": [
+   "shoulders"
+  ],
+  "equipment": "cable",
+  "category": "core",
+  "load_type": "weight_reps",
+  "is_unilateral": true,
+  "met": 3,
+  "cue": "Press straight out and resist the pull, don't let torso or hips rotate."
+ },
+ {
+  "id": "plank",
+  "name": "Plank",
+  "aliases": [
+   "front plank",
+   "forearm plank",
+   "planks",
+   "elbow plank",
+   "prone plank"
+  ],
+  "primary_muscle": "core",
+  "secondary_muscles": [
+   "shoulders",
+   "glutes"
+  ],
+  "equipment": "bodyweight",
+  "category": "core",
+  "load_type": "duration",
+  "is_unilateral": false,
+  "met": 3.5,
+  "cue": "Squeeze glutes, brace abs, keep a straight line from head to heels."
+ },
+ {
+  "id": "russian-twist",
+  "name": "Russian Twist",
+  "aliases": [
+   "russian twists",
+   "russians",
+   "seated twist",
+   "rushan twist",
+   "oblique twist"
+  ],
+  "primary_muscle": "core",
+  "secondary_muscles": [],
+  "equipment": "bodyweight",
+  "category": "core",
+  "load_type": "bodyweight_reps",
+  "is_unilateral": false,
+  "met": 3.5,
+  "cue": "Lean back, chest tall, rotate shoulders side to side, not just the arms."
+ },
+ {
+  "id": "side-plank",
+  "name": "Side Plank",
+  "aliases": [
+   "side planks",
+   "lateral plank",
+   "oblique plank",
+   "side bridge"
+  ],
+  "primary_muscle": "core",
+  "secondary_muscles": [
+   "shoulders",
+   "glutes"
+  ],
+  "equipment": "bodyweight",
+  "category": "core",
+  "load_type": "duration",
+  "is_unilateral": true,
+  "met": 3.5,
+  "cue": "Stack shoulders and hips, push the floor away, don't let hips sag."
+ },
+ {
+  "id": "sit-up",
+  "name": "Sit-Up",
+  "aliases": [
+   "situp",
+   "sit ups",
+   "situps",
+   "sit-ups"
+  ],
+  "primary_muscle": "core",
+  "secondary_muscles": [
+   "quads"
+  ],
+  "equipment": "bodyweight",
+  "category": "core",
+  "load_type": "bodyweight_reps",
+  "is_unilateral": false,
+  "met": 3.8,
+  "cue": "Roll up one vertebra at a time, keep feet down and control the descent."
+ },
+ {
+  "id": "v-up",
+  "name": "V-Up",
+  "aliases": [
+   "v ups",
+   "vups",
+   "v-ups",
+   "v sit up",
+   "jackknife sit-up"
+  ],
+  "primary_muscle": "core",
+  "secondary_muscles": [
+   "quads"
+  ],
+  "equipment": "bodyweight",
+  "category": "core",
+  "load_type": "bodyweight_reps",
+  "is_unilateral": false,
+  "met": 4,
+  "cue": "Lift legs and torso together, reach for your toes, lower with control."
+ },
+ {
+  "id": "assisted-pull-up-machine",
+  "name": "Assisted Pull-Up Machine",
+  "aliases": [
+   "assisted pullup",
+   "assisted pull ups",
+   "pull up machine",
+   "graviton",
+   "assisted chin up"
+  ],
+  "primary_muscle": "back",
+  "secondary_muscles": [
+   "biceps",
+   "shoulders"
+  ],
+  "equipment": "machine",
+  "category": "machines_other",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 4,
+  "cue": "Drive elbows down to your sides and squeeze lats; avoid kipping off the pad."
+ },
+ {
+  "id": "band-face-pull",
+  "name": "Band Face Pull",
+  "aliases": [
+   "band face pulls",
+   "banded face pull",
+   "band facepull",
+   "face pull with band"
+  ],
+  "primary_muscle": "shoulders",
+  "secondary_muscles": [
+   "back"
+  ],
+  "equipment": "band",
+  "category": "machines_other",
+  "load_type": "bodyweight_reps",
+  "is_unilateral": false,
+  "met": 3,
+  "cue": "Pull to your face with high elbows and rotate knuckles back at the end."
+ },
+ {
+  "id": "band-pull-apart",
+  "name": "Band Pull-Apart",
+  "aliases": [
+   "pull aparts",
+   "band pull aparts",
+   "pullapart",
+   "banded pull apart",
+   "rear delt band pull"
+  ],
+  "primary_muscle": "shoulders",
+  "secondary_muscles": [
+   "back"
+  ],
+  "equipment": "band",
+  "category": "machines_other",
+  "load_type": "bodyweight_reps",
+  "is_unilateral": false,
+  "met": 3,
+  "cue": "Arms straight at shoulder height; pull the band to your chest and squeeze the blades."
+ },
+ {
+  "id": "battle-ropes",
+  "name": "Battle Ropes",
+  "aliases": [
+   "battle rope",
+   "ropes",
+   "battling ropes",
+   "rope waves",
+   "rope slams"
+  ],
+  "primary_muscle": "cardio",
+  "secondary_muscles": [
+   "shoulders",
+   "core",
+   "back"
+  ],
+  "equipment": "other",
+  "category": "machines_other",
+  "load_type": "duration",
+  "is_unilateral": false,
+  "met": 8,
+  "cue": "Sit into an athletic stance and make waves from the shoulders, not the wrists."
+ },
+ {
+  "id": "cable-pallof-press",
+  "name": "Cable Pallof Press",
+  "aliases": [
+   "pallof press",
+   "pallof",
+   "palloff press",
+   "anti rotation press",
+   "cable pallof"
+  ],
+  "primary_muscle": "core",
+  "secondary_muscles": [
+   "shoulders"
+  ],
+  "equipment": "cable",
+  "category": "machines_other",
+  "load_type": "weight_reps",
+  "is_unilateral": true,
+  "met": 3.5,
+  "cue": "Press straight out and resist the twist; keep hips and shoulders square."
+ },
+ {
+  "id": "cable-woodchopper",
+  "name": "Cable Woodchopper",
+  "aliases": [
+   "woodchopper",
+   "wood chop",
+   "cable woodchop",
+   "wood chopper",
+   "chops"
+  ],
+  "primary_muscle": "core",
+  "secondary_muscles": [
+   "shoulders"
+  ],
+  "equipment": "cable",
+  "category": "machines_other",
+  "load_type": "weight_reps",
+  "is_unilateral": true,
+  "met": 4,
+  "cue": "Rotate from the torso with straight arms; pivot the back foot as you chop."
+ },
+ {
+  "id": "glute-ham-raise",
+  "name": "Glute Ham Raise",
+  "aliases": [
+   "ghr",
+   "ghd raise",
+   "glute ham raises",
+   "ghd",
+   "glute-ham raise"
+  ],
+  "primary_muscle": "hamstrings",
+  "secondary_muscles": [
+   "glutes",
+   "calves"
+  ],
+  "equipment": "machine",
+  "category": "machines_other",
+  "load_type": "bodyweight_reps",
+  "is_unilateral": false,
+  "met": 5,
+  "cue": "Keep hips extended and lower slowly; pull yourself up with the hamstrings."
+ },
+ {
+  "id": "kettlebell-goblet-squat",
+  "name": "Kettlebell Goblet Squat",
+  "aliases": [
+   "goblet squat",
+   "kb goblet squat",
+   "goblet squats",
+   "kb squat"
+  ],
+  "primary_muscle": "quads",
+  "secondary_muscles": [
+   "glutes",
+   "core"
+  ],
+  "equipment": "kettlebell",
+  "category": "machines_other",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 5,
+  "cue": "Hold the bell at your chest, elbows inside knees, sit deep between your heels."
+ },
+ {
+  "id": "kettlebell-swing",
+  "name": "Kettlebell Swing",
+  "aliases": [
+   "kb swing",
+   "kb swings",
+   "russian swing",
+   "kettle bell swing",
+   "swings"
+  ],
+  "primary_muscle": "glutes",
+  "secondary_muscles": [
+   "hamstrings",
+   "core",
+   "shoulders"
+  ],
+  "equipment": "kettlebell",
+  "category": "machines_other",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 8,
+  "cue": "Snap the hips forward hard; arms just guide the bell, don't lift it."
+ },
+ {
+  "id": "seated-row-machine",
+  "name": "Seated Row Machine",
+  "aliases": [
+   "machine row",
+   "seated row",
+   "row machine",
+   "chest supported row",
+   "seated machine row"
+  ],
+  "primary_muscle": "back",
+  "secondary_muscles": [
+   "biceps",
+   "forearms"
+  ],
+  "equipment": "machine",
+  "category": "machines_other",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 4,
+  "cue": "Pull handles to your torso and squeeze shoulder blades; don't lean back."
+ },
+ {
+  "id": "sled-push",
+  "name": "Sled Push",
+  "aliases": [
+   "prowler push",
+   "prowler",
+   "sled",
+   "sled pushes"
+  ],
+  "primary_muscle": "quads",
+  "secondary_muscles": [
+   "glutes",
+   "calves",
+   "core"
+  ],
+  "equipment": "other",
+  "category": "machines_other",
+  "load_type": "duration",
+  "is_unilateral": false,
+  "met": 8,
+  "cue": "Stay low with arms locked; drive with short, powerful alternating steps."
+ },
+ {
+  "id": "smith-machine-row",
+  "name": "Smith Machine Row",
+  "aliases": [
+   "smith row",
+   "smith rows",
+   "smith machine bent over row",
+   "smith bent row"
+  ],
+  "primary_muscle": "back",
+  "secondary_muscles": [
+   "biceps",
+   "forearms"
+  ],
+  "equipment": "machine",
+  "category": "machines_other",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 5,
+  "cue": "Hinge at the hips, pull the bar to your lower ribs, squeeze the back."
+ },
+ {
+  "id": "turkish-get-up",
+  "name": "Turkish Get-Up",
+  "aliases": [
+   "tgu",
+   "turkish getup",
+   "get up",
+   "kb get up",
+   "get-ups"
+  ],
+  "primary_muscle": "full_body",
+  "secondary_muscles": [
+   "core",
+   "shoulders"
+  ],
+  "equipment": "kettlebell",
+  "category": "machines_other",
+  "load_type": "weight_reps",
+  "is_unilateral": true,
+  "met": 6,
+  "cue": "Keep eyes on the bell and arm locked; move slowly through each position."
+ },
+ {
+  "id": "barbell-hip-thrust",
+  "name": "Barbell Hip Thrust",
+  "aliases": [
+   "hip thrust",
+   "hip thrusts",
+   "bb hip thrust",
+   "thrusts",
+   "hip trust"
+  ],
+  "primary_muscle": "glutes",
+  "secondary_muscles": [
+   "hamstrings",
+   "quads"
+  ],
+  "equipment": "barbell",
+  "category": "posterior",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 5.5,
+  "cue": "Chin tucked, drive through heels, squeeze glutes hard at lockout."
+ },
+ {
+  "id": "cable-glute-kickback",
+  "name": "Cable Glute Kickback",
+  "aliases": [
+   "kickbacks",
+   "glute kickbacks",
+   "cable kickback",
+   "donkey kicks",
+   "kick backs"
+  ],
+  "primary_muscle": "glutes",
+  "secondary_muscles": [
+   "hamstrings"
+  ],
+  "equipment": "cable",
+  "category": "posterior",
+  "load_type": "weight_reps",
+  "is_unilateral": true,
+  "met": 3.5,
+  "cue": "Kick back and slightly up with a squeeze, no swinging or arching."
+ },
+ {
+  "id": "cable-pull-through",
+  "name": "Cable Pull-Through",
+  "aliases": [
+   "pull through",
+   "pull throughs",
+   "rope pull through",
+   "cable pullthrough"
+  ],
+  "primary_muscle": "glutes",
+  "secondary_muscles": [
+   "hamstrings",
+   "back"
+  ],
+  "equipment": "cable",
+  "category": "posterior",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 4,
+  "cue": "Hinge back into the cable, then snap hips forward and squeeze glutes."
+ },
+ {
+  "id": "dumbbell-romanian-deadlift",
+  "name": "Dumbbell Romanian Deadlift",
+  "aliases": [
+   "db rdl",
+   "dumbbell rdl",
+   "db romanian deadlift",
+   "db romanians"
+  ],
+  "primary_muscle": "hamstrings",
+  "secondary_muscles": [
+   "glutes",
+   "back"
+  ],
+  "equipment": "dumbbell",
+  "category": "posterior",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 5.5,
+  "cue": "Push hips back, keep dumbbells close to legs, flat back throughout."
+ },
+ {
+  "id": "glute-bridge",
+  "name": "Glute Bridge",
+  "aliases": [
+   "bridges",
+   "glute bridges",
+   "floor bridge",
+   "hip bridge"
+  ],
+  "primary_muscle": "glutes",
+  "secondary_muscles": [
+   "hamstrings",
+   "core"
+  ],
+  "equipment": "bodyweight",
+  "category": "posterior",
+  "load_type": "bodyweight_reps",
+  "is_unilateral": false,
+  "met": 3.5,
+  "cue": "Squeeze glutes to lift hips, don't arch the lower back."
+ },
+ {
+  "id": "hip-abduction-machine",
+  "name": "Hip Abduction Machine",
+  "aliases": [
+   "abductions",
+   "abductor machine",
+   "hip abductions",
+   "abductors",
+   "outer thigh machine"
+  ],
+  "primary_muscle": "glutes",
+  "secondary_muscles": [],
+  "equipment": "machine",
+  "category": "posterior",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3.5,
+  "cue": "Push knees apart with control, pause at the widest point."
+ },
+ {
+  "id": "hip-adduction-machine",
+  "name": "Hip Adduction Machine",
+  "aliases": [
+   "adductions",
+   "adductor machine",
+   "hip adductions",
+   "adductors",
+   "inner thigh machine"
+  ],
+  "primary_muscle": "quads",
+  "secondary_muscles": [
+   "glutes"
+  ],
+  "equipment": "machine",
+  "category": "posterior",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3.5,
+  "cue": "Squeeze knees together smoothly, resist the pads on the way out."
+ },
+ {
+  "id": "lying-leg-curl",
+  "name": "Lying Leg Curl",
+  "aliases": [
+   "leg curls",
+   "hamstring curl",
+   "lying hamstring curl",
+   "prone leg curl",
+   "leg curl"
+  ],
+  "primary_muscle": "hamstrings",
+  "secondary_muscles": [
+   "calves"
+  ],
+  "equipment": "machine",
+  "category": "posterior",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3.5,
+  "cue": "Curl heels to glutes without lifting hips off the pad."
+ },
+ {
+  "id": "machine-hip-thrust",
+  "name": "Machine Hip Thrust",
+  "aliases": [
+   "hip thrust machine",
+   "thrust machine",
+   "glute drive",
+   "machine thrusts"
+  ],
+  "primary_muscle": "glutes",
+  "secondary_muscles": [
+   "hamstrings"
+  ],
+  "equipment": "machine",
+  "category": "posterior",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 5,
+  "cue": "Ribs down, thrust to full hip extension and pause at the top."
+ },
+ {
+  "id": "nordic-curl",
+  "name": "Nordic Curl",
+  "aliases": [
+   "nordics",
+   "nordic hamstring curl",
+   "nordic ham curl",
+   "natural leg curl",
+   "russian leg curl"
+  ],
+  "primary_muscle": "hamstrings",
+  "secondary_muscles": [
+   "glutes",
+   "core"
+  ],
+  "equipment": "bodyweight",
+  "category": "posterior",
+  "load_type": "bodyweight_reps",
+  "is_unilateral": false,
+  "met": 5,
+  "cue": "Lock hips straight and lower as slowly as possible, resist all the way down."
+ },
+ {
+  "id": "romanian-deadlift",
+  "name": "Romanian Deadlift",
+  "aliases": [
+   "rdl",
+   "romanians",
+   "bb rdl",
+   "romanian dl",
+   "romain deadlift"
+  ],
+  "primary_muscle": "hamstrings",
+  "secondary_muscles": [
+   "glutes",
+   "back"
+  ],
+  "equipment": "barbell",
+  "category": "posterior",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 6,
+  "cue": "Hinge at hips with soft knees, slide bar down thighs until hamstrings stretch."
+ },
+ {
+  "id": "seated-calf-raise",
+  "name": "Seated Calf Raise",
+  "aliases": [
+   "seated calves",
+   "soleus raise",
+   "seated calf",
+   "seated calve raise"
+  ],
+  "primary_muscle": "calves",
+  "secondary_muscles": [],
+  "equipment": "machine",
+  "category": "posterior",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3,
+  "cue": "Slow deep stretch at the bottom, drive up through the balls of your feet."
+ },
+ {
+  "id": "seated-leg-curl",
+  "name": "Seated Leg Curl",
+  "aliases": [
+   "seated hamstring curl",
+   "seated curls",
+   "seated ham curl",
+   "leg curl seated"
+  ],
+  "primary_muscle": "hamstrings",
+  "secondary_muscles": [
+   "calves"
+  ],
+  "equipment": "machine",
+  "category": "posterior",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3.5,
+  "cue": "Pin thighs under the pad, squeeze at full flexion, control the return."
+ },
+ {
+  "id": "single-leg-calf-raise",
+  "name": "Single-Leg Calf Raise",
+  "aliases": [
+   "one leg calf raise",
+   "single leg calves",
+   "unilateral calf raise",
+   "one legged calf raise"
+  ],
+  "primary_muscle": "calves",
+  "secondary_muscles": [
+   "core"
+  ],
+  "equipment": "bodyweight",
+  "category": "posterior",
+  "load_type": "bodyweight_reps",
+  "is_unilateral": true,
+  "met": 3.5,
+  "cue": "Balance on one foot, full range from deep stretch to high on the toe."
+ },
+ {
+  "id": "standing-calf-raise",
+  "name": "Standing Calf Raise",
+  "aliases": [
+   "calf raises",
+   "standing calves",
+   "calf raise machine",
+   "calve raises",
+   "calf raise"
+  ],
+  "primary_muscle": "calves",
+  "secondary_muscles": [],
+  "equipment": "machine",
+  "category": "posterior",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3.5,
+  "cue": "Full stretch at the bottom, rise high onto toes, pause at the top."
+ },
+ {
+  "id": "stiff-leg-deadlift",
+  "name": "Stiff-Leg Deadlift",
+  "aliases": [
+   "sldl",
+   "stiff legged deadlift",
+   "straight leg deadlift",
+   "stiffies"
+  ],
+  "primary_muscle": "hamstrings",
+  "secondary_muscles": [
+   "glutes",
+   "back"
+  ],
+  "equipment": "barbell",
+  "category": "posterior",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 6,
+  "cue": "Keep legs nearly straight, hinge deep, never round the lower back."
+ },
+ {
+  "id": "barbell-back-squat",
+  "name": "Barbell Back Squat",
+  "aliases": [
+   "squat",
+   "back squat",
+   "squats",
+   "bb squat",
+   "barbell squat"
+  ],
+  "primary_muscle": "quads",
+  "secondary_muscles": [
+   "glutes",
+   "hamstrings",
+   "core"
+  ],
+  "equipment": "barbell",
+  "category": "quads",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 6,
+  "cue": "Brace hard, sit down between your hips, drive up through midfoot."
+ },
+ {
+  "id": "belt-squat",
+  "name": "Belt Squat",
+  "aliases": [
+   "belt squats",
+   "hip belt squat",
+   "machine belt squat",
+   "pit shark"
+  ],
+  "primary_muscle": "quads",
+  "secondary_muscles": [
+   "glutes"
+  ],
+  "equipment": "machine",
+  "category": "quads",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 5,
+  "cue": "Stay tall, let the belt load the hips, squat deep without spinal load."
+ },
+ {
+  "id": "box-squat",
+  "name": "Box Squat",
+  "aliases": [
+   "box squats",
+   "barbell box squat",
+   "squat to box",
+   "squat to bench"
+  ],
+  "primary_muscle": "quads",
+  "secondary_muscles": [
+   "glutes",
+   "hamstrings"
+  ],
+  "equipment": "barbell",
+  "category": "quads",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 6,
+  "cue": "Sit back to the box under control, pause, explode up without rocking."
+ },
+ {
+  "id": "bulgarian-split-squat",
+  "name": "Bulgarian Split Squat",
+  "aliases": [
+   "bss",
+   "bulgarians",
+   "rear foot elevated split squat",
+   "rfess",
+   "bulgarian squats",
+   "bulgarian lunge"
+  ],
+  "primary_muscle": "quads",
+  "secondary_muscles": [
+   "glutes",
+   "hamstrings"
+  ],
+  "equipment": "dumbbell",
+  "category": "quads",
+  "load_type": "weight_reps",
+  "is_unilateral": true,
+  "met": 5,
+  "cue": "Rear foot on bench, drop straight down, drive through the front heel."
+ },
+ {
+  "id": "dumbbell-step-up",
+  "name": "Dumbbell Step-Up",
+  "aliases": [
+   "step up",
+   "step ups",
+   "db step up",
+   "box step up",
+   "stepups"
+  ],
+  "primary_muscle": "quads",
+  "secondary_muscles": [
+   "glutes"
+  ],
+  "equipment": "dumbbell",
+  "category": "quads",
+  "load_type": "weight_reps",
+  "is_unilateral": true,
+  "met": 5,
+  "cue": "Drive through the top leg only, avoid pushing off the bottom foot."
+ },
+ {
+  "id": "front-squat",
+  "name": "Front Squat",
+  "aliases": [
+   "front squats",
+   "barbell front squat",
+   "clean grip squat",
+   "front sqaut"
+  ],
+  "primary_muscle": "quads",
+  "secondary_muscles": [
+   "glutes",
+   "core"
+  ],
+  "equipment": "barbell",
+  "category": "quads",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 6,
+  "cue": "Elbows high, chest tall, sit straight down."
+ },
+ {
+  "id": "goblet-squat",
+  "name": "Goblet Squat",
+  "aliases": [
+   "goblet squats",
+   "db goblet squat",
+   "kb goblet squat",
+   "goblet"
+  ],
+  "primary_muscle": "quads",
+  "secondary_muscles": [
+   "glutes",
+   "core"
+  ],
+  "equipment": "dumbbell",
+  "category": "quads",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 5,
+  "cue": "Hold the weight at your chest, elbows inside knees, sit deep."
+ },
+ {
+  "id": "hack-squat",
+  "name": "Hack Squat",
+  "aliases": [
+   "hack squats",
+   "machine hack squat",
+   "hacksquat",
+   "hack"
+  ],
+  "primary_muscle": "quads",
+  "secondary_muscles": [
+   "glutes"
+  ],
+  "equipment": "machine",
+  "category": "quads",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 5,
+  "cue": "Back flat on the pad, deep knee bend, push through the whole foot."
+ },
+ {
+  "id": "leg-extension",
+  "name": "Leg Extension",
+  "aliases": [
+   "leg extensions",
+   "quad extension",
+   "extensions",
+   "leg ext"
+  ],
+  "primary_muscle": "quads",
+  "secondary_muscles": [],
+  "equipment": "machine",
+  "category": "quads",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3.5,
+  "cue": "Extend fully and squeeze quads at the top, lower slowly."
+ },
+ {
+  "id": "leg-press",
+  "name": "Leg Press",
+  "aliases": [
+   "leg press machine",
+   "legpress",
+   "45 degree leg press",
+   "leg presses"
+  ],
+  "primary_muscle": "quads",
+  "secondary_muscles": [
+   "glutes",
+   "hamstrings"
+  ],
+  "equipment": "machine",
+  "category": "quads",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 5,
+  "cue": "Lower until knees near chest without lifting hips, press without locking out."
+ },
+ {
+  "id": "reverse-lunge",
+  "name": "Reverse Lunge",
+  "aliases": [
+   "reverse lunges",
+   "backward lunge",
+   "back lunge",
+   "step back lunge"
+  ],
+  "primary_muscle": "quads",
+  "secondary_muscles": [
+   "glutes",
+   "hamstrings"
+  ],
+  "equipment": "dumbbell",
+  "category": "quads",
+  "load_type": "weight_reps",
+  "is_unilateral": true,
+  "met": 5,
+  "cue": "Step back, keep front shin vertical, drive up through the front heel."
+ },
+ {
+  "id": "single-leg-press",
+  "name": "Single Leg Press",
+  "aliases": [
+   "one leg press",
+   "unilateral leg press",
+   "sl leg press",
+   "single-leg leg press"
+  ],
+  "primary_muscle": "quads",
+  "secondary_muscles": [
+   "glutes"
+  ],
+  "equipment": "machine",
+  "category": "quads",
+  "load_type": "weight_reps",
+  "is_unilateral": true,
+  "met": 4.5,
+  "cue": "Foot centered on the platform, hips square, press without locking out."
+ },
+ {
+  "id": "sissy-squat",
+  "name": "Sissy Squat",
+  "aliases": [
+   "sissy squats",
+   "sissy",
+   "sissey squat",
+   "sisy squat"
+  ],
+  "primary_muscle": "quads",
+  "secondary_muscles": [
+   "core"
+  ],
+  "equipment": "bodyweight",
+  "category": "quads",
+  "load_type": "bodyweight_reps",
+  "is_unilateral": false,
+  "met": 3.5,
+  "cue": "Lean back, push knees forward over toes, keep hips extended."
+ },
+ {
+  "id": "smith-machine-squat",
+  "name": "Smith Machine Squat",
+  "aliases": [
+   "smith squat",
+   "smith squats",
+   "smith machine squats",
+   "smith"
+  ],
+  "primary_muscle": "quads",
+  "secondary_muscles": [
+   "glutes",
+   "hamstrings"
+  ],
+  "equipment": "machine",
+  "category": "quads",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 5,
+  "cue": "Feet slightly forward of the bar, control the descent, drive through heels."
+ },
+ {
+  "id": "walking-lunge",
+  "name": "Walking Lunge",
+  "aliases": [
+   "walking lunges",
+   "db walking lunge",
+   "lunges",
+   "dumbbell walking lunge"
+  ],
+  "primary_muscle": "quads",
+  "secondary_muscles": [
+   "glutes",
+   "hamstrings"
+  ],
+  "equipment": "dumbbell",
+  "category": "quads",
+  "load_type": "weight_reps",
+  "is_unilateral": true,
+  "met": 5,
+  "cue": "Long stride, back knee kisses the floor, push off the front leg."
+ },
+ {
+  "id": "zercher-squat",
+  "name": "Zercher Squat",
+  "aliases": [
+   "zercher squats",
+   "zercher",
+   "zurcher squat",
+   "zercher lift"
+  ],
+  "primary_muscle": "quads",
+  "secondary_muscles": [
+   "glutes",
+   "core"
+  ],
+  "equipment": "barbell",
+  "category": "quads",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 6,
+  "cue": "Cradle the bar in your elbows, stay upright, squat deep."
+ },
+ {
+  "id": "arnold-press",
+  "name": "Arnold Press",
+  "aliases": [
+   "arnolds",
+   "arnold dumbbell press",
+   "arnie press",
+   "arnold pres"
+  ],
+  "primary_muscle": "shoulders",
+  "secondary_muscles": [
+   "triceps"
+  ],
+  "equipment": "dumbbell",
+  "category": "shoulders",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 5,
+  "cue": "Start palms facing you, rotate out as you press; keep the rotation smooth."
+ },
+ {
+  "id": "overhead-press",
+  "name": "Barbell Overhead Press",
+  "aliases": [
+   "ohp",
+   "military press",
+   "standing press",
+   "strict press",
+   "barbell shoulder press",
+   "overhead press"
+  ],
+  "primary_muscle": "shoulders",
+  "secondary_muscles": [
+   "triceps",
+   "core"
+  ],
+  "equipment": "barbell",
+  "category": "shoulders",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 6,
+  "cue": "Squeeze glutes, brace core, press the bar overhead and lock out over midfoot."
+ },
+ {
+  "id": "barbell-upright-row",
+  "name": "Barbell Upright Row",
+  "aliases": [
+   "upright rows",
+   "upright row",
+   "bb upright row",
+   "barbell upright rows"
+  ],
+  "primary_muscle": "shoulders",
+  "secondary_muscles": [
+   "back",
+   "biceps"
+  ],
+  "equipment": "barbell",
+  "category": "shoulders",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 4.5,
+  "cue": "Pull the bar to chest height with elbows leading; keep it close to your body."
+ },
+ {
+  "id": "cable-front-raise",
+  "name": "Cable Front Raise",
+  "aliases": [
+   "cable front raises",
+   "cable front delt raise",
+   "front raise cable"
+  ],
+  "primary_muscle": "shoulders",
+  "secondary_muscles": [],
+  "equipment": "cable",
+  "category": "shoulders",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3.5,
+  "cue": "Raise the handle to shoulder height under control; keep the torso still."
+ },
+ {
+  "id": "cable-lateral-raise",
+  "name": "Cable Lateral Raise",
+  "aliases": [
+   "cable laterals",
+   "cable side raise",
+   "single arm cable lateral raise",
+   "cable side laterals"
+  ],
+  "primary_muscle": "shoulders",
+  "secondary_muscles": [],
+  "equipment": "cable",
+  "category": "shoulders",
+  "load_type": "weight_reps",
+  "is_unilateral": true,
+  "met": 3.5,
+  "cue": "Stand tall and raise the handle to shoulder height, keeping constant cable tension."
+ },
+ {
+  "id": "cable-rear-delt-fly",
+  "name": "Cable Rear Delt Fly",
+  "aliases": [
+   "cable reverse fly",
+   "rear delt cable fly",
+   "cable rear delt flys",
+   "reverse cable crossover"
+  ],
+  "primary_muscle": "shoulders",
+  "secondary_muscles": [
+   "back"
+  ],
+  "equipment": "cable",
+  "category": "shoulders",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3.5,
+  "cue": "Pull the cables apart in a wide arc and squeeze the rear delts at the end."
+ },
+ {
+  "id": "cable-upright-row",
+  "name": "Cable Upright Row",
+  "aliases": [
+   "cable upright rows",
+   "upright row cable",
+   "cable up right row"
+  ],
+  "primary_muscle": "shoulders",
+  "secondary_muscles": [
+   "back",
+   "biceps"
+  ],
+  "equipment": "cable",
+  "category": "shoulders",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 4,
+  "cue": "Let the elbows lead the pull to chest height; keep wrists relaxed and the bar close."
+ },
+ {
+  "id": "dumbbell-front-raise",
+  "name": "Dumbbell Front Raise",
+  "aliases": [
+   "front raises",
+   "front raise",
+   "db front raise",
+   "front delt raise"
+  ],
+  "primary_muscle": "shoulders",
+  "secondary_muscles": [],
+  "equipment": "dumbbell",
+  "category": "shoulders",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3.5,
+  "cue": "Raise to eye level with nearly straight arms; no swinging or leaning back."
+ },
+ {
+  "id": "dumbbell-lateral-raise",
+  "name": "Dumbbell Lateral Raise",
+  "aliases": [
+   "lateral raises",
+   "side raises",
+   "laterals",
+   "side laterals",
+   "db lateral raise",
+   "lat raises"
+  ],
+  "primary_muscle": "shoulders",
+  "secondary_muscles": [],
+  "equipment": "dumbbell",
+  "category": "shoulders",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3.5,
+  "cue": "Slight elbow bend, lead with the elbows, raise to shoulder height without swinging."
+ },
+ {
+  "id": "dumbbell-rear-delt-fly",
+  "name": "Dumbbell Rear Delt Fly",
+  "aliases": [
+   "rear delt flys",
+   "rear delt flyes",
+   "reverse fly",
+   "bent over fly",
+   "rear delt raise",
+   "reverse flye"
+  ],
+  "primary_muscle": "shoulders",
+  "secondary_muscles": [
+   "back"
+  ],
+  "equipment": "dumbbell",
+  "category": "shoulders",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3.5,
+  "cue": "Hinge at the hips with a flat back, sweep the dumbbells wide leading with elbows."
+ },
+ {
+  "id": "dumbbell-shoulder-press",
+  "name": "Dumbbell Shoulder Press",
+  "aliases": [
+   "db shoulder press",
+   "db press",
+   "dumbbell press",
+   "db ohp",
+   "dumbell shoulder press"
+  ],
+  "primary_muscle": "shoulders",
+  "secondary_muscles": [
+   "triceps"
+  ],
+  "equipment": "dumbbell",
+  "category": "shoulders",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 5.5,
+  "cue": "Press the dumbbells up and slightly in; don't let elbows drop far below 90 degrees."
+ },
+ {
+  "id": "face-pull",
+  "name": "Face Pull",
+  "aliases": [
+   "face pulls",
+   "facepull",
+   "cable face pull",
+   "rope face pull",
+   "face pulley"
+  ],
+  "primary_muscle": "shoulders",
+  "secondary_muscles": [
+   "back",
+   "biceps"
+  ],
+  "equipment": "cable",
+  "category": "shoulders",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3.5,
+  "cue": "Pull the rope to your forehead with elbows high, rotating knuckles back at the end."
+ },
+ {
+  "id": "machine-lateral-raise",
+  "name": "Machine Lateral Raise",
+  "aliases": [
+   "lateral raise machine",
+   "machine laterals",
+   "machine side raise"
+  ],
+  "primary_muscle": "shoulders",
+  "secondary_muscles": [],
+  "equipment": "machine",
+  "category": "shoulders",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3.5,
+  "cue": "Drive the elbows up to shoulder height and pause briefly at the top."
+ },
+ {
+  "id": "machine-shoulder-press",
+  "name": "Machine Shoulder Press",
+  "aliases": [
+   "shoulder press machine",
+   "machine press",
+   "seated shoulder press machine",
+   "machine ohp"
+  ],
+  "primary_muscle": "shoulders",
+  "secondary_muscles": [
+   "triceps"
+  ],
+  "equipment": "machine",
+  "category": "shoulders",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 4.5,
+  "cue": "Set the seat so handles start at shoulder height; press up without shrugging."
+ },
+ {
+  "id": "push-press",
+  "name": "Push Press",
+  "aliases": [
+   "barbell push press",
+   "push presses",
+   "pushpress"
+  ],
+  "primary_muscle": "shoulders",
+  "secondary_muscles": [
+   "triceps",
+   "quads",
+   "core"
+  ],
+  "equipment": "barbell",
+  "category": "shoulders",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 6.5,
+  "cue": "Dip at the knees, drive the bar up with the legs, then punch to lockout overhead."
+ },
+ {
+  "id": "reverse-pec-deck",
+  "name": "Reverse Pec Deck",
+  "aliases": [
+   "reverse pec dec",
+   "rear delt machine",
+   "machine reverse fly",
+   "reverse peck deck",
+   "rear delt pec deck"
+  ],
+  "primary_muscle": "shoulders",
+  "secondary_muscles": [
+   "back"
+  ],
+  "equipment": "machine",
+  "category": "shoulders",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 3.5,
+  "cue": "Chest on the pad, sweep the arms back in a wide arc and squeeze the shoulder blades."
+ },
+ {
+  "id": "seated-barbell-overhead-press",
+  "name": "Seated Barbell Overhead Press",
+  "aliases": [
+   "seated ohp",
+   "seated military press",
+   "seated barbell press",
+   "seated overhead press"
+  ],
+  "primary_muscle": "shoulders",
+  "secondary_muscles": [
+   "triceps"
+  ],
+  "equipment": "barbell",
+  "category": "shoulders",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 5,
+  "cue": "Keep lower back against the pad; lower to chin level and press up without flaring ribs."
+ },
+ {
+  "id": "seated-dumbbell-shoulder-press",
+  "name": "Seated Dumbbell Shoulder Press",
+  "aliases": [
+   "seated db press",
+   "seated dumbbell press",
+   "seated db shoulder press",
+   "seated dumbell press"
+  ],
+  "primary_muscle": "shoulders",
+  "secondary_muscles": [
+   "triceps"
+  ],
+  "equipment": "dumbbell",
+  "category": "shoulders",
+  "load_type": "weight_reps",
+  "is_unilateral": false,
+  "met": 5,
+  "cue": "Back flat on the pad, lower to ear level, press up without clanking at the top."
+ }
+]

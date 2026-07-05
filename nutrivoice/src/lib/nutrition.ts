@@ -74,6 +74,18 @@ export function computeTargets(p: Pick<Profile, 'sex' | 'weightKg' | 'heightCm' 
   return { kcal, proteinG, carbsG, fatG };
 }
 
+/**
+ * Macro split for an explicit calorie number (adaptive-TDEE accept path):
+ * protein 2 g/kg, fat 25% of calories, carbs the remainder — same split as
+ * computeTargets but anchored to observed expenditure instead of the formula.
+ */
+export function targetsFromKcal(kcal: number, weightKg: number): Targets {
+  const proteinG = Math.round(2 * weightKg);
+  const fatG = Math.round((kcal * 0.25) / 9);
+  const carbsG = Math.max(0, Math.round((kcal - proteinG * 4 - fatG * 9) / 4));
+  return { kcal: Math.round(kcal), proteinG, carbsG, fatG };
+}
+
 /** Macros for `grams` of a food defined per 100 g. */
 export function scaleFood(food: Food, grams: number): MacroTotals {
   const f = grams / 100;

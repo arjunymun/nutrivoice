@@ -34,6 +34,13 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
+        name="train"
+        options={{
+          title: 'Train',
+          tabBarIcon: ({ color, size }) => <Ionicons name="barbell" size={size} color={color} />,
+        }}
+      />
+      <Tabs.Screen
         name="stats"
         options={{
           title: 'Stats',

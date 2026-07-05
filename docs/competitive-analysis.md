@@ -1,4 +1,21 @@
-# NutriVoice vs Cal AI vs MacroFactor (July 2026)
+# NutriVoice vs Cal AI vs MacroFactor vs Hevy (July 2026)
+
+## Hevy (added after the Train module shipped, 2026-07-05)
+
+**Where Hevy wins:** social feed/friends/leagues, Apple Watch + Wear OS apps, exercise
+demo videos, years of polish, supersets/drop-sets UI.
+
+**Where NutriVoice wins:**
+- **Voice set logging** — "squats 5x5 at 100, bench 3x8 60" logs eight sets in one
+  sentence; Hevy is tap-tap-tap per set.
+- **AI routine builder on a free LLM** — natural-language goal → equipment-aware program;
+  Hevy has templates only, and its analytics sit behind Hevy Pro.
+- **Training + nutrition in ONE app** feeding **adaptive TDEE** — Hevy knows nothing about
+  your diet; MyFitnessPal's exercise diary is burn-guesswork bolted onto diet; we close
+  the loop: lift → eat → weigh → targets recalibrate.
+- **Deterministic progression hints** (double progression + deload rules) for free.
+- Full **web app** + offline; Hevy's web is Pro-gated.
+
 
 Honest feature test. Sources at bottom.
 

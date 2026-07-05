@@ -3,12 +3,19 @@ import { ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-n
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { WeekBars, WeightLine } from '@/components/charts';
+import { TdeeCard } from '@/components/TdeeCard';
 import { Card, LabeledInput, Muted, PrimaryButton, SectionTitle, StatTile } from '@/components/ui';
+import exercisesJson from '@/data/exercises.json';
 import { ageFromBirthYear, bmi, bmiCategory, bmr, tdee } from '@/lib/nutrition';
-import { addDays, dateKeyToDate, todayKey } from '@/lib/types';
+import { addDays, dateKeyToDate, toDateKey, todayKey } from '@/lib/types';
+import { BIG_LIFTS, bestE1RmByExercise, workoutVolume } from '@/lib/workoutMath';
+import { Exercise } from '@/lib/workoutTypes';
 import { dayTotals, useLogStore } from '@/stores/useLogStore';
+import { setsForWorkout, useWorkoutStore } from '@/stores/useWorkoutStore';
 import { useProfileStore } from '@/stores/useProfileStore';
 import { colors, font, spacing } from '@/theme';
+
+const EXERCISE_DB = exercisesJson as Exercise[];
 
 export default function Stats() {
   const profile = useProfileStore((s) => s.profile);
@@ -16,6 +23,8 @@ export default function Stats() {
   const entries = useLogStore((s) => s.entries);
   const weights = useLogStore((s) => s.weights);
   const addWeight = useLogStore((s) => s.addWeight);
+  const workouts = useWorkoutStore((s) => s.workouts);
+  const allSets = useWorkoutStore((s) => s.sets);
   const { width } = useWindowDimensions();
   const chartWidth = Math.min(width, 560) - spacing(4) * 2 - spacing(4) * 2;
 
@@ -60,6 +69,33 @@ export default function Stats() {
       ? Math.round(tdee(profile.sex, latestWeight ?? profile.weightKg, profile.heightCm, age, profile.activityLevel))
       : null;
 
+  const training = useMemo(() => {
+    const finished = workouts.filter((w) => !w.deleted && w.durationS != null);
+    const today = todayKey();
+    const weekKeys = Array.from({ length: 7 }, (_, i) => addDays(today, i - 6));
+    const volumeByDay = new Map(weekKeys.map((k) => [k, 0]));
+    let weekWorkouts = 0;
+    for (const w of finished) {
+      const key = toDateKey(new Date(w.startedAt));
+      if (volumeByDay.has(key)) {
+        volumeByDay.set(key, volumeByDay.get(key)! + workoutVolume(setsForWorkout(allSets, w.id)));
+        weekWorkouts++;
+      }
+    }
+    const liveWorkoutIds = new Set(finished.map((w) => w.id));
+    const best = bestE1RmByExercise(allSets.filter((s) => liveWorkoutIds.has(s.workoutId)));
+    const prs = BIG_LIFTS.map((l) => ({ ...l, e1rm: best.get(l.id) })).filter((l) => l.e1rm != null);
+    return {
+      bars: weekKeys.map((k) => ({
+        label: dateKeyToDate(k).toLocaleDateString(undefined, { weekday: 'narrow' }),
+        value: volumeByDay.get(k)!,
+      })),
+      weekWorkouts,
+      prs,
+      hasAny: finished.length > 0,
+    };
+  }, [workouts, allSets]);
+
   const logWeight = () => {
     const w = Number(weightInput);
     if (!Number.isFinite(w) || w < 20 || w > 400) return;
@@ -88,6 +124,26 @@ export default function Stats() {
           <StatTile label="Avg kcal" value={loggedDays.length ? String(avg((t) => t.kcal)) : '—'} sub={`${loggedDays.length} day(s) logged`} />
           <StatTile label="Avg protein" value={loggedDays.length ? `${avg((t) => t.proteinG)} g` : '—'} sub={`target ${profile?.targetProteinG ?? '—'} g`} />
         </View>
+
+        <TdeeCard />
+
+        {training.hasAny && (
+          <Card style={{ gap: spacing(3) }}>
+            <SectionTitle>Training — last 7 days</SectionTitle>
+            <WeekBars data={training.bars} target={0} width={chartWidth} />
+            <Muted>
+              {training.weekWorkouts} workout{training.weekWorkouts === 1 ? '' : 's'} this week ·
+              bars = volume (kg)
+            </Muted>
+            {training.prs.length > 0 && (
+              <View style={styles.tileRow}>
+                {training.prs.slice(0, 3).map((p) => (
+                  <StatTile key={p.id} label={p.label} value={`${Math.round(p.e1rm!)} kg`} sub="est. 1RM" />
+                ))}
+              </View>
+            )}
+          </Card>
+        )}
 
         <Card style={{ gap: spacing(3) }}>
           <SectionTitle>Body</SectionTitle>

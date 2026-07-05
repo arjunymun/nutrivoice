@@ -130,8 +130,14 @@ function similarity(query: string, target: string): number {
   return sim > 0.6 ? sim * 0.85 : 0;
 }
 
-/** Token-aware score of query words against a food (name + aliases). */
-export function scoreFood(queryWords: string[], food: Food): number {
+/** Anything with a name and aliases can be fuzzy-matched (foods, exercises). */
+export interface Nameable {
+  name: string;
+  aliases: string[];
+}
+
+/** Token-aware score of query words against a target (name + aliases). */
+export function scoreFood<T extends Nameable>(queryWords: string[], food: T): number {
   const query = queryWords.join(' ');
   const targets = [food.name.toLowerCase(), ...food.aliases.map((a) => a.toLowerCase())];
   let best = 0;
@@ -154,7 +160,7 @@ export function scoreFood(queryWords: string[], food: Food): number {
   return best;
 }
 
-export function matchFood(query: string, foods: Food[], limit = 5): { food: Food; score: number }[] {
+export function matchFood<T extends Nameable>(query: string, foods: T[], limit = 5): { food: T; score: number }[] {
   const words = query.split(' ').filter((w) => w && !FILLER_WORDS.has(w));
   if (!words.length) return [];
   // 0.55 floor: below this, a wrong match is likelier than a right one — better
