@@ -6,6 +6,12 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "web", "--prefix", "nutrivoice"],
       "port": 8081
+    },
+    {
+      "name": "nutrivoice-dist",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "-s", "nutrivoice/dist", "-l", "8090"],
+      "port": 8090
     }
   ]
 }

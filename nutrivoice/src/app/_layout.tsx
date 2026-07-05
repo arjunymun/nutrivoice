@@ -30,17 +30,26 @@ const theme = {
 };
 
 export default function RootLayout() {
-  const [fontsLoaded] = useFonts({
+  const [fontsLoaded, fontError] = useFonts({
     Inter_400Regular,
     Inter_500Medium,
     Inter_600SemiBold,
     Inter_700Bold,
     Inter_800ExtraBold,
   });
+  // Render as soon as fonts resolve OR fail — never hang on a blank screen if the
+  // Google Fonts CDN is slow or blocked (falls back to the system font).
+  const ready = fontsLoaded || !!fontError;
 
   useEffect(() => {
-    if (fontsLoaded) SplashScreen.hideAsync();
-  }, [fontsLoaded]);
+    if (ready) {
+      SplashScreen.hideAsync().catch(() => {});
+      // Web: dismiss the instant HTML boot splash now that the app can paint.
+      if (typeof window !== 'undefined') {
+        (window as unknown as { __hideBoot?: () => void }).__hideBoot?.();
+      }
+    }
+  }, [ready]);
 
   // Background sync: on launch when signed in, and after every sign-in.
   useEffect(() => {
@@ -51,7 +60,7 @@ export default function RootLayout() {
     return () => data.subscription.unsubscribe();
   }, []);
 
-  if (!fontsLoaded) return null;
+  if (!ready) return null;
 
   return (
     <ThemeProvider value={theme}>
