@@ -70,9 +70,13 @@ export default function Train() {
     if (bannerTimer.current) clearTimeout(bannerTimer.current);
   }, []);
 
-  // stale in-progress workout from a previous day → offer resume/discard
+  // stale in-progress workout from a previous day → offer resume/discard.
+  // `resumedId` lets the user override staleness and jump back into the session.
+  const [resumedId, setResumedId] = useState<string | null>(null);
   const staleActive =
-    active != null && Date.now() - new Date(active.startedAt).getTime() > 12 * 3600 * 1000;
+    active != null &&
+    active.id !== resumedId &&
+    Date.now() - new Date(active.startedAt).getTime() > 12 * 3600 * 1000;
 
   // exercises shown: planned ∪ ones that already have sets
   const blockExerciseIds = useMemo(() => {
@@ -133,7 +137,7 @@ export default function Train() {
             pool={pool}
             staleActive={staleActive}
             onResumeStale={() => {
-              // treat as fresh view of the same workout
+              setResumedId(active?.id ?? null);
               showBanner('Resumed workout');
             }}
             onDiscardStale={() => store.discardActiveWorkout()}
