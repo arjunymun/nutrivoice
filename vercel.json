@@ -1,5 +1,8 @@
 {
-  "buildCommand": "",
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "installCommand": "echo skip-root-install",
+  "buildCommand": "cd nutrivoice && npm install && npm run build",
   "outputDirectory": "nutrivoice/dist",
-  "cleanUrls": true
+  "cleanUrls": true,
+  "framework": null
 }
