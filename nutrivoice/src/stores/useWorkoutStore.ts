@@ -41,6 +41,8 @@ interface WorkoutState {
   activeWorkoutId: string | null;
   /** Epoch ms when the rest period ends; timestamps, never counters. */
   restEndsAt: number | null;
+  /** Length of the current rest period in seconds (progress-bar math). */
+  restTotalS: number;
   planned: PlannedExercise[];
 
   startWorkout: (name: string, planned?: PlannedExercise[]) => Workout;
@@ -64,7 +66,7 @@ interface WorkoutState {
   moveExercise: (exerciseId: string, dir: -1 | 1) => void;
   /** Swap a planned exercise for another (only meaningful before sets are logged). */
   replaceExercise: (oldExerciseId: string, newExerciseId: string) => void;
-  setRestEndsAt: (ts: number | null) => void;
+  setRestEndsAt: (ts: number | null, totalS?: number) => void;
   finishWorkout: (notes?: string) => Workout | null;
   discardActiveWorkout: () => void;
 
@@ -114,9 +116,35 @@ export const useWorkoutStore = create<WorkoutState>()(
       customExercises: [],
       activeWorkoutId: null,
       restEndsAt: null,
+      restTotalS: 90,
       planned: [],
 
       startWorkout: (name, planned = []) => {
+        // Only one live session ever: auto-close any leftover active workout so
+        // it can't be orphaned as an invisible durationS=null row that still
+        // pollutes records/PR math. Sets logged → finish it (keep the data,
+        // duration capped so a days-old stale session doesn't record nonsense);
+        // empty → soft-delete.
+        const prevId = get().activeWorkoutId;
+        if (prevId) {
+          const prev = get().workouts.find((x) => x.id === prevId && !x.deleted);
+          if (prev && prev.durationS == null) {
+            const hasSets = get().sets.some((s) => s.workoutId === prevId && !s.deleted);
+            const patch: Partial<Workout> = hasSets
+              ? {
+                  durationS: Math.min(
+                    4 * 3600,
+                    Math.max(60, Math.round((Date.now() - new Date(prev.startedAt).getTime()) / 1000)),
+                  ),
+                }
+              : { deleted: true };
+            set({
+              workouts: get().workouts.map((x) =>
+                x.id === prevId ? { ...x, ...patch, updatedAt: now(), dirty: true } : x,
+              ),
+            });
+          }
+        }
         const w: Workout = {
           id: randomUUID(),
           startedAt: now(),
@@ -142,7 +170,9 @@ export const useWorkoutStore = create<WorkoutState>()(
           id: randomUUID(),
           workoutId,
           exerciseId: input.exerciseId,
-          setNumber: existing.length + 1,
+          // max+1, not count+1: un-checking a middle set then re-checking must
+          // not mint a duplicate setNumber (they persist and sync).
+          setNumber: existing.reduce((m, x) => Math.max(m, x.setNumber), 0) + 1,
           weightKg: input.weightKg,
           reps: input.reps,
           durationS: input.durationS ?? null,
@@ -223,7 +253,8 @@ export const useWorkoutStore = create<WorkoutState>()(
         });
       },
 
-      setRestEndsAt: (restEndsAt) => set({ restEndsAt }),
+      setRestEndsAt: (restEndsAt, totalS) =>
+        set({ restEndsAt, ...(totalS != null ? { restTotalS: totalS } : {}) }),
 
       finishWorkout: (notes) => {
         const id = get().activeWorkoutId;
@@ -355,6 +386,7 @@ export const useWorkoutStore = create<WorkoutState>()(
           customExercises: [],
           activeWorkoutId: null,
           restEndsAt: null,
+          restTotalS: 90,
           planned: [],
         }),
     }),

@@ -16,15 +16,20 @@ const EXERCISE_DB = exercisesJson as Exercise[];
 
 export default function WorkoutDetail() {
   const { id } = useLocalSearchParams<{ id: string }>();
-  const store = useWorkoutStore();
+  // Selectors, not `useWorkoutStore()` — whole-store subscription goes stale
+  // under the React Compiler (see Train()).
+  const workouts = useWorkoutStore((s) => s.workouts);
+  const allSets = useWorkoutStore((s) => s.sets);
+  const customExercises = useWorkoutStore((s) => s.customExercises);
+  const deleteWorkoutFn = useWorkoutStore((s) => s.deleteWorkout);
   const [confirmDelete, setConfirmDelete] = useState(false);
 
-  const workout = store.workouts.find((w) => w.id === id && !w.deleted);
-  const sets = useMemo(() => (workout ? setsForWorkout(store.sets, workout.id) : []), [store.sets, workout]);
-  const pool = useMemo(() => exercisePool(EXERCISE_DB, store.customExercises), [store.customExercises]);
+  const workout = workouts.find((w) => w.id === id && !w.deleted);
+  const sets = useMemo(() => (workout ? setsForWorkout(allSets, workout.id) : []), [allSets, workout]);
+  const pool = useMemo(() => exercisePool(EXERCISE_DB, customExercises), [customExercises]);
   const prs = useMemo(
-    () => (workout ? detectPrs(store.sets, store.workouts, workout.id) : []),
-    [store.sets, store.workouts, workout],
+    () => (workout ? detectPrs(allSets, workouts, workout.id) : []),
+    [allSets, workouts, workout],
   );
 
   if (!workout) {
@@ -88,7 +93,7 @@ export default function WorkoutDetail() {
               title="Yes, delete"
               style={{ backgroundColor: colors.danger }}
               onPress={() => {
-                store.deleteWorkout(workout.id);
+                deleteWorkoutFn(workout.id);
                 router.back();
               }}
             />

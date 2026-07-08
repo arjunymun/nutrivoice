@@ -17,12 +17,16 @@ const EXERCISE_DB = exercisesJson as Exercise[];
 
 export default function ExerciseDetail() {
   const { id } = useLocalSearchParams<{ id: string }>();
-  const store = useWorkoutStore();
-  const pool = useMemo(() => exercisePool(EXERCISE_DB, store.customExercises), [store.customExercises]);
+  // Selectors, not `useWorkoutStore()` — whole-store subscription goes stale
+  // under the React Compiler (see Train()).
+  const workouts = useWorkoutStore((s) => s.workouts);
+  const allSets = useWorkoutStore((s) => s.sets);
+  const customExercises = useWorkoutStore((s) => s.customExercises);
+  const pool = useMemo(() => exercisePool(EXERCISE_DB, customExercises), [customExercises]);
   const exercise = pool.find((e) => e.id === id);
   const records = useMemo(
-    () => (id ? exerciseRecords(store.sets, store.workouts, id) : null),
-    [store.sets, store.workouts, id],
+    () => (id ? exerciseRecords(allSets, workouts, id) : null),
+    [allSets, workouts, id],
   );
 
   if (!exercise || !records) {

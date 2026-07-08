@@ -69,6 +69,9 @@ export default function RootLayout() {
         screenOptions={{
           headerShown: false,
           contentStyle: { backgroundColor: colors.bg },
+          // Native-app page feel: detail screens slide in from the right
+          // (native-stack option; no-op on web).
+          animation: 'slide_from_right',
         }}
       />
     </ThemeProvider>

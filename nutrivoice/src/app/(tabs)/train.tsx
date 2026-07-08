@@ -3,7 +3,6 @@ import { router } from 'expo-router';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
   ActivityIndicator,
-  Modal,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -13,11 +12,15 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { BottomSheet } from '@/components/BottomSheet';
+import { ConfettiBurst } from '@/components/ConfettiBurst';
 import { ExerciseBlock } from '@/components/ExerciseBlock';
 import { ExercisePicker } from '@/components/ExercisePicker';
+import { PressableScale } from '@/components/motion';
 import { RestTimer } from '@/components/RestTimer';
 import { Card, GhostButton, Muted, PrimaryButton, SectionTitle } from '@/components/ui';
 import { VoiceButton } from '@/components/VoiceButton';
+import { successHaptic } from '@/lib/haptics';
 import exercisesJson from '@/data/exercises.json';
 import { generateRoutines, GeneratedRoutine } from '@/lib/coach';
 import { parseGymText } from '@/lib/gymParser';
@@ -45,21 +48,37 @@ function useElapsed(startedAt: string | null): string {
 }
 
 export default function Train() {
-  const store = useWorkoutStore();
-  const pool = useMemo(
-    () => exercisePool(EXERCISE_DB, store.customExercises),
-    [store.customExercises],
-  );
+  // Selector-per-field, NOT `useWorkoutStore()`: the selector-less whole-store
+  // subscription goes stale under the React Compiler (store updates stop
+  // re-rendering this tree) — bitten in production, do not regress.
+  const workouts = useWorkoutStore((s) => s.workouts);
+  const allSets = useWorkoutStore((s) => s.sets);
+  const customExercises = useWorkoutStore((s) => s.customExercises);
+  const activeWorkoutId = useWorkoutStore((s) => s.activeWorkoutId);
+  const plannedList = useWorkoutStore((s) => s.planned);
+  const addPlannedFn = useWorkoutStore((s) => s.addPlanned);
+  const replaceExerciseFn = useWorkoutStore((s) => s.replaceExercise);
+  const startWorkoutFn = useWorkoutStore((s) => s.startWorkout);
+  const finishWorkoutFn = useWorkoutStore((s) => s.finishWorkout);
+  const discardActiveWorkoutFn = useWorkoutStore((s) => s.discardActiveWorkout);
 
-  const active = store.activeWorkoutId
-    ? store.workouts.find((w) => w.id === store.activeWorkoutId && !w.deleted) ?? null
+  const pool = useMemo(() => exercisePool(EXERCISE_DB, customExercises), [customExercises]);
+
+  const active = activeWorkoutId
+    ? workouts.find((w) => w.id === activeWorkoutId && !w.deleted) ?? null
     : null;
-  const activeSets = active ? setsForWorkout(store.sets, active.id) : [];
+  const activeSets = active ? setsForWorkout(allSets, active.id) : [];
   const elapsed = useElapsed(active?.startedAt ?? null);
 
   const [pickerOpen, setPickerOpen] = useState(false);
   const [replaceTargetId, setReplaceTargetId] = useState<string | null>(null);
+  // `summary` is never nulled on close — the sheet's 220ms exit animation
+  // still renders it, and nulling would collapse the stats to zeros mid-exit.
+  // `summaryOpen` alone drives visibility; `finishCount` seeds confetti so
+  // each burst's particle layout differs.
   const [summary, setSummary] = useState<{ volume: number; sets: number; prs: number } | null>(null);
+  const [summaryOpen, setSummaryOpen] = useState(false);
+  const finishCount = useRef(0);
   const [banner, setBanner] = useState<string | null>(null);
   const bannerTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const showBanner = (msg: string) => {
@@ -81,22 +100,22 @@ export default function Train() {
 
   // exercises shown: planned ∪ ones that already have sets
   const blockExerciseIds = useMemo(() => {
-    const ids = store.planned.map((p) => p.exerciseId);
+    const ids = plannedList.map((p) => p.exerciseId);
     for (const s of activeSets) if (!ids.includes(s.exerciseId)) ids.push(s.exerciseId);
     return ids;
-  }, [store.planned, activeSets]);
+  }, [plannedList, activeSets]);
 
   const finishedWorkouts = useMemo(
     () =>
-      store.workouts
+      workouts
         .filter((w) => !w.deleted && w.durationS != null)
         .sort((a, b) => (a.startedAt > b.startedAt ? -1 : 1)),
-    [store.workouts],
+    [workouts],
   );
 
   const sessionsFor = (exerciseId: string) =>
     finishedWorkouts
-      .map((w) => setsForWorkout(store.sets, w.id).filter((s) => s.exerciseId === exerciseId && !s.isWarmup))
+      .map((w) => setsForWorkout(allSets, w.id).filter((s) => s.exerciseId === exerciseId && !s.isWarmup))
       .filter((sets) => sets.length > 0)
       .reverse(); // oldest → newest for progression logic
 
@@ -104,9 +123,12 @@ export default function Train() {
     if (!active) return;
     const volume = workoutVolume(activeSets);
     const sets = workoutSetCount(activeSets);
-    const prs = detectPrs(store.sets, store.workouts, active.id).length;
-    store.finishWorkout();
+    const prs = detectPrs(allSets, workouts, active.id).length;
+    finishWorkoutFn();
+    finishCount.current++;
     setSummary({ volume, sets, prs });
+    setSummaryOpen(true);
+    successHaptic();
   };
 
   return (
@@ -138,7 +160,7 @@ export default function Train() {
               setPickerOpen(true);
             }}
             onFinish={finish}
-            onDiscard={() => store.discardActiveWorkout()}
+            onDiscard={() => discardActiveWorkoutFn()}
           />
         ) : (
           <IdleView
@@ -148,7 +170,7 @@ export default function Train() {
               setResumedId(active?.id ?? null);
               showBanner('Resumed workout');
             }}
-            onDiscardStale={() => store.discardActiveWorkout()}
+            onDiscardStale={() => discardActiveWorkoutFn()}
             finishedWorkouts={finishedWorkouts}
             showBanner={showBanner}
           />
@@ -159,37 +181,40 @@ export default function Train() {
         <RestTimer />
       </View>
 
-      {pickerOpen && (
-        <ExercisePicker
-          pool={pool}
-          onClose={() => {
-            setPickerOpen(false);
-            setReplaceTargetId(null);
-          }}
-          onPick={(e) => {
-            if (replaceTargetId) store.replaceExercise(replaceTargetId, e.id);
-            else store.addPlanned(e.id);
-            setPickerOpen(false);
-            setReplaceTargetId(null);
-          }}
-        />
-      )}
+      <ExercisePicker
+        visible={pickerOpen}
+        pool={pool}
+        onClose={() => {
+          setPickerOpen(false);
+          setReplaceTargetId(null);
+        }}
+        onPick={(e) => {
+          if (replaceTargetId) replaceExerciseFn(replaceTargetId, e.id);
+          else addPlannedFn(e.id);
+          setPickerOpen(false);
+          setReplaceTargetId(null);
+        }}
+      />
 
-      {summary && (
-        <Modal visible transparent animationType="fade" onRequestClose={() => setSummary(null)}>
-          <View style={styles.backdrop}>
-            <View style={styles.summarySheet}>
-              <Text style={styles.summaryTitle}>Workout done 💪</Text>
-              <View style={styles.summaryRow}>
-                <SummaryStat label="Volume" value={`${summary.volume.toLocaleString()} kg`} />
-                <SummaryStat label="Sets" value={String(summary.sets)} />
-                <SummaryStat label="PRs" value={summary.prs > 0 ? `🏆 ${summary.prs}` : '—'} />
-              </View>
-              <PrimaryButton title="Done" onPress={() => setSummary(null)} />
-            </View>
+      <BottomSheet visible={summaryOpen} onClose={() => setSummaryOpen(false)}>
+        {/* NOTE: no `entering` animations in sheet content — reanimated entering
+            presets never fire inside a web portal (Modal), leaving elements
+            frozen at their invisible from-state. The sheet's own spring is the
+            entrance; confetti animates via shared values, which do work here. */}
+        <View style={{ overflow: 'hidden' }}>
+          <Text style={styles.summaryTitle}>
+            {summary && summary.prs > 0 ? '🏆 Workout done!' : 'Workout done 💪'}
+          </Text>
+          <View style={styles.summaryRow}>
+            <SummaryStat label="Volume" value={`${(summary?.volume ?? 0).toLocaleString()} kg`} />
+            <SummaryStat label="Sets" value={String(summary?.sets ?? 0)} />
+            <SummaryStat label="PRs" value={(summary?.prs ?? 0) > 0 ? `🏆 ${summary!.prs}` : '—'} />
           </View>
-        </Modal>
-      )}
+          {/* confetti flies within the sheet, over the stats */}
+          <ConfettiBurst burst={summaryOpen && summary && summary.prs > 0 ? finishCount.current : 0} />
+        </View>
+        <PrimaryButton title="Done" onPress={() => setSummaryOpen(false)} />
+      </BottomSheet>
     </SafeAreaView>
   );
 }
@@ -230,6 +255,7 @@ function ActiveWorkout({
 }) {
   const addSet = useWorkoutStore((s) => s.addSet);
   const addPlanned = useWorkoutStore((s) => s.addPlanned);
+  const planned = useWorkoutStore((s) => s.planned);
   const [typed, setTyped] = useState('');
   const [listening, setListening] = useState(false);
   const [voiceError, setVoiceError] = useState<string | null>(null);
@@ -295,9 +321,9 @@ function ActiveWorkout({
           <Text style={styles.title}>{name}</Text>
           <Text style={styles.elapsed}>{elapsed}</Text>
         </View>
-        <Pressable onPress={onFinish} style={styles.finishBtn}>
+        <PressableScale onPress={onFinish} style={styles.finishBtn} haptic scaleTo={0.94}>
           <Text style={styles.finishText}>Finish</Text>
-        </Pressable>
+        </PressableScale>
       </View>
 
       <View style={styles.voiceRow}>
@@ -319,6 +345,7 @@ function ActiveWorkout({
 
       {blocks.map((e, i) => {
         const history = sessionsFor(e.id);
+        const plan = planned.find((p) => p.exerciseId === e.id);
         return (
           <ExerciseBlock
             key={e.id}
@@ -326,6 +353,9 @@ function ActiveWorkout({
             sets={activeSets.filter((s) => s.exerciseId === e.id)}
             lastSessionSets={history[history.length - 1] ?? []}
             historySessions={history.slice(-3)}
+            targetSets={plan?.targetSets ?? 3}
+            targetReps={plan?.targetReps ?? null}
+            targetWeightKg={plan?.targetWeightKg ?? null}
             canMoveUp={i > 0}
             canMoveDown={i < blocks.length - 1}
             onReplace={() => onReplaceExercise(e.id)}
@@ -356,7 +386,12 @@ function IdleView({
   finishedWorkouts: ReturnType<typeof useWorkoutStore.getState>['workouts'];
   showBanner: (m: string) => void;
 }) {
-  const store = useWorkoutStore();
+  // Selectors only — see the note in Train() about the React Compiler.
+  const routines = useWorkoutStore((s) => s.routines);
+  const idleSets = useWorkoutStore((s) => s.sets);
+  const startWorkoutFn = useWorkoutStore((s) => s.startWorkout);
+  const removeRoutineFn = useWorkoutStore((s) => s.removeRoutine);
+  const addRoutineFn = useWorkoutStore((s) => s.addRoutine);
   const [aiGoal, setAiGoal] = useState('');
   const [aiLoading, setAiLoading] = useState(false);
   const [aiResult, setAiResult] = useState<GeneratedRoutine[] | null>(null);
@@ -370,7 +405,7 @@ function IdleView({
   }, []);
 
   const startFromRoutine = (r: Routine) => {
-    store.startWorkout(
+    startWorkoutFn(
       r.name,
       r.items.map((i) => ({
         exerciseId: i.exerciseId,
@@ -399,7 +434,7 @@ function IdleView({
       const last = ss[ss.length - 1];
       return { exerciseId: id, targetSets: ss.length, targetReps: last.reps, targetWeightKg: last.weightKg };
     });
-    store.startWorkout(w.name, planned);
+    startWorkoutFn(w.name, planned);
   };
 
   const runCoach = async () => {
@@ -416,7 +451,7 @@ function IdleView({
     );
   };
 
-  const liveRoutines = store.routines.filter((r) => !r.deleted);
+  const liveRoutines = routines.filter((r) => !r.deleted);
 
   return (
     <View style={{ gap: spacing(3.5) }}>
@@ -431,7 +466,7 @@ function IdleView({
         </Card>
       )}
 
-      <PrimaryButton title="Start empty workout" onPress={() => store.startWorkout('Workout')} />
+      <PrimaryButton title="Start empty workout" onPress={() => startWorkoutFn('Workout')} />
 
       <Card style={{ gap: spacing(3) }}>
         <SectionTitle>Routines</SectionTitle>
@@ -453,7 +488,7 @@ function IdleView({
             <Pressable onPress={() => startFromRoutine(r)} style={styles.startChip}>
               <Text style={styles.startChipText}>Start</Text>
             </Pressable>
-            <Pressable onPress={() => store.removeRoutine(r.id)} hitSlop={8}>
+            <Pressable onPress={() => removeRoutineFn(r.id)} hitSlop={8}>
               <Ionicons name="trash-outline" size={18} color={colors.textFaint} />
             </Pressable>
           </View>
@@ -501,7 +536,7 @@ function IdleView({
             <PrimaryButton
               title="Save routine"
               onPress={() => {
-                store.addRoutine(r.name, r.items);
+                addRoutineFn(r.name, r.items);
                 setAiResult(aiResult.filter((_, j) => j !== i));
                 showBanner(`Saved “${r.name}”`);
               }}
@@ -514,7 +549,9 @@ function IdleView({
         <SectionTitle>History</SectionTitle>
         {finishedWorkouts.length === 0 && <Muted>No workouts yet.</Muted>}
         {finishedWorkouts.slice(0, 8).map((w) => {
-          const sets = setsForWorkout(useWorkoutStore.getState().sets, w.id);
+          // subscribed `idleSets`, not getState() — render-time getState reads
+          // don't re-render when sets change
+          const sets = setsForWorkout(idleSets, w.id);
           return (
             <View key={w.id} style={styles.historyRow}>
               <Pressable
@@ -647,20 +684,6 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     alignItems: 'center',
-  },
-  backdrop: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.7)',
-    justifyContent: 'center',
-    padding: spacing(6),
-  },
-  summarySheet: {
-    backgroundColor: colors.surface,
-    borderRadius: radius.xl,
-    borderWidth: 1,
-    borderColor: colors.accent,
-    padding: spacing(5),
-    gap: spacing(4),
   },
   summaryTitle: {
     color: colors.text,

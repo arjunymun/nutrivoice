@@ -1,11 +1,16 @@
 import { Ionicons } from '@expo/vector-icons';
 import { Tabs } from 'expo-router/js-tabs';
 import React from 'react';
+import { View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { MiniWorkoutBar } from '@/components/MiniWorkoutBar';
 import { colors, font } from '@/theme';
 
 export default function TabsLayout() {
+  const insets = useSafeAreaInsets();
   return (
+    <View style={{ flex: 1 }}>
     <Tabs
       screenOptions={{
         headerShown: false,
@@ -55,5 +60,13 @@ export default function TabsLayout() {
         }}
       />
     </Tabs>
+    {/* Hevy-style: live workout follows you to other tabs; tap to jump back. */}
+    <View
+      style={{ position: 'absolute', left: 0, right: 0, bottom: insets.bottom + 62 }}
+      pointerEvents="box-none"
+    >
+      <MiniWorkoutBar />
+    </View>
+    </View>
   );
 }

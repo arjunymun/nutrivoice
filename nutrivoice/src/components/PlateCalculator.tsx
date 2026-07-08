@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import { Modal, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import React, { useEffect, useRef, useState } from 'react';
+import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 
 import { plateBreakdown } from '../lib/workoutMath';
 import { colors, font, radius, spacing } from '../theme';
+import { BottomSheet } from './BottomSheet';
 
 const BARS = [20, 15, 10, 0];
 
@@ -22,14 +23,23 @@ export function PlateCalculator({
   const [weight, setWeight] = useState(initialKg != null ? String(initialKg) : '');
   const [bar, setBar] = useState(20);
 
+  // The component stays mounted with the sheet closed, so a mount-time
+  // initializer alone would show a stale (or empty) prefill forever. Re-seed
+  // from the caller's current weight every time the sheet opens.
+  const prevVisible = useRef(visible);
+  useEffect(() => {
+    if (visible && !prevVisible.current) {
+      setWeight(initialKg != null ? String(initialKg) : '');
+    }
+    prevVisible.current = visible;
+  }, [visible, initialKg]);
+
   const total = Number(weight);
   const load = total > 0 ? plateBreakdown(total, bar) : null;
 
   return (
-    <Modal visible={visible} transparent animationType="fade" onRequestClose={onClose}>
-      <Pressable style={styles.backdrop} onPress={onClose}>
-        <Pressable style={styles.sheet} onPress={(e) => e.stopPropagation()}>
-          <Text style={styles.title}>Plate calculator</Text>
+    <BottomSheet visible={visible} onClose={onClose}>
+      <Text style={styles.title}>Plate calculator</Text>
 
           <View style={styles.inputRow}>
             <TextInput
@@ -80,25 +90,14 @@ export function PlateCalculator({
             </View>
           )}
 
-          <Pressable style={styles.done} onPress={onClose}>
-            <Text style={styles.doneText}>Done</Text>
-          </Pressable>
-        </Pressable>
+      <Pressable style={styles.done} onPress={onClose}>
+        <Text style={styles.doneText}>Done</Text>
       </Pressable>
-    </Modal>
+    </BottomSheet>
   );
 }
 
 const styles = StyleSheet.create({
-  backdrop: { flex: 1, backgroundColor: 'rgba(0,0,0,0.7)', justifyContent: 'center', padding: spacing(6) },
-  sheet: {
-    backgroundColor: colors.surface,
-    borderRadius: radius.xl,
-    borderWidth: 1,
-    borderColor: colors.border,
-    padding: spacing(5),
-    gap: spacing(4),
-  },
   title: { color: colors.text, fontFamily: font.extrabold, fontSize: 20, textAlign: 'center' },
   inputRow: {
     flexDirection: 'row',
