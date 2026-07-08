@@ -7,8 +7,10 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Card, GhostButton, Muted, PrimaryButton, SectionTitle } from '@/components/ui';
 import exercisesJson from '@/data/exercises.json';
 import { toDateKey } from '@/lib/types';
+import { formatVolume, formatWeight } from '@/lib/units';
 import { detectPrs, workoutSetCount, workoutVolume } from '@/lib/workoutMath';
 import { Exercise } from '@/lib/workoutTypes';
+import { useGymSettingsStore } from '@/stores/useGymSettingsStore';
 import { exercisePool, setsForWorkout, useWorkoutStore } from '@/stores/useWorkoutStore';
 import { colors, font, spacing } from '@/theme';
 
@@ -22,6 +24,7 @@ export default function WorkoutDetail() {
   const allSets = useWorkoutStore((s) => s.sets);
   const customExercises = useWorkoutStore((s) => s.customExercises);
   const deleteWorkoutFn = useWorkoutStore((s) => s.deleteWorkout);
+  const unit = useGymSettingsStore((s) => s.weightUnit);
   const [confirmDelete, setConfirmDelete] = useState(false);
 
   const workout = workouts.find((w) => w.id === id && !w.deleted);
@@ -60,7 +63,7 @@ export default function WorkoutDetail() {
         </View>
         <Muted>
           {toDateKey(new Date(workout.startedAt))} · {Math.round((workout.durationS ?? 0) / 60)} min ·{' '}
-          {workoutSetCount(sets)} sets · {workoutVolume(sets).toLocaleString()} kg total
+          {workoutSetCount(sets)} sets · {formatVolume(workoutVolume(sets), unit)} total
           {prs.length > 0 ? ` · 🏆 ${prs.length} PR${prs.length > 1 ? 's' : ''}` : ''}
         </Muted>
 
@@ -77,7 +80,7 @@ export default function WorkoutDetail() {
                   {s.setNumber}.{' '}
                   {s.durationS != null
                     ? `${s.durationS} s`
-                    : `${s.weightKg != null ? `${s.weightKg} kg` : 'bodyweight'} × ${s.reps}`}
+                    : `${s.weightKg != null ? formatWeight(s.weightKg, unit) : 'bodyweight'} × ${s.reps}`}
                   {s.isWarmup ? '  (warmup)' : ''}
                   {s.rpe != null ? `  @rpe ${s.rpe}` : ''}
                 </Text>

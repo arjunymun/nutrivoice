@@ -5,11 +5,14 @@ import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Svg, { Circle, Polyline } from 'react-native-svg';
 
+import { ExerciseAvatar } from '@/components/ExerciseAvatar';
 import { Card, GhostButton, Muted, SectionTitle } from '@/components/ui';
 import exercisesJson from '@/data/exercises.json';
 import { toDateKey } from '@/lib/types';
+import { displayWeight, formatVolume, formatWeight } from '@/lib/units';
 import { exerciseRecords } from '@/lib/workoutMath';
 import { Exercise } from '@/lib/workoutTypes';
+import { useGymSettingsStore, WeightUnit } from '@/stores/useGymSettingsStore';
 import { exercisePool, useWorkoutStore } from '@/stores/useWorkoutStore';
 import { colors, font, radius, spacing } from '@/theme';
 
@@ -22,6 +25,7 @@ export default function ExerciseDetail() {
   const workouts = useWorkoutStore((s) => s.workouts);
   const allSets = useWorkoutStore((s) => s.sets);
   const customExercises = useWorkoutStore((s) => s.customExercises);
+  const unit = useGymSettingsStore((s) => s.weightUnit);
   const pool = useMemo(() => exercisePool(EXERCISE_DB, customExercises), [customExercises]);
   const exercise = pool.find((e) => e.id === id);
   const records = useMemo(
@@ -49,6 +53,7 @@ export default function ExerciseDetail() {
           <Pressable onPress={() => router.back()} hitSlop={8}>
             <Ionicons name="arrow-back" size={22} color={colors.text} />
           </Pressable>
+          <ExerciseAvatar muscle={exercise.primary_muscle} equipment={exercise.equipment} size={42} />
           <View style={{ flex: 1 }}>
             <Text style={styles.title}>{exercise.name}</Text>
             <Muted style={{ fontSize: 12, textTransform: 'capitalize' }}>
@@ -65,15 +70,15 @@ export default function ExerciseDetail() {
         ) : (
           <>
             <View style={styles.recordGrid}>
-              <Record label="Best e1RM" value={records.bestE1Rm != null ? `${records.bestE1Rm} kg` : '—'} highlight />
-              <Record label="Heaviest" value={records.heaviestKg != null ? `${records.heaviestKg} kg` : '—'} />
-              <Record label="Best volume" value={`${records.bestSessionVolume.toLocaleString()} kg`} />
+              <Record label="Best e1RM" value={records.bestE1Rm != null ? formatWeight(records.bestE1Rm, unit) : '—'} highlight />
+              <Record label="Heaviest" value={records.heaviestKg != null ? formatWeight(records.heaviestKg, unit) : '—'} />
+              <Record label="Best volume" value={formatVolume(records.bestSessionVolume, unit)} />
               <Record label="Most reps" value={records.mostReps != null ? String(records.mostReps) : '—'} />
               <Record label="Total sets" value={String(records.totalSets)} />
-              <Record label="Total volume" value={`${records.totalVolume.toLocaleString()} kg`} />
+              <Record label="Total volume" value={formatVolume(records.totalVolume, unit)} />
             </View>
 
-            <E1rmChart sessions={records.sessions} />
+            <E1rmChart sessions={records.sessions} unit={unit} />
 
             <Card style={{ gap: spacing(2.5) }}>
               <SectionTitle>History</SectionTitle>
@@ -81,14 +86,14 @@ export default function ExerciseDetail() {
                 <View key={s.workoutId} style={styles.histRow}>
                   <View style={{ flex: 1 }}>
                     <Text style={styles.histTop}>
-                      {s.topWeightKg != null ? `${s.topWeightKg} kg` : 'bodyweight'}
+                      {s.topWeightKg != null ? formatWeight(s.topWeightKg, unit) : 'bodyweight'}
                       {s.topReps != null ? ` × ${s.topReps}` : ''}
                     </Text>
                     <Muted style={{ fontSize: 12 }}>
-                      {toDateKey(new Date(s.startedAt))} · {s.sets} sets · {s.volume.toLocaleString()} kg
+                      {toDateKey(new Date(s.startedAt))} · {s.sets} sets · {formatVolume(s.volume, unit)}
                     </Muted>
                   </View>
-                  {s.e1rm != null && <Text style={styles.histE1rm}>{s.e1rm}</Text>}
+                  {s.e1rm != null && <Text style={styles.histE1rm}>{displayWeight(s.e1rm, unit)}</Text>}
                 </View>
               ))}
             </Card>
@@ -115,7 +120,7 @@ function Record({ label, value, highlight }: { label: string; value: string; hig
 }
 
 /** Minimal e1RM-over-time line chart (sessions with a computable e1RM). */
-function E1rmChart({ sessions }: { sessions: { e1rm: number | null }[] }) {
+function E1rmChart({ sessions, unit }: { sessions: { e1rm: number | null }[]; unit: WeightUnit }) {
   const pts = sessions.map((s) => s.e1rm).filter((v): v is number => v != null);
   if (pts.length < 2) return null;
 
@@ -142,8 +147,8 @@ function E1rmChart({ sessions }: { sessions: { e1rm: number | null }[] }) {
         ))}
       </Svg>
       <View style={styles.chartLegend}>
-        <Muted style={{ fontSize: 11 }}>{min} kg</Muted>
-        <Muted style={{ fontSize: 11 }}>{max} kg</Muted>
+        <Muted style={{ fontSize: 11 }}>{formatWeight(min, unit)}</Muted>
+        <Muted style={{ fontSize: 11 }}>{formatWeight(max, unit)}</Muted>
       </View>
     </Card>
   );

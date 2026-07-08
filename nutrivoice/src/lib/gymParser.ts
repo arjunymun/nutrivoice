@@ -44,7 +44,18 @@ function toSeconds(value: number, unit: string): number {
   return /min/.test(unit) ? Math.round(value * 60) : Math.round(value);
 }
 
-export function parseGymSegment(segment: string, exercises: Exercise[]): ParsedSetGroup | null {
+export interface ParseOptions {
+  /** Unit assumed for BARE numbers ("bench 3x8 at 185"). Explicit "kg"/"lbs" always win. */
+  defaultUnit?: 'kg' | 'lb';
+}
+
+export function parseGymSegment(
+  segment: string,
+  exercises: Exercise[],
+  opts: ParseOptions = {},
+): ParsedSetGroup | null {
+  const bareToKg = (n: number) =>
+    opts.defaultUnit === 'lb' ? Math.round(n * LB_TO_KG * 10) / 10 : n;
   let text = ` ${normalize(segment)} `;
   if (!text.trim()) return null;
 
@@ -108,17 +119,17 @@ export function parseGymSegment(segment: string, exercises: Exercise[]): ParsedS
     bodyweight = true;
   });
 
-  // "at 100" / trailing bare number → kg (kg-native app)
+  // "at 100" / trailing bare number → the user's display unit (kg unless set to lb)
   if (weightKg == null && !bodyweight) {
     take(/\bat\s+(\d+(?:\.\d+)?)\b/i, (m) => {
-      weightKg = Number(m[1]);
+      weightKg = bareToKg(Number(m[1]));
     });
   }
   if (weightKg == null && !bodyweight) {
     // last remaining standalone number, if any, is a weight
     const nums = [...text.matchAll(/\b(\d+(?:\.\d+)?)\b/g)];
     if (nums.length === 1) {
-      weightKg = Number(nums[0][1]);
+      weightKg = bareToKg(Number(nums[0][1]));
       text = text.replace(nums[0][0], ' ');
     }
   }
@@ -167,7 +178,11 @@ export function parseGymSegment(segment: string, exercises: Exercise[]): ParsedS
 }
 
 /** Parse a full utterance into set groups. Never throws. */
-export function parseGymText(text: string, exercises: Exercise[]): ParsedSetGroup[] {
+export function parseGymText(
+  text: string,
+  exercises: Exercise[],
+  opts: ParseOptions = {},
+): ParsedSetGroup[] {
   if (!text || !text.trim()) return [];
   const segments = text
     .split(SPLIT)
@@ -175,7 +190,7 @@ export function parseGymText(text: string, exercises: Exercise[]): ParsedSetGrou
     .filter(Boolean);
   const out: ParsedSetGroup[] = [];
   for (const seg of segments) {
-    const g = parseGymSegment(seg, exercises);
+    const g = parseGymSegment(seg, exercises, opts);
     if (g) out.push(g);
   }
   return out;

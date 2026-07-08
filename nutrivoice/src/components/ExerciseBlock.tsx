@@ -5,16 +5,17 @@ import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import Animated, { FadeInDown } from 'react-native-reanimated';
 
 import { setDoneHaptic, tapHaptic } from '../lib/haptics';
+import { displayWeight, inputToKg, weightInputText } from '../lib/units';
 import { suggestNextWeight } from '../lib/workoutMath';
 import { Exercise, SetType, WorkoutSet } from '../lib/workoutTypes';
+import { useGymSettingsStore, WeightUnit } from '../stores/useGymSettingsStore';
 import { useWorkoutStore } from '../stores/useWorkoutStore';
 import { colors, font, radius, spacing } from '../theme';
 import { BottomSheet } from './BottomSheet';
+import { ExerciseAvatar } from './ExerciseAvatar';
 import { PressableScale } from './motion';
 import { Muted } from './ui';
 import { PlateCalculator } from './PlateCalculator';
-
-const DEFAULT_REST_S = 90;
 
 const TYPE_CYCLE: SetType[] = ['normal', 'warmup', 'drop', 'failure'];
 const TYPE_BADGE: Record<Exclude<SetType, 'normal'>, { label: string; color: string }> = {
@@ -82,6 +83,8 @@ export function ExerciseBlock({
   const removePlanned = useWorkoutStore((s) => s.removePlanned);
   const moveExercise = useWorkoutStore((s) => s.moveExercise);
   const setRestEndsAt = useWorkoutStore((s) => s.setRestEndsAt);
+  const unit = useGymSettingsStore((s) => s.weightUnit);
+  const defaultRestS = useGymSettingsStore((s) => s.defaultRestS);
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [plateOpen, setPlateOpen] = useState(false);
@@ -148,7 +151,8 @@ export function ExerciseBlock({
 
   const checkRow = (row: PendingRow, rowIndex: number) => {
     const ghost = ghostFor(sets.length + rowIndex);
-    const w = row.weight.trim() !== '' ? Number(row.weight) : ghost.weight;
+    // Typed weights are in the user's display unit; ghosts are already kg.
+    const w = row.weight.trim() !== '' ? inputToKg(Number(row.weight), unit) : ghost.weight;
     const r = row.reps.trim() !== '' ? Math.round(Number(row.reps)) : ghost.reps;
     const d = row.duration.trim() !== '' ? Math.round(Number(row.duration)) : ghost.duration;
     const rpe = row.rpe.trim() !== '' ? Number(row.rpe) : null;
@@ -171,7 +175,7 @@ export function ExerciseBlock({
     });
     setPending((p) => p.filter((x) => x.key !== row.key));
     setDoneHaptic();
-    setRestEndsAt(Date.now() + DEFAULT_REST_S * 1000, DEFAULT_REST_S);
+    if (defaultRestS > 0) setRestEndsAt(Date.now() + defaultRestS * 1000, defaultRestS);
   };
 
   const uncheckSet = (s: WorkoutSet) => {
@@ -180,7 +184,7 @@ export function ExerciseBlock({
     setPending((p) => [
       {
         key: `p${++pendingKey}`,
-        weight: s.weightKg != null ? String(s.weightKg) : '',
+        weight: weightInputText(s.weightKg, unit),
         reps: s.reps != null ? String(s.reps) : '',
         rpe: s.rpe != null ? String(s.rpe) : '',
         duration: s.durationS != null ? String(s.durationS) : '',
@@ -208,13 +212,16 @@ export function ExerciseBlock({
     <Animated.View entering={FadeInDown.duration(220)} style={styles.card}>
       <View style={styles.header}>
         <Pressable
-          style={{ flex: 1 }}
+          style={{ flex: 1, flexDirection: 'row', alignItems: 'center', gap: spacing(2.5) }}
           onPress={() => router.push(`/exercise/${exercise.id}` as Parameters<typeof router.push>[0])}
         >
-          <Text style={styles.name}>{exercise.name}</Text>
-          <Muted style={{ fontSize: 11, textTransform: 'capitalize' }}>
-            {exercise.primary_muscle.replace('_', ' ')} · {exercise.equipment}
-          </Muted>
+          <ExerciseAvatar muscle={exercise.primary_muscle} equipment={exercise.equipment} size={34} />
+          <View style={{ flex: 1 }}>
+            <Text style={styles.name}>{exercise.name}</Text>
+            <Muted style={{ fontSize: 11, textTransform: 'capitalize' }}>
+              {exercise.primary_muscle.replace('_', ' ')} · {exercise.equipment}
+            </Muted>
+          </View>
         </Pressable>
         <PressableScale onPress={() => setMenuOpen(true)} hitSlop={8} style={styles.menuBtn} haptic>
           <Ionicons name="ellipsis-horizontal" size={18} color={colors.textMuted} />
@@ -222,9 +229,13 @@ export function ExerciseBlock({
       </View>
 
       {suggestion && sets.length === 0 && (
+        // Rebuilt locally (not suggestion.reason) so the number respects the unit.
         <Text style={styles.hint}>
-          {suggestion.action === 'increase' ? '↑' : suggestion.action === 'deload' ? '↓' : '→'}{' '}
-          {suggestion.reason}
+          {suggestion.action === 'increase'
+            ? `↑ Hit your reps two sessions running — go ${displayWeight(suggestion.weightKg, unit)} ${unit}`
+            : suggestion.action === 'deload'
+              ? `↓ Three stalled sessions — deload to ${displayWeight(suggestion.weightKg, unit)} ${unit}`
+              : `→ Stay at ${displayWeight(suggestion.weightKg, unit)} ${unit} until every set hits target reps`}
         </Text>
       )}
 
@@ -236,7 +247,7 @@ export function ExerciseBlock({
           <Text style={styles.hCol}>Secs</Text>
         ) : (
           <>
-            {!isBodyweight && <Text style={styles.hCol}>kg</Text>}
+            {!isBodyweight && <Text style={styles.hCol}>{unit}</Text>}
             <Text style={styles.hCol}>Reps</Text>
           </>
         )}
@@ -250,6 +261,7 @@ export function ExerciseBlock({
           set={s}
           ordinal={i + 1}
           prev={lastSessionSets[i]}
+          unit={unit}
           isDuration={isDuration}
           isBodyweight={isBodyweight}
           onUpdate={(patch) => updateSet(s.id, patch)}
@@ -266,6 +278,7 @@ export function ExerciseBlock({
             ordinal={sets.length + i + 1}
             prev={lastSessionSets[sets.length + i]}
             ghost={ghost}
+            unit={unit}
             isDuration={isDuration}
             isBodyweight={isBodyweight}
             onChange={(patch) =>
@@ -368,6 +381,7 @@ function LoggedRow({
   set,
   ordinal,
   prev,
+  unit,
   isDuration,
   isBodyweight,
   onUpdate,
@@ -376,15 +390,22 @@ function LoggedRow({
   set: WorkoutSet;
   ordinal: number;
   prev?: WorkoutSet;
+  unit: WeightUnit;
   isDuration: boolean;
   isBodyweight: boolean;
   onUpdate: (patch: Partial<Pick<WorkoutSet, 'weightKg' | 'reps' | 'durationS' | 'rpe' | 'setType'>>) => void;
   onUncheck: () => void;
 }) {
-  const [weight, setWeight] = useState(set.weightKg != null ? String(set.weightKg) : '');
+  const [weight, setWeight] = useState(weightInputText(set.weightKg, unit));
   const [reps, setReps] = useState(set.reps != null ? String(set.reps) : '');
   const [rpe, setRpe] = useState(set.rpe != null ? String(set.rpe) : '');
   const [duration, setDuration] = useState(set.durationS != null ? String(set.durationS) : '');
+
+  // Re-seed the weight text when the display unit flips (settings change) —
+  // local input state doesn't otherwise know kg↔lb happened.
+  useEffect(() => {
+    setWeight(weightInputText(set.weightKg, unit));
+  }, [unit, set.weightKg]);
 
   const cycleType = () => {
     tapHaptic();
@@ -395,7 +416,7 @@ function LoggedRow({
   const prevText = prev
     ? prev.durationS != null
       ? `${prev.durationS}s`
-      : `${prev.weightKg ?? 'bw'}×${prev.reps ?? '-'}`
+      : `${prev.weightKg != null ? displayWeight(prev.weightKg, unit) : 'bw'}×${prev.reps ?? '-'}`
     : '–';
 
   return (
@@ -430,12 +451,12 @@ function LoggedRow({
               value={weight}
               onChangeText={setWeight}
               onBlur={() => {
-                const n = Number(weight);
-                if (weight.trim() === '' || !(n > 0 && n <= 600)) {
-                  setWeight(set.weightKg != null ? String(set.weightKg) : '');
+                const kg = weight.trim() === '' ? NaN : inputToKg(Number(weight), unit);
+                if (!(kg > 0 && kg <= 600)) {
+                  setWeight(weightInputText(set.weightKg, unit));
                   return;
                 }
-                onUpdate({ weightKg: n });
+                onUpdate({ weightKg: kg });
               }}
               placeholder="–"
             />
@@ -487,6 +508,7 @@ function PendingRowView({
   ordinal,
   prev,
   ghost,
+  unit,
   isDuration,
   isBodyweight,
   onChange,
@@ -498,6 +520,7 @@ function PendingRowView({
   ordinal: number;
   prev?: WorkoutSet;
   ghost: { weight: number | null; reps: number | null; duration: number | null };
+  unit: WeightUnit;
   isDuration: boolean;
   isBodyweight: boolean;
   onChange: (patch: Partial<PendingRow>) => void;
@@ -509,7 +532,7 @@ function PendingRowView({
   const prevText = prev
     ? prev.durationS != null
       ? `${prev.durationS}s`
-      : `${prev.weightKg ?? 'bw'}×${prev.reps ?? '-'}`
+      : `${prev.weightKg != null ? displayWeight(prev.weightKg, unit) : 'bw'}×${prev.reps ?? '-'}`
     : '–';
 
   // Checking with empty inputs adopts the ghost — but only if the ghost can
@@ -542,7 +565,7 @@ function PendingRowView({
             <Cell
               value={row.weight}
               onChangeText={(t) => onChange({ weight: t })}
-              placeholder={ghost.weight != null ? String(ghost.weight) : '–'}
+              placeholder={ghost.weight != null ? String(displayWeight(ghost.weight, unit)) : '–'}
             />
           )}
           <Cell

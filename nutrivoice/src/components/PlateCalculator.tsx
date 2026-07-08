@@ -1,11 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 
+import { displayWeight } from '../lib/units';
 import { plateBreakdown } from '../lib/workoutMath';
+import { useGymSettingsStore, WeightUnit } from '../stores/useGymSettingsStore';
 import { colors, font, radius, spacing } from '../theme';
 import { BottomSheet } from './BottomSheet';
 
-const BARS = [20, 15, 10, 0];
+/** Bars and plate sets native to each unit — a US gym racks 45s, not 20.4s. */
+const BARS: Record<WeightUnit, number[]> = { kg: [20, 15, 10, 0], lb: [45, 35, 25, 0] };
+const PLATES: Record<WeightUnit, number[]> = {
+  kg: [25, 20, 15, 10, 5, 2.5, 1.25],
+  lb: [45, 35, 25, 10, 5, 2.5],
+};
 
 /**
  * Barbell plate calculator — given a target weight and bar, show the plates to
@@ -20,8 +27,11 @@ export function PlateCalculator({
   initialKg?: number | null;
   onClose: () => void;
 }) {
-  const [weight, setWeight] = useState(initialKg != null ? String(initialKg) : '');
-  const [bar, setBar] = useState(20);
+  const unit = useGymSettingsStore((s) => s.weightUnit);
+  const [weight, setWeight] = useState(
+    initialKg != null ? String(displayWeight(initialKg, unit)) : '',
+  );
+  const [bar, setBar] = useState(BARS[unit][0]);
 
   // The component stays mounted with the sheet closed, so a mount-time
   // initializer alone would show a stale (or empty) prefill forever. Re-seed
@@ -29,13 +39,19 @@ export function PlateCalculator({
   const prevVisible = useRef(visible);
   useEffect(() => {
     if (visible && !prevVisible.current) {
-      setWeight(initialKg != null ? String(initialKg) : '');
+      setWeight(initialKg != null ? String(displayWeight(initialKg, unit)) : '');
     }
     prevVisible.current = visible;
-  }, [visible, initialKg]);
+  }, [visible, initialKg, unit]);
 
+  // Unit switch mid-session: jump to that unit's standard bar.
+  useEffect(() => {
+    setBar(BARS[unit][0]);
+  }, [unit]);
+
+  // plateBreakdown is unit-agnostic math — feed it numbers in the display unit.
   const total = Number(weight);
-  const load = total > 0 ? plateBreakdown(total, bar) : null;
+  const load = total > 0 ? plateBreakdown(total, bar, PLATES[unit]) : null;
 
   return (
     <BottomSheet visible={visible} onClose={onClose}>
@@ -47,22 +63,22 @@ export function PlateCalculator({
               value={weight}
               onChangeText={setWeight}
               keyboardType="numeric"
-              placeholder="total kg"
+              placeholder={`total ${unit}`}
               placeholderTextColor={colors.textFaint}
               autoFocus
             />
-            <Text style={styles.unit}>kg total</Text>
+            <Text style={styles.unit}>{unit} total</Text>
           </View>
 
           <View style={styles.barRow}>
-            {BARS.map((b) => (
+            {BARS[unit].map((b) => (
               <Pressable
                 key={b}
                 onPress={() => setBar(b)}
                 style={[styles.barChip, bar === b && styles.barChipOn]}
               >
                 <Text style={[styles.barChipText, bar === b && styles.barChipTextOn]}>
-                  {b === 0 ? 'No bar' : `${b}kg bar`}
+                  {b === 0 ? 'No bar' : `${b}${unit} bar`}
                 </Text>
               </Pressable>
             ))}
@@ -85,7 +101,7 @@ export function PlateCalculator({
                 <Text style={styles.note}>Below bar weight — nothing to load.</Text>
               )}
               {load.leftover > 0 && (
-                <Text style={styles.note}>+{load.leftover} kg can’t be made with standard plates.</Text>
+                <Text style={styles.note}>+{load.leftover} {unit} can’t be made with standard plates.</Text>
               )}
             </View>
           )}

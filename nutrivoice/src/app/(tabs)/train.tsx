@@ -12,10 +12,12 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { AppHeader } from '@/components/AppHeader';
 import { BottomSheet } from '@/components/BottomSheet';
 import { ConfettiBurst } from '@/components/ConfettiBurst';
 import { ExerciseBlock } from '@/components/ExerciseBlock';
 import { ExercisePicker } from '@/components/ExercisePicker';
+import { GymSettingsSheet } from '@/components/GymSettingsSheet';
 import { PressableScale } from '@/components/motion';
 import { RestTimer } from '@/components/RestTimer';
 import { Card, GhostButton, Muted, PrimaryButton, SectionTitle } from '@/components/ui';
@@ -27,8 +29,10 @@ import { parseGymText } from '@/lib/gymParser';
 import { isSpeechAvailable, SpeechSession, startListening } from '@/lib/speech';
 import { supabase } from '@/lib/supabase';
 import { toDateKey } from '@/lib/types';
+import { formatVolume } from '@/lib/units';
 import { detectPrs, workoutSetCount, workoutVolume } from '@/lib/workoutMath';
 import { Exercise, Routine, WorkoutSet } from '@/lib/workoutTypes';
+import { useGymSettingsStore } from '@/stores/useGymSettingsStore';
 import { exercisePool, setsForWorkout, useWorkoutStore } from '@/stores/useWorkoutStore';
 import { colors, font, radius, spacing } from '@/theme';
 
@@ -70,7 +74,9 @@ export default function Train() {
   const activeSets = active ? setsForWorkout(allSets, active.id) : [];
   const elapsed = useElapsed(active?.startedAt ?? null);
 
+  const weightUnit = useGymSettingsStore((s) => s.weightUnit);
   const [pickerOpen, setPickerOpen] = useState(false);
+  const [settingsOpen, setSettingsOpen] = useState(false);
   const [replaceTargetId, setReplaceTargetId] = useState<string | null>(null);
   // `summary` is never nulled on close — the sheet's 220ms exit animation
   // still renders it, and nulling would collapse the stats to zeros mid-exit.
@@ -161,6 +167,7 @@ export default function Train() {
             }}
             onFinish={finish}
             onDiscard={() => discardActiveWorkoutFn()}
+            onOpenSettings={() => setSettingsOpen(true)}
           />
         ) : (
           <IdleView
@@ -173,6 +180,7 @@ export default function Train() {
             onDiscardStale={() => discardActiveWorkoutFn()}
             finishedWorkouts={finishedWorkouts}
             showBanner={showBanner}
+            onOpenSettings={() => setSettingsOpen(true)}
           />
         )}
       </ScrollView>
@@ -206,7 +214,7 @@ export default function Train() {
             {summary && summary.prs > 0 ? '🏆 Workout done!' : 'Workout done 💪'}
           </Text>
           <View style={styles.summaryRow}>
-            <SummaryStat label="Volume" value={`${(summary?.volume ?? 0).toLocaleString()} kg`} />
+            <SummaryStat label="Volume" value={formatVolume(summary?.volume ?? 0, weightUnit)} />
             <SummaryStat label="Sets" value={String(summary?.sets ?? 0)} />
             <SummaryStat label="PRs" value={(summary?.prs ?? 0) > 0 ? `🏆 ${summary!.prs}` : '—'} />
           </View>
@@ -215,6 +223,8 @@ export default function Train() {
         </View>
         <PrimaryButton title="Done" onPress={() => setSummaryOpen(false)} />
       </BottomSheet>
+
+      <GymSettingsSheet visible={settingsOpen} onClose={() => setSettingsOpen(false)} />
     </SafeAreaView>
   );
 }
@@ -241,6 +251,7 @@ function ActiveWorkout({
   onReplaceExercise,
   onFinish,
   onDiscard,
+  onOpenSettings,
 }: {
   elapsed: string;
   name: string;
@@ -252,10 +263,12 @@ function ActiveWorkout({
   onReplaceExercise: (exerciseId: string) => void;
   onFinish: () => void;
   onDiscard: () => void;
+  onOpenSettings: () => void;
 }) {
   const addSet = useWorkoutStore((s) => s.addSet);
   const addPlanned = useWorkoutStore((s) => s.addPlanned);
   const planned = useWorkoutStore((s) => s.planned);
+  const weightUnit = useGymSettingsStore((s) => s.weightUnit);
   const [typed, setTyped] = useState('');
   const [listening, setListening] = useState(false);
   const [voiceError, setVoiceError] = useState<string | null>(null);
@@ -264,7 +277,7 @@ function ActiveWorkout({
 
   const logFromText = (text: string) => {
     setVoiceError(null);
-    const groups = parseGymText(text, pool);
+    const groups = parseGymText(text, pool, { defaultUnit: weightUnit });
     if (!groups.length) {
       setVoiceError('Nothing understood. Try “bench 3x8 at 60”.');
       return;
@@ -317,10 +330,13 @@ function ActiveWorkout({
   return (
     <View style={{ gap: spacing(3.5) }}>
       <View style={styles.activeHeader}>
-        <View>
+        <View style={{ flex: 1 }}>
           <Text style={styles.title}>{name}</Text>
           <Text style={styles.elapsed}>{elapsed}</Text>
         </View>
+        <PressableScale onPress={onOpenSettings} style={styles.settingsBtn} haptic>
+          <Ionicons name="options-outline" size={18} color={colors.textMuted} />
+        </PressableScale>
         <PressableScale onPress={onFinish} style={styles.finishBtn} haptic scaleTo={0.94}>
           <Text style={styles.finishText}>Finish</Text>
         </PressableScale>
@@ -378,6 +394,7 @@ function IdleView({
   onDiscardStale,
   finishedWorkouts,
   showBanner,
+  onOpenSettings,
 }: {
   pool: Exercise[];
   staleActive: boolean;
@@ -385,10 +402,12 @@ function IdleView({
   onDiscardStale: () => void;
   finishedWorkouts: ReturnType<typeof useWorkoutStore.getState>['workouts'];
   showBanner: (m: string) => void;
+  onOpenSettings: () => void;
 }) {
   // Selectors only — see the note in Train() about the React Compiler.
   const routines = useWorkoutStore((s) => s.routines);
   const idleSets = useWorkoutStore((s) => s.sets);
+  const weightUnit = useGymSettingsStore((s) => s.weightUnit);
   const startWorkoutFn = useWorkoutStore((s) => s.startWorkout);
   const removeRoutineFn = useWorkoutStore((s) => s.removeRoutine);
   const addRoutineFn = useWorkoutStore((s) => s.addRoutine);
@@ -455,7 +474,12 @@ function IdleView({
 
   return (
     <View style={{ gap: spacing(3.5) }}>
-      <Text style={styles.title}>Train</Text>
+      <AppHeader
+        title="Train"
+        actions={[
+          { icon: 'options-outline', onPress: onOpenSettings, accessibilityLabel: 'Training settings' },
+        ]}
+      />
 
       {staleActive && (
         <Card style={{ gap: spacing(3), borderColor: colors.fat }}>
@@ -561,7 +585,7 @@ function IdleView({
                 <Text style={styles.routineName}>{w.name}</Text>
                 <Muted style={{ fontSize: 12 }}>
                   {toDateKey(new Date(w.startedAt))} · {Math.round((w.durationS ?? 0) / 60)} min ·{' '}
-                  {workoutSetCount(sets)} sets · {workoutVolume(sets).toLocaleString()} kg
+                  {workoutSetCount(sets)} sets · {formatVolume(workoutVolume(sets), weightUnit)}
                 </Muted>
               </Pressable>
               <Pressable
@@ -615,6 +639,17 @@ const styles = StyleSheet.create({
     borderRadius: radius.full,
     paddingHorizontal: spacing(5),
     paddingVertical: spacing(2.5),
+  },
+  settingsBtn: {
+    width: 38,
+    height: 38,
+    borderRadius: radius.full,
+    backgroundColor: colors.surfaceAlt,
+    borderWidth: 1,
+    borderColor: colors.border,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: spacing(2),
   },
   finishText: { color: colors.onAccent, fontFamily: font.bold, fontSize: 14 },
   voiceRow: { flexDirection: 'row', alignItems: 'center', gap: spacing(2.5) },

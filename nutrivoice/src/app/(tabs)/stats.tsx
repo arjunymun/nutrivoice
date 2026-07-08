@@ -8,6 +8,8 @@ import { Card, LabeledInput, Muted, PrimaryButton, SectionTitle, StatTile } from
 import exercisesJson from '@/data/exercises.json';
 import { ageFromBirthYear, bmi, bmiCategory, bmr, tdee } from '@/lib/nutrition';
 import { addDays, dateKeyToDate, toDateKey, todayKey } from '@/lib/types';
+import { formatWeight } from '@/lib/units';
+import { useGymSettingsStore } from '@/stores/useGymSettingsStore';
 import { BIG_LIFTS, bestE1RmByExercise, muscleWeeklyVolume, workoutVolume } from '@/lib/workoutMath';
 import { Exercise } from '@/lib/workoutTypes';
 import { dayTotals, useLogStore } from '@/stores/useLogStore';
@@ -26,6 +28,7 @@ export default function Stats() {
   const workouts = useWorkoutStore((s) => s.workouts);
   const allSets = useWorkoutStore((s) => s.sets);
   const customExercises = useWorkoutStore((s) => s.customExercises);
+  const weightUnit = useGymSettingsStore((s) => s.weightUnit);
   const { width } = useWindowDimensions();
   const chartWidth = Math.min(width, 560) - spacing(4) * 2 - spacing(4) * 2;
 
@@ -142,12 +145,12 @@ export default function Stats() {
             <WeekBars data={training.bars} target={0} width={chartWidth} />
             <Muted>
               {training.weekWorkouts} workout{training.weekWorkouts === 1 ? '' : 's'} this week ·
-              bars = volume (kg)
+              bars = volume ({weightUnit})
             </Muted>
             {training.prs.length > 0 && (
               <View style={styles.tileRow}>
                 {training.prs.slice(0, 3).map((p) => (
-                  <StatTile key={p.id} label={p.label} value={`${Math.round(p.e1rm!)} kg`} sub="est. 1RM" />
+                  <StatTile key={p.id} label={p.label} value={formatWeight(Math.round(p.e1rm!), weightUnit)} sub="est. 1RM" />
                 ))}
               </View>
             )}

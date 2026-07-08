@@ -7,6 +7,7 @@ import { Exercise, MuscleGroup } from '../lib/workoutTypes';
 import { useWorkoutStore } from '../stores/useWorkoutStore';
 import { colors, font, spacing } from '../theme';
 import { BottomSheet } from './BottomSheet';
+import { ExerciseAvatar } from './ExerciseAvatar';
 import { Chip, LabeledInput, Muted, PrimaryButton, SectionTitle } from './ui';
 
 const QUICK_MUSCLES: MuscleGroup[] = ['chest', 'back', 'shoulders', 'biceps', 'triceps', 'quads', 'hamstrings', 'glutes', 'core'];
@@ -57,6 +58,7 @@ export function ExercisePicker({
             style={({ pressed }) => [styles.row, pressed && { opacity: 0.6 }]}
             onPress={() => onPick(e)}
           >
+            <ExerciseAvatar muscle={e.primary_muscle} equipment={e.equipment} size={34} />
             <View style={{ flex: 1 }}>
               <Text style={styles.name}>{e.name}</Text>
               <Text style={styles.sub}>
