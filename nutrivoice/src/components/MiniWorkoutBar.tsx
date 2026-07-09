@@ -1,7 +1,7 @@
 import { Ionicons } from '@expo/vector-icons';
 import { router, usePathname } from 'expo-router';
 import React, { useEffect, useState } from 'react';
-import { AppState, StyleSheet, Text, View } from 'react-native';
+import { AppState, Platform, StyleSheet, Text, View } from 'react-native';
 import Animated, {
   cancelAnimation,
   Easing,
@@ -86,11 +86,7 @@ export function MiniWorkoutBar() {
   return (
     // box-none: the wrap spans the full strip width — only the pill itself may
     // swallow touches, or content behind the strip becomes unclickable on web.
-    <Animated.View
-      entering={SlideInDown.springify().damping(22)}
-      style={styles.wrap}
-      pointerEvents="box-none"
-    >
+    <Animated.View entering={SlideInDown.springify().damping(22)} style={styles.wrap}>
       <PressableScale haptic style={styles.pill} onPress={() => router.push('/train')}>
         <View style={styles.dotWell}>
           <Animated.View style={[styles.ring, ringStyle]} />
@@ -120,6 +116,7 @@ const styles = StyleSheet.create({
     width: '100%',
     paddingHorizontal: spacing(4),
     alignItems: 'center',
+    pointerEvents: 'box-none',
   },
   pill: {
     flexDirection: 'row',
@@ -133,11 +130,16 @@ const styles = StyleSheet.create({
     borderRadius: radius.full,
     paddingVertical: spacing(2.5),
     paddingHorizontal: spacing(4),
-    shadowColor: '#000',
-    shadowOpacity: 0.35,
-    shadowRadius: 12,
-    shadowOffset: { width: 0, height: 4 },
-    elevation: 8,
+    ...Platform.select({
+      web: { boxShadow: '0 4px 12px rgba(0,0,0,0.35)' } as object,
+      default: {
+        shadowColor: '#000',
+        shadowOpacity: 0.35,
+        shadowRadius: 12,
+        shadowOffset: { width: 0, height: 4 },
+        elevation: 8,
+      },
+    }),
   },
   dotWell: {
     width: 8,

@@ -105,8 +105,13 @@ export default function TabsLayout() {
     </Tabs>
     {/* Hevy-style: live workout follows you to other tabs; tap to jump back. */}
     <View
-      style={{ position: 'absolute', left: 0, right: 0, bottom: insets.bottom + 68 }}
-      pointerEvents="box-none"
+      style={{
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        bottom: insets.bottom + 68,
+        pointerEvents: 'box-none',
+      }}
     >
       <MiniWorkoutBar />
     </View>

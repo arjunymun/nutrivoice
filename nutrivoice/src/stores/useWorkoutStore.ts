@@ -29,6 +29,10 @@ export interface PlannedExercise {
   targetSets: number;
   targetReps: number | null;
   targetWeightKg: number | null;
+  /** Exercises sharing a group id are a superset (Hevy-style pairing). */
+  supersetGroup?: number | null;
+  /** Per-exercise rest override in seconds; null/undefined = use the app default. */
+  restS?: number | null;
 }
 
 interface WorkoutState {
@@ -66,6 +70,11 @@ interface WorkoutState {
   moveExercise: (exerciseId: string, dir: -1 | 1) => void;
   /** Swap a planned exercise for another (only meaningful before sets are logged). */
   replaceExercise: (oldExerciseId: string, newExerciseId: string) => void;
+  /** Pair an exercise with the NEXT one in the session as a superset. */
+  linkSupersetWithNext: (exerciseId: string) => void;
+  unlinkSuperset: (exerciseId: string) => void;
+  /** Per-exercise rest override (null = app default). */
+  setPlannedRest: (exerciseId: string, restS: number | null) => void;
   setRestEndsAt: (ts: number | null, totalS?: number) => void;
   finishWorkout: (notes?: string) => Workout | null;
   discardActiveWorkout: () => void;
@@ -249,6 +258,51 @@ export const useWorkoutStore = create<WorkoutState>()(
         set({
           planned: get().planned.map((p) =>
             p.exerciseId === oldExerciseId ? { ...p, exerciseId: newExerciseId } : p,
+          ),
+        });
+      },
+
+      linkSupersetWithNext: (exerciseId) => {
+        const planned = get().planned;
+        const i = planned.findIndex((p) => p.exerciseId === exerciseId);
+        if (i < 0 || i + 1 >= planned.length) return;
+        const next = planned[i + 1];
+        // Join the neighbor's existing group, or this one's, or mint a new id.
+        const group =
+          next.supersetGroup ??
+          planned[i].supersetGroup ??
+          Math.max(0, ...planned.map((p) => p.supersetGroup ?? 0)) + 1;
+        set({
+          planned: planned.map((p, j) =>
+            j === i || j === i + 1 ? { ...p, supersetGroup: group } : p,
+          ),
+        });
+      },
+
+      unlinkSuperset: (exerciseId) => {
+        const planned = get().planned.map((p) =>
+          p.exerciseId === exerciseId ? { ...p, supersetGroup: null } : p,
+        );
+        // A group of one is not a superset — dissolve remainders.
+        const counts = new Map<number, number>();
+        for (const p of planned) {
+          if (p.supersetGroup != null) {
+            counts.set(p.supersetGroup, (counts.get(p.supersetGroup) ?? 0) + 1);
+          }
+        }
+        set({
+          planned: planned.map((p) =>
+            p.supersetGroup != null && (counts.get(p.supersetGroup) ?? 0) < 2
+              ? { ...p, supersetGroup: null }
+              : p,
+          ),
+        });
+      },
+
+      setPlannedRest: (exerciseId, restS) => {
+        set({
+          planned: get().planned.map((p) =>
+            p.exerciseId === exerciseId ? { ...p, restS } : p,
           ),
         });
       },

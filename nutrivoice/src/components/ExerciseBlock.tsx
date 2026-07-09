@@ -64,6 +64,9 @@ export function ExerciseBlock({
   targetWeightKg,
   canMoveUp,
   canMoveDown,
+  superset,
+  restOverrideS,
+  canLinkNext,
   onReplace,
 }: {
   exercise: Exercise;
@@ -75,6 +78,9 @@ export function ExerciseBlock({
   targetWeightKg: number | null;
   canMoveUp: boolean;
   canMoveDown: boolean;
+  superset: { label: string; color: string } | null;
+  restOverrideS: number | null;
+  canLinkNext: boolean;
   onReplace: () => void;
 }) {
   const addSet = useWorkoutStore((s) => s.addSet);
@@ -82,9 +88,14 @@ export function ExerciseBlock({
   const removeSet = useWorkoutStore((s) => s.removeSet);
   const removePlanned = useWorkoutStore((s) => s.removePlanned);
   const moveExercise = useWorkoutStore((s) => s.moveExercise);
+  const linkSupersetWithNext = useWorkoutStore((s) => s.linkSupersetWithNext);
+  const unlinkSuperset = useWorkoutStore((s) => s.unlinkSuperset);
+  const setPlannedRest = useWorkoutStore((s) => s.setPlannedRest);
   const setRestEndsAt = useWorkoutStore((s) => s.setRestEndsAt);
   const unit = useGymSettingsStore((s) => s.weightUnit);
   const defaultRestS = useGymSettingsStore((s) => s.defaultRestS);
+  /** Effective rest for this exercise: per-exercise override beats the app default. */
+  const restS = restOverrideS ?? defaultRestS;
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [plateOpen, setPlateOpen] = useState(false);
@@ -175,7 +186,7 @@ export function ExerciseBlock({
     });
     setPending((p) => p.filter((x) => x.key !== row.key));
     setDoneHaptic();
-    if (defaultRestS > 0) setRestEndsAt(Date.now() + defaultRestS * 1000, defaultRestS);
+    if (restS > 0) setRestEndsAt(Date.now() + restS * 1000, restS);
   };
 
   const uncheckSet = (s: WorkoutSet) => {
@@ -209,7 +220,13 @@ export function ExerciseBlock({
   };
 
   return (
-    <Animated.View entering={FadeInDown.duration(220)} style={styles.card}>
+    <Animated.View
+      entering={FadeInDown.duration(220)}
+      style={[
+        styles.card,
+        superset && { borderLeftWidth: 3, borderLeftColor: superset.color },
+      ]}
+    >
       <View style={styles.header}>
         <Pressable
           style={{ flex: 1, flexDirection: 'row', alignItems: 'center', gap: spacing(2.5) }}
@@ -218,9 +235,21 @@ export function ExerciseBlock({
           <ExerciseAvatar muscle={exercise.primary_muscle} equipment={exercise.equipment} size={34} />
           <View style={{ flex: 1 }}>
             <Text style={styles.name}>{exercise.name}</Text>
-            <Muted style={{ fontSize: 11, textTransform: 'capitalize' }}>
-              {exercise.primary_muscle.replace('_', ' ')} · {exercise.equipment}
-            </Muted>
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: spacing(2) }}>
+              <Muted style={{ fontSize: 11, textTransform: 'capitalize' }}>
+                {exercise.primary_muscle.replace('_', ' ')} · {exercise.equipment}
+              </Muted>
+              {superset && (
+                <Text style={[styles.supersetTag, { color: superset.color }]}>
+                  SUPERSET {superset.label}
+                </Text>
+              )}
+              {restOverrideS != null && (
+                <Muted style={{ fontSize: 10 }}>
+                  ⏱ {restOverrideS === 0 ? 'no rest' : `${restOverrideS}s`}
+                </Muted>
+              )}
+            </View>
           </View>
         </Pressable>
         <PressableScale onPress={() => setMenuOpen(true)} hitSlop={8} style={styles.menuBtn} haptic>
@@ -333,6 +362,43 @@ export function ExerciseBlock({
         {canMoveDown && (
           <MenuItem icon="arrow-down-outline" label="Move down" onPress={() => menuAction(() => moveExercise(exercise.id, 1))} />
         )}
+        {superset ? (
+          <MenuItem
+            icon="unlink-outline"
+            label={`Remove from superset ${superset.label}`}
+            onPress={() => menuAction(() => unlinkSuperset(exercise.id))}
+          />
+        ) : (
+          canLinkNext && (
+            <MenuItem
+              icon="link-outline"
+              label="Superset with next exercise"
+              onPress={() => menuAction(() => linkSupersetWithNext(exercise.id))}
+            />
+          )
+        )}
+        <View style={styles.menuRestRow}>
+          <Text style={styles.menuRestLabel}>REST AFTER SETS</Text>
+          <View style={styles.menuRestChips}>
+            {([null, 0, 30, 60, 90, 120, 180] as (number | null)[]).map((v) => {
+              const active = restOverrideS === v;
+              return (
+                <Pressable
+                  key={String(v)}
+                  onPress={() => {
+                    tapHaptic();
+                    setPlannedRest(exercise.id, v);
+                  }}
+                  style={[styles.restChip, active && styles.restChipOn]}
+                >
+                  <Text style={[styles.restChipText, active && styles.restChipTextOn]}>
+                    {v == null ? 'Default' : v === 0 ? 'Off' : `${v}s`}
+                  </Text>
+                </Pressable>
+              );
+            })}
+          </View>
+        </View>
         {sets.length === 0 && (
           // Replace = swap a planned slot. Once sets are logged the old
           // exercise would just reappear (it has data) — hide instead.
@@ -707,6 +773,26 @@ const styles = StyleSheet.create({
   },
   plateBtnText: { color: colors.textMuted, fontFamily: font.semibold, fontSize: 13 },
   menuTitle: { color: colors.text, fontFamily: font.bold, fontSize: 17, marginBottom: spacing(1) },
+  supersetTag: { fontFamily: font.bold, fontSize: 10, letterSpacing: 0.6 },
+  menuRestRow: { paddingHorizontal: spacing(2), paddingVertical: spacing(2), gap: spacing(2) },
+  menuRestLabel: {
+    color: colors.textFaint,
+    fontFamily: font.semibold,
+    fontSize: 10,
+    letterSpacing: 0.8,
+  },
+  menuRestChips: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing(1.5) },
+  restChip: {
+    borderRadius: radius.full,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surfaceAlt,
+    paddingHorizontal: spacing(2.5),
+    paddingVertical: spacing(1.5),
+  },
+  restChipOn: { backgroundColor: colors.accent, borderColor: colors.accent },
+  restChipText: { color: colors.textMuted, fontFamily: font.semibold, fontSize: 12 },
+  restChipTextOn: { color: colors.onAccent },
   menuItem: {
     flexDirection: 'row',
     alignItems: 'center',

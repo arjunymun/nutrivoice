@@ -185,7 +185,7 @@ export default function Train() {
         )}
       </ScrollView>
 
-      <View style={styles.timerDock} pointerEvents="box-none">
+      <View style={styles.timerDock}>
         <RestTimer />
       </View>
 
@@ -362,6 +362,21 @@ function ActiveWorkout({
       {blocks.map((e, i) => {
         const history = sessionsFor(e.id);
         const plan = planned.find((p) => p.exerciseId === e.id);
+        // Superset badge: letter by group order of appearance, color cycled.
+        const groupIds: number[] = [];
+        for (const p of planned) {
+          if (p.supersetGroup != null && !groupIds.includes(p.supersetGroup)) {
+            groupIds.push(p.supersetGroup);
+          }
+        }
+        const gi = plan?.supersetGroup != null ? groupIds.indexOf(plan.supersetGroup) : -1;
+        const superset =
+          gi >= 0
+            ? {
+                label: String.fromCharCode(65 + (gi % 26)),
+                color: [colors.accent, colors.carbs, colors.protein, colors.fat][gi % 4],
+              }
+            : null;
         return (
           <ExerciseBlock
             key={e.id}
@@ -374,6 +389,9 @@ function ActiveWorkout({
             targetWeightKg={plan?.targetWeightKg ?? null}
             canMoveUp={i > 0}
             canMoveDown={i < blocks.length - 1}
+            superset={superset}
+            restOverrideS={plan?.restS ?? null}
+            canLinkNext={i < blocks.length - 1}
             onReplace={() => onReplaceExercise(e.id)}
           />
         );
@@ -719,6 +737,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     alignItems: 'center',
+    pointerEvents: 'box-none',
   },
   summaryTitle: {
     color: colors.text,
